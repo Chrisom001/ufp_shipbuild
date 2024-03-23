@@ -4,6 +4,22 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 session_start();
 $navbar = "";
+$navbar .= <nav class='navbar bg-dark border-bottom border-body' data-bs-theme='dark'>;
+$navbar .= <div class='container-fluid'>;
+$navbar .=<a class='navbar-brand' href='#'>Navbar</a>;
+$navbar .=<button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation'>;
+$navbar .=<span class='navbar-toggler-icon'></span>;
+$navbar .=</button>;
+$navbar .=<div class='collapse navbar-collapse' id='navbarNavAltMarkup'>;
+$navbar .=<div class='navbar-nav'>;
+$navbar .=<a class='nav-link active' aria-current='page' href='#'>Home</a>;
+$navbar .=<a class='nav-link' href='#'>Features</a>;
+$navbar .=<a class='nav-link' href='#'>Pricing</a>;
+$navbar .=<a class='nav-link disabled' aria-disabled='true'>Disabled</a>;
+$navbar .=</div>;
+$navbar .=</div>;
+$navbar .=</div>;
+$navbar .=</nav>;
 /*$navbar = "";
 $navbar .= '<nav class='navbar navbar-expand-lg bg-body-tertiary'>';
 $navbar .= '<div class='container-fluid'>';
@@ -39,19 +55,4 @@ if(!isset($_SESSION) || empty($_SESSION)){
 $navbar .= "</div>";
 $navbar .= "</nav>";*/
 ?>
-<nav class='navbar bg-dark border-bottom border-body' data-bs-theme='dark'>
-    <div class='container-fluid'>
-        <a class='navbar-brand' href='#'>Navbar</a>
-        <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation'>
-            <span class='navbar-toggler-icon'></span>
-        </button>
-        <div class='collapse navbar-collapse' id='navbarNavAltMarkup'>
-            <div class='navbar-nav'>
-                <a class='nav-link active' aria-current='page' href='#'>Home</a>
-                <a class='nav-link' href='#'>Features</a>
-                <a class='nav-link' href='#'>Pricing</a>
-                <a class='nav-link disabled' aria-disabled='true'>Disabled</a>
-            </div>
-        </div>
-    </div>
-</nav>
+

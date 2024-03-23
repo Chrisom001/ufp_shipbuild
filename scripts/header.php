@@ -3,6 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 session_start();
+$navbar = "";
 /*$navbar = "";
 $navbar .= '<nav class='navbar navbar-expand-lg bg-body-tertiary'>';
 $navbar .= '<div class='container-fluid'>';
@@ -38,7 +39,7 @@ if(!isset($_SESSION) || empty($_SESSION)){
 $navbar .= "</div>";
 $navbar .= "</nav>";*/
 ?>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

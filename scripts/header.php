@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 session_start();
 $navbar = "";
 $navbar .= "<nav class = 'navbar navbar-dark bg-dark'>";
-$navbar .= "<a class='navbar-brand' href='index.php'>FoxCo Gaming Newsletter</a>";
+$navbar .= "<a class='navbar-brand' href='index.php'>UFP Ship Build Tool</a>";
 $navbar .= "<button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation'>";
 $navbar .= "<span class='navbar-toggler-icon'></span>";
 $navbar .= "</button>";

@@ -35,7 +35,7 @@ include "scripts/header.php";
                                 <li class="list-group-item">Ship Type</li>
                                 <li class="list-group-item">Tier Level</li>
                             </ul>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="buildview.php" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@ include "scripts/header.php";
                                 <li class="list-group-item">Ship Type</li>
                                 <li class="list-group-item">Tier Level</li>
                             </ul>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="buildview.php" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@ include "scripts/header.php";
                                 <li class="list-group-item">Ship Type</li>
                                 <li class="list-group-item">Tier Level</li>
                             </ul>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="buildview.php" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
                 </div>

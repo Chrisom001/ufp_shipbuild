@@ -90,6 +90,46 @@ include "scripts/header.php";
                         <p>Tactical Console 5</p>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Engineering Consoles:</p>
+                    </div>
+                    <div class="col">
+                        <p>Engineering Console 1</p>
+                    </div>
+                    <div class="col">
+                        <p>Engineering Console 2</p>
+                    </div>
+                    <div class="col">
+                        <p>Engineering Console 3</p>
+                    </div>
+                    <div class="col">
+                        <p>Engineering Console 4</p>
+                    </div>
+                    <div class="col">
+                        <p>Engineering Console 5</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Science Consoles:</p>
+                    </div>
+                    <div class="col">
+                        <p>Science Console 1</p>
+                    </div>
+                    <div class="col">
+                        <p>Science Console 2</p>
+                    </div>
+                    <div class="col">
+                        <p>Science Console 3</p>
+                    </div>
+                    <div class="col">
+                        <p>Science Console 4</p>
+                    </div>
+                    <div class="col">
+                        <p>Science Console 5</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

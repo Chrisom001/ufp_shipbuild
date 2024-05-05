@@ -21,10 +21,10 @@ include "scripts/header.php";
 
     <div class="row">
         <div class="col">
-            <p>Column 1</p>
+            <p>Column 1 test</p>
         </div>
         <div class="col">
-            <p>Column 2</p>
+            <p>Column 2 test</p>
         </div>
     </div>
 </div>

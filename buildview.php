@@ -21,7 +21,41 @@ include "scripts/header.php";
 
     <div class="row">
         <div class="col">
-            <p>Column 1 test</p>
+            <div class="row">
+                <div class="col">
+                    <p>Fore Weapon 1</p>
+                </div>
+                <div class="col">
+                    <p>Fore Weapon 2</p>
+                </div>
+                <div class="col">
+                    <p>Fore Weapon 3</p>
+                </div>
+                <div class="col">
+                    <p>Fore Weapon 4</p>
+                </div>
+                <div class="col">
+                    <p>Fore Weapon 5</p>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col">
+                    <p>Rear Weapon 1</p>
+                </div>
+                <div class="col">
+                    <p>Rear Weapon 2</p>
+                </div>
+                <div class="col">
+                    <p>Rear Weapon 3</p>
+                </div>
+                <div class="col">
+                    <p>Rear Weapon 4</p>
+                </div>
+                <div class="col">
+                    <p>Rear Weapon 5</p>
+                </div>
+            </div>
         </div>
         <div class="col">
             <p>Column 2 test</p>

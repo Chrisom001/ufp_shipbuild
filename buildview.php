@@ -61,6 +61,7 @@ include "scripts/header.php";
         <div class="col">
             <p>This section will show the Consoles attached to this ship</p>
             <div class="row">
+                <p>Universal Consoles:</p>
                 <div class="col">
                     <p>Universal Console 1</p>
                 </div>

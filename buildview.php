@@ -137,37 +137,37 @@ include "scripts/header.php";
     <p>Slot1:Type Here</p>
     <div class="row">
         <div class="col">Officer Power 1</div>
-        <div class="col">Officer Power 1</div>
-        <div class="col">Officer Power 1</div>
-        <div class="col">Officer Power 1</div>
+        <div class="col">Officer Power 2</div>
+        <div class="col">Officer Power 3</div>
+        <div class="col">Officer Power 4</div>
     </div>
     <p>Slot2:Type Here</p>
     <div class="row">
         <div class="col">Officer Power 1</div>
-        <div class="col">Officer Power 1</div>
-        <div class="col">Officer Power 1</div>
-        <div class="col">Officer Power 1</div>
+        <div class="col">Officer Power 2</div>
+        <div class="col">Officer Power 3</div>
+        <div class="col">Officer Power 4</div>
     </div>
     <p>Slot3:Type Here</p>
     <div class="row">
         <div class="col">Officer Power 1</div>
-        <div class="col">Officer Power 1</div>
-        <div class="col">Officer Power 1</div>
-        <div class="col">Officer Power 1</div>
+        <div class="col">Officer Power 2</div>
+        <div class="col">Officer Power 3</div>
+        <div class="col">Officer Power 4</div>
     </div>
     <p>Slot4:Type Here</p>
     <div class="row">
         <div class="col">Officer Power 1</div>
-        <div class="col">Officer Power 1</div>
-        <div class="col">Officer Power 1</div>
-        <div class="col">Officer Power 1</div>
+        <div class="col">Officer Power 2</div>
+        <div class="col">Officer Power 3</div>
+        <div class="col">Officer Power 4</div>
     </div>
     <p>Slot5:Type Here</p>
     <div class="row">
         <div class="col">Officer Power 1</div>
-        <div class="col">Officer Power 1</div>
-        <div class="col">Officer Power 1</div>
-        <div class="col">Officer Power 1</div>
+        <div class="col">Officer Power 2</div>
+        <div class="col">Officer Power 3</div>
+        <div class="col">Officer Power 4</div>
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

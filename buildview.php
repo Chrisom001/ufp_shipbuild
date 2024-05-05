@@ -61,12 +61,34 @@ include "scripts/header.php";
         <div class="col">
             <p>This section will show the Consoles attached to this ship</p>
             <div class="row">
-                <p>Universal Consoles:</p>
+                <div class="col">
+                    <p>Universal Consoles:</p>
+                </div>
                 <div class="col">
                     <p>Universal Console 1</p>
                 </div>
                 <div class="col">
                     <p>Universal Console 2</p>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>Tactical Consoles:</p>
+                    </div>
+                    <div class="col">
+                        <p>Tactical Console 1</p>
+                    </div>
+                    <div class="col">
+                        <p>Tactical Console 2</p>
+                    </div>
+                    <div class="col">
+                        <p>Tactical Console 3</p>
+                    </div>
+                    <div class="col">
+                        <p>Tactical Console 4</p>
+                    </div>
+                    <div class="col">
+                        <p>Tactical Console 5</p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -74,20 +74,20 @@ include "scripts/header.php";
                 </div>
                 <div class="col">
                     <p>Tactical Consoles</p>
-                    <div class="col">
-                        <div class="row">
+                    <div class="row">
+                        <div class="col">
                             <p>Tactical Console 1</p>
                         </div>
-                        <div class="row">
+                        <div class="col">
                             <p>Tactical Console 2</p>
                         </div>
-                        <div class="row">
+                        <div class="col">
                             <p>Tactical Console 3</p>
                         </div>
-                        <div class="row">
+                        <div class="col">
                             <p>Tactical Console 4</p>
                         </div>
-                        <div class="row">
+                        <div class="col">
                             <p>Tactical Console 5</p>
                         </div>
                     </div>

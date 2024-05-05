@@ -21,6 +21,7 @@ include "scripts/header.php";
 
     <div class="row">
         <div class="col">
+            <p>This section will show the weapons attached to this ship</p>
             <div class="row">
                 <div class="col">
                     <p>Fore Weapon 1</p>
@@ -58,7 +59,80 @@ include "scripts/header.php";
             </div>
         </div>
         <div class="col">
-            <p>Column 2 test</p>
+            <p>This section will show the Consoles attached to this ship</p>
+            <div class="row">
+                <div class="col">
+                    <p>Universal Consoles</p>
+                    <div class="row">
+                        <div class="col">
+                            <p>Universal Console 1</p>
+                        </div>
+                        <div class="col">
+                            <p>Universal Console 2</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <p>Tactical Consoles</p>
+                    <div class="row">
+                        <div class="col">
+                            <p>Tactical Console 1</p>
+                        </div>
+                        <div class="col">
+                            <p>Tactical Console 2</p>
+                        </div>
+                        <div class="col">
+                            <p>Tactical Console 3</p>
+                        </div>
+                        <div class="col">
+                            <p>Tactical Console 4</p>
+                        </div>
+                        <div class="col">
+                            <p>Tactical Console 5</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <p>Engineering Consoles</p>
+                    <div class="row">
+                        <div class="col">
+                            <p>Engineering Console 1</p>
+                        </div>
+                        <div class="col">
+                            <p>Engineering Console 2</p>
+                        </div>
+                        <div class="col">
+                            <p>Engineering Console 3</p>
+                        </div>
+                        <div class="col">
+                            <p>Engineering Console 4</p>
+                        </div>
+                        <div class="col">
+                            <p>Engineering Console 5</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <p>Science Consoles</p>
+                    <div class="row">
+                        <div class="col">
+                            <p>Science Console 1</p>
+                        </div>
+                        <div class="col">
+                            <p>Science Console 2</p>
+                        </div>
+                        <div class="col">
+                            <p>Science Console 3</p>
+                        </div>
+                        <div class="col">
+                            <p>Science Console 4</p>
+                        </div>
+                        <div class="col">
+                            <p>Science Console 5</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

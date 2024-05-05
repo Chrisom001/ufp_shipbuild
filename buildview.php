@@ -62,75 +62,10 @@ include "scripts/header.php";
             <p>This section will show the Consoles attached to this ship</p>
             <div class="row">
                 <div class="col">
-                    <p>Universal Consoles</p>
-                    <div class="col">
-                        <div class="row">
-                            <p>Universal Console 1</p>
-                        </div>
-                        <div class="row">
-                            <p>Universal Console 2</p>
-                        </div>
-                    </div>
+                    <p>Universal Console 1</p>
                 </div>
                 <div class="col">
-                    <p>Tactical Consoles</p>
-                    <div class="row">
-                        <div class="col">
-                            <p>Tactical Console 1</p>
-                        </div>
-                        <div class="col">
-                            <p>Tactical Console 2</p>
-                        </div>
-                        <div class="col">
-                            <p>Tactical Console 3</p>
-                        </div>
-                        <div class="col">
-                            <p>Tactical Console 4</p>
-                        </div>
-                        <div class="col">
-                            <p>Tactical Console 5</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <p>Engineering Consoles</p>
-                    <div class="col">
-                        <div class="row">
-                            <p>Engineering Console 1</p>
-                        </div>
-                        <div class="row">
-                            <p>Engineering Console 2</p>
-                        </div>
-                        <div class="row">
-                            <p>Engineering Console 3</p>
-                        </div>
-                        <div class="row">
-                            <p>Engineering Console 4</p>
-                        </div>
-                        <div class="row">
-                            <p>Engineering Console 5</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <p>Science Consoles</p>
-                    <div class="col">
-                        <div class="row">
-                            <p>Science Console 1</p>
-                        </div>
-                        <div class="row">
-                            <p>Science Console 2</p>
-                        </div>
-                        <div class="row">
-                            <p>Science Console 3</p>
-                        </div>
-                        <div class="row">
-                            <p>Science Console 4</p>
-                        </div>
-                        <div class="row">
-                            <p>Science Console 5</p>
-                        </div>
-                    </div>
+                    <p>Universal Console 2</p>
                 </div>
             </div>
         </div>

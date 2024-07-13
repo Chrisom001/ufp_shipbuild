@@ -27,14 +27,25 @@ include "model/api_shipType.php";
     } else {
         echo "<p>Enter the relevant weapons</p>";
         echo $_POST['shipSelector'];
-        //$weaponSlotJson = getShipWeaponSlots($_POST['shipSelector']);
+        $weaponSlotJson = getShipWeaponSlots($_POST['shipSelector']);
+        if($weaponSlotJson == "Error"){
+            echo "There has been error, please alert technical support";
+        } else {
+            $weaponSlotData = json_decode($weaponSlotJson);
+            $fore = $weaponSlotData[0] -> foreSlots;
+            $rear = $weaponSlotData[0] -> rearSlots;
 
-        //for($i=0; $i < $fore; $i++){
-        //    echo shipWeapon("Fore", $i);
-        //}
-        //for($j=0; $j < $rear; $j++){
-        //    echo shipWeapon("Rear", $j);
-        //}
+            echo "Fore: " . $fore;
+            echo "Rear: " . $rear;
+
+            //for($i=0; $i < $fore; $i++){
+            //    echo shipWeapon("Fore", $i);
+            //}
+            //for($j=0; $j < $rear; $j++) {
+            //    echo shipWeapon("Rear", $j);
+            //}
+        }
+
     }
 
 

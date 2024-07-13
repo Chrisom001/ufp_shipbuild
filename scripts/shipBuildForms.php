@@ -15,6 +15,7 @@
                 //$form.= "<option value='".$usableTierList[$j]->id."> Tier " . $usableTierList[$j]->shipTier ."</option>";
                 $form.= "<option value='".$j."> Tier " . $j ."</option>";
             }
+            $form .= "</select>";
             $form .= "</div>";
             var_dump($usableTierList);
         }

@@ -30,65 +30,12 @@ include "scripts/header.php";
         $rear = 4;
 
         for($i=0; $i < $fore; $i++){
-            echo '<div class="row">';
-            echo '<label>Fore Weapon ' . $i . ': </label>';
-            echo '<div class="col">';
-                echo '<select class="form-select" aria-label="Default select example">';
-                    echo '<option selected>Weapon Damage</option>';
-                    echo '<option value="1">Phaser</option>';
-                    echo '<option value="2">Maser</option>';
-                    echo '<option value="3">Quaser</option>';
-                echo '</select>';
-            echo '</div>';
-            echo '<div class="col">';
-                echo '<select class="form-select" aria-label="Default select example">';
-                    echo '<option selected>Weapon Type</option>';
-                    echo '<option value="1">Beam Array</option>';
-                    echo '<option value="2">Cannon</option>';
-                    echo '<option value="3">Torpedo</option>';
-                echo '</select>';
-            echo '</div>';
-            echo '<div class="col">';
-                echo '<select class="form-select" aria-label="Default select example">';
-                    echo '<option selected>Weapon Level</option>';
-                    echo '<option value="1">Mk I</option>';
-                    echo '<option value="2">Mk II</option>';
-                    echo '<option value="3">Mk III</option>';
-                echo '</select>';
-            echo '</div>';
-            echo '<div class="col">';
-                echo '<select class="form-select" aria-label="Default select example">';
-                    echo '<option selected>Mod 1</option>';
-                    echo '<option value="1">ACC</option>';
-                    echo '<option value="2">ACC2</option>';
-                    echo '<option value="3">ACC3</option>';
-                echo '</select>';
-            echo '</div>';
-            echo '<div class="col">';
-                echo '<select class="form-select" aria-label="Default select example">';
-                    echo '<option selected>Mod 2</option>';
-                    echo '<option value="1">ACC</option>';
-                    echo '<option value="2">ACC2</option>';
-                    echo '<option value="3">ACC3</option>';
-                echo '</select>';
-            echo '</div>';
-            echo '<div class="col">';
-                echo '<select class="form-select" aria-label="Default select example">';
-                    echo '<option selected>Mod 3</option>';
-                    echo '<option value="1">ACC</option>';
-                    echo '<option value="2">ACC2</option>';
-                    echo '<option value="3">ACC3</option>';
-                echo '</select>';
-            echo '</div>';
-            echo '<div class="col">';
-                echo '<select class="form-select" aria-label="Default select example">';
-                    echo '<option selected>Mod 4</option>';
-                    echo '<option value="1">ACC</option>';
-                    echo '<option value="2">ACC2</option>';
-                    echo '<option value="3">ACC3</option>';
-                echo '</select>';
-            echo '</div>';
-        echo '</div>';
+            echo '<label>Fore Weapon ' . $i + 1 . ': </label>';
+            include "/scripts/weaponForm.php";
+        }
+        for($i=0; $i < rear; $i++){
+            echo '<label>Rear Weapon ' . $i + 1 . ': </label>';
+            include "/scripts/weaponForm.php";
         }
         ?>
 

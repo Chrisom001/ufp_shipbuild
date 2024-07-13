@@ -12,4 +12,14 @@ function getShipList(){
 
     return json_encode($readShip);
 }
+
+function getShipListByTier($shipTier){
+    global $pdo;
+    $readShips = "SELECT id, shipName FROM ships WHERE shipTierID = $shipTier";
+
+    $readShipsQuery = $pdo -> query($readShips);
+    $readShip = $readShipsQuery -> fetchAll(PDO::FETCH_OBJ);
+
+    return json_encode($readShip);
+}
 ?>

@@ -1,21 +1,39 @@
 <?php
     function shipChoice(){
+        $shipTierListJson = getShipTiers();
+        $usableTierList = json_decode($shipTierListJson);
+        $form = "";
+        if(sizeof($usableTierList) < 0){
+            return "Error";
+        } else {
+            $form .= "<form action='addShipBuild.php' method='post'>";
+            $form .= "<div class='row'>";
+            $form .= "<div class='col'>";
+            $form .= "<select class=form-select' aria-label='shipTierSelector' id='shipTierSelector' name='shipTierSelector'>";
+            for($j=0;$j<sizeof($usableTierList);$j++){
+                $form.= "<option value='".$usableTierList[$j]->id."> Tier " . $usableTierList[$j]->shipTier ."</option>";
+            }
+            $form .= "</div>";
+        }
+
+
+        $form .= "<div class='col'>";
         $shipData = getShipList();
         $usableShip = json_decode($shipData);
-
         if(sizeof($usableShip) < 1){
             return "Error";
         } else {
-            $form = "";
-            $form .= "<form action='addShipBuild.php' method='post'>";
             $form .= "<select class='form-select' aria-label='ShipSelector' id='shipSelector' name='shipSelector'>";
             $form .= "<option selected>Select the type of ship</option>";
-            for($i=0;$i<sizeof($usableShip);$i++){
-                $form .= "<option value='".$usableShip[$i]->id."'>".$usableShip[$i]->shipName."</option>";
+            for ($i = 0; $i < sizeof($usableShip); $i++) {
+                $form .= "<option value='" . $usableShip[$i]->id . "'>" . $usableShip[$i]->shipName . "</option>";
             }
             $form .= "</select>";
+            $form .= "</div>";
+            $form .= "</div>";
             $form .= "<input type='submit' value='Submit'>";
             $form .= "</form>";
+
             return $form;
         }
     }
@@ -44,7 +62,7 @@
         $form .= '<option selected>Weapon Level</option>';
         $getItemTiersJson = json_decode(getItemTiers());
         for($i=0;$i<sizeof($getItemTiersJson);$i++){
-            $form .= "<option value='".$getItemTiersJson[$i]->id."'>".$getItemTiersJson[$i]->tierLevel."</option>";
+            $form .= "<option value='".$getItemTiersJson[$i]->id."'> MK".$getItemTiersJson[$i]->tierLevel."</option>";
         }
         $form .= '</select>';
         $form .= '</div>';

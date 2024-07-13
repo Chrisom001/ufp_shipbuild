@@ -15,7 +15,7 @@
             for($j=0;$j<8;$j++){
                 //$form.= "<option value='".$usableTierList[$j]->id."> Tier " . $usableTierList[$j]->shipTier ."</option>";
                 echo "Value: " . $j;
-                $form.= "<option value='".$j."> Tier " . $j ."</option>";
+                $form.= "<option value='".$j."'>Tier " . $j ."</option>";
             }
             $form .= "</select>";
             $form .= "</div>";

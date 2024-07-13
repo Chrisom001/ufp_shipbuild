@@ -25,49 +25,66 @@ include "scripts/header.php";
             <option value="3">Ship C</option>
         </select>
         <p>Enter the relevant weapons</p>
-        <label>Fore Weapon 1: </label>
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Select the class of weapon</option>
-            <option value="1">Phaser</option>
-            <option value="2">Maser</option>
-            <option value="3">Quaser</option>
-        </select>
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Select the type of Weapon</option>
-            <option value="1">Beam Array</option>
-            <option value="2">Cannon</option>
-            <option value="3">Torpedo</option>
-        </select>
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Select the level of weapon</option>
-            <option value="1">Mk I</option>
-            <option value="2">Mk II</option>
-            <option value="3">Mk III</option>
-        </select>
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Select the first modifier</option>
-            <option value="1">ACC</option>
-            <option value="2">ACC2</option>
-            <option value="3">ACC3</option>
-        </select>
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Select the second modifier</option>
-            <option value="1">ACC</option>
-            <option value="2">ACC2</option>
-            <option value="3">ACC3</option>
-        </select>
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Select the third modifier</option>
-            <option value="1">ACC</option>
-            <option value="2">ACC2</option>
-            <option value="3">ACC3</option>
-        </select>
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Select the fourth modifier</option>
-            <option value="1">ACC</option>
-            <option value="2">ACC2</option>
-            <option value="3">ACC3</option>
-        </select>
+        <div class="row">
+            <label>Fore Weapon 1: </label>
+            <div class="col">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Select the class of weapon</option>
+                    <option value="1">Phaser</option>
+                    <option value="2">Maser</option>
+                    <option value="3">Quaser</option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Select the type of Weapon</option>
+                    <option value="1">Beam Array</option>
+                    <option value="2">Cannon</option>
+                    <option value="3">Torpedo</option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Select the level of weapon</option>
+                    <option value="1">Mk I</option>
+                    <option value="2">Mk II</option>
+                    <option value="3">Mk III</option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Select the first modifier</option>
+                    <option value="1">ACC</option>
+                    <option value="2">ACC2</option>
+                    <option value="3">ACC3</option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Select the second modifier</option>
+                    <option value="1">ACC</option>
+                    <option value="2">ACC2</option>
+                    <option value="3">ACC3</option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Select the third modifier</option>
+                    <option value="1">ACC</option>
+                    <option value="2">ACC2</option>
+                    <option value="3">ACC3</option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Select the fourth modifier</option>
+                    <option value="1">ACC</option>
+                    <option value="2">ACC2</option>
+                    <option value="3">ACC3</option>
+                </select>
+            </div>
+        </div>
+
         <label>Fore Weapon 2: </label>
 
         <label>Fore Weapon 3: </label>

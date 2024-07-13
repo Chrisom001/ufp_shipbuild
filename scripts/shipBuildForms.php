@@ -1,5 +1,4 @@
 <?php
-    include "../model/api_ships.php";
     function shipChoice(){
         $shipData = getShipList();
         $usableShip = json_decode($shipData);

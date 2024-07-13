@@ -30,7 +30,7 @@
             var selectedValue = $(this).val();
 
             $.ajax({
-                url: 'scripts/get_options.php',
+                url: 'scripts/getoptions.php',
                 type: 'POST',
                 data: { value: selectedValue },
                 success: function(response) {

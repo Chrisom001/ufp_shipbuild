@@ -2,7 +2,7 @@
     function shipChoice(){
         $form = "";
         $form .= "<form action='addShipBuild.php' method='post'>";
-        $form .= "<select class='form-select' aria-label='ShipSelector' id='shipSelector'>";
+        $form .= "<select class='form-select' aria-label='ShipSelector' id='shipSelector' name='shipSelector'>";
         $form .= "<option selected>Select the type of ship</option>";
         $form .= "<option value='1'>Ship A</option>";
         $form .= "<option value='2'>Ship B</option>";

@@ -45,7 +45,7 @@
     }
     function shipWeapon($weaponLocation, $slotNumber){
         $form = "";
-        $form .= '<label>'.$weaponLocation .'Weapon'. $slotNumber + 1 . ': </label>';
+        $form .= '<label>'.$weaponLocation .'Weapon'. ($slotNumber + 1) . ': </label>';
         $form .= '<div class="row">';
         $form .= '<div class="col">';
         $form .= '<select class="form-select" aria-label="Default select example">';

@@ -1,6 +1,6 @@
 <?php
-include "scripts/db_connection.php";
-include "model/api_ships.php";
+include "db_connection.php";
+include "../model/api_ships.php";
 
 
 if (isset($_POST['value'])) {

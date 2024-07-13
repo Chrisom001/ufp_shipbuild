@@ -40,8 +40,7 @@ $form .= "</div>";
 
         // JSON document
         const mParameters = {
-            title: document.querySelector('#shipTierID').value,
-            userid: document.querySelector('#shipTierText').value
+            title: document.querySelector('#shipTierSelector').value
         }
         // Creating call back function
         zhttp.onreadystatechange = function() {

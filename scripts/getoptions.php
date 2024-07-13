@@ -14,7 +14,7 @@ if (isset($_POST['value'])) {
                 echo "<option value=\"{$ship['id']}\">{$ship['shipName']}</option>";
             }
         } else {
-            echo "<option value=\"\">No options available</option>";
+            echo "<option value='0'>No options available</option>";
         }
     }
 

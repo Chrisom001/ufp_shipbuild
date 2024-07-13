@@ -42,9 +42,10 @@
         $form .= '<div class="col">';
         $form .= '<select class="form-select" aria-label="Default select example">';
         $form .= '<option selected>Weapon Level</option>';
-        $form .= '<option value="1">Mk I</option>';
-        $form .= '<option value="2">Mk II</option>';
-        $form .= '<option value="3">Mk III</option>';
+        $getItemTiersJson = json_decode(getItemTiers());
+        for($i=0;$i<sizeof($getItemTiersJson);$i++){
+            $form .= "<option value='".$getItemTiersJson[$i]->id."'>".$getItemTiersJson[$i]->tierLevel."</option>";
+        }
         $form .= '</select>';
         $form .= '</div>';
         $form .= '<div class="col">';

@@ -18,8 +18,8 @@
         }
 
 
-        $form .= "<div class='col'>";
-        $shipData = getShipList();
+        //$form .= "<div class='col'>";
+        /*$shipData = getShipList();
         $usableShip = json_decode($shipData);
         if(sizeof($usableShip) < 1){
             return "Error";
@@ -33,10 +33,10 @@
             $form .= "</div>";
             $form .= "</div>";
             $form .= "<input type='submit' value='Submit'>";
-            $form .= "</form>";
+            $form .= "</form>";*/
 
             return $form;
-        }
+        //}
     }
     function shipWeapon($weaponLocation, $slotNumber){
         $form = "";

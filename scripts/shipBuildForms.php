@@ -6,15 +6,19 @@
         if(sizeof($usableTierList) < 0){
             return "Error";
         } else {
-            var_dump($usableTierList);
+
             $form .= "<form action='addShipBuild.php' method='post'>";
             $form .= "<div class='row'>";
             $form .= "<div class='col'>";
             $form .= "<select class=form-select' aria-label='shipTierSelector' id='shipTierSelector' name='shipTierSelector'>";
             for($j=0;$j<sizeof($usableTierList);$j++){
-                $form.= "<option value='".$usableTierList[$j]->id."> Tier " . $usableTierList[$j]->shipTier ."</option>";
+                echo "Current Value of J " . $j;
+                echo "Current ID: " . $usableTierList[$j]->id;
+                echo "Current Tier: " . $usableTierList[$j]->shipTier;
+                //$form.= "<option value='".$usableTierList[$j]->id."> Tier " . $usableTierList[$j]->shipTier ."</option>";
             }
             $form .= "</div>";
+            var_dump($usableTierList);
         }
 
 

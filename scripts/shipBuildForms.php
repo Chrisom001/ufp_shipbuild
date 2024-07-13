@@ -12,7 +12,7 @@
             $form .= "<div class='col'>";
             $form .= "<select class=form-select' aria-label='shipTierSelector' id='shipTierSelector' name='shipTierSelector'>";
             for($j=0;$j<sizeof($usableTierList);$j++){
-                if(strcmp($usableTierList[$j]->shipTier, "6-X") !== 0){
+                if(strcmp($usableTierList[$j]->shipTier, "6-X") !== 0 || strcmp($usableTierList[$j]->shipTier, "6-2X") !== 0 || strcmp($usableTierList[$j]->shipTier, "5-U") !== 0){
                     echo "Nooooooo";
                 } else {
                     echo "Yes!";

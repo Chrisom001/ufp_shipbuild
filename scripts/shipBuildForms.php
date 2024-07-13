@@ -30,15 +30,13 @@
             return "Error";
         } else {
             echo "<script>";
-            echo "function updateShip(){";
             echo "jQuery(document).ready(function($){";
-                    echo "$('#shipTierSelector').on('change', function(e){";
-                echo "var className = e.target.value;";
-                        echo "$('#shipSelector option').prop('disabled', true);";
-                        echo "$('#shipSelector').find('option.' + className).prop('disabled', false);";
-                    echo "});";
+                echo "$('#shipTierSelector').on('change', function(e){";
+                    echo "var className = e.target.value;";
+                    echo "$('#shipSelector option').prop('disabled', true);";
+                    echo "$('#shipSelector').find('option.' + className).prop('disabled', false);";
                 echo "});";
-            echo "}";
+            echo "});";
             echo "</script>";
             $form .= "<select class='form-select' aria-label='ShipSelector' id='shipSelector' name='shipSelector'>";
             $form .= "<option selected>Select the type of ship</option>";

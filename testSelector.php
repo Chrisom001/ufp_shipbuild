@@ -11,14 +11,6 @@ global $pdo;
     }
     ?>
 </select>
-
-<script>
-    document.querySelector('select[name="campusselect"]').addEventListener('change', function(e){
-        location.search='campus='+this.value;
-    });
-</script>
-
-
 <!--room drop down-->
 <select name="roomsselect">
     <?php
@@ -33,4 +25,9 @@ global $pdo;
     }
     ?>
 </select>
+<script>
+    document.querySelector('select[name="campusselect"]').addEventListener('change', function(e){
+        location.search='campus='+this.value;
+    });
+</script>
 </html>

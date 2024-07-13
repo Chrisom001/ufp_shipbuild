@@ -1,16 +1,24 @@
 <?php
+    include "../model/api_ships.php";
     function shipChoice(){
-        $form = "";
-        $form .= "<form action='addShipBuild.php' method='post'>";
-        $form .= "<select class='form-select' aria-label='ShipSelector' id='shipSelector' name='shipSelector'>";
-        $form .= "<option selected>Select the type of ship</option>";
-        $form .= "<option value='1'>Ship A</option>";
-        $form .= "<option value='2'>Ship B</option>";
-        $form .= "<option value='3'>Ship C</option>";
-        $form .= "</select>";
-        $form .= "<input type='submit' value='Submit'>";
-        $form .= "</form>";
-        return $form;
+        $shipData = getShipList();
+        $usableShip = json_decode($shipData);
+
+        if(sizeof($usableShip) < 1){
+            return "Error";
+        } else {
+            $form = "";
+            $form .= "<form action='addShipBuild.php' method='post'>";
+            $form .= "<select class='form-select' aria-label='ShipSelector' id='shipSelector' name='shipSelector'>";
+            $form .= "<option selected>Select the type of ship</option>";
+            for($i=0;$i<sizeof($usableShip);$i++){
+                $form .= "<option value='".$usableShip[$i]->id."'>".$usableShip[$i]->shipName."</option>";
+            }
+            $form .= "</select>";
+            $form .= "<input type='submit' value='Submit'>";
+            $form .= "</form>";
+            return $form;
+        }
     }
     function shipWeapon($weaponLocation, $slotNumber){
         $form = "";
@@ -75,5 +83,17 @@
         $form .= '</div>';
 
         return $form;
+    }
+
+    function shipTacticalEquipment(){
+
+    }
+
+    function shipEngineeringEquipment(){
+
+    }
+
+    function shipScienceEquipment(){
+
     }
 ?>

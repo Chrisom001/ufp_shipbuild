@@ -23,8 +23,6 @@ function addShipBuild($user, $ship){
 
 function readShipBuild($shipbuildID){
     global $pdo;
-
-    global $pdo;
     $readShipBuildByID = "SELECT * FROM shipBuild WHERE id = '$shipbuildID' LIMIT 1";
 
     $readShipBuildQuery = $pdo -> query($readShipBuildByID);

@@ -39,4 +39,8 @@ function getShipWeaponSlots($shipTypeID){
     } else {
     return "Error"; }
 }
+
+function getShipEquipmentSlots($shipTypeID){
+    
+}
 ?>

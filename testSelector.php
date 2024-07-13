@@ -1,6 +1,34 @@
 <?php
 include "scripts/db_connection.php";
+include "scripts/shipBuildForms.php";
+include "model/api_shipType.php";
+include "model/api_ships.php";
+include "model/api_itemTiers.php";
+include "model/api_shipTiers.php";
 global $pdo;
+
+$shipTierListJson = getShipTiers();
+$usableTierList = json_decode($shipTierListJson);
+$form = "";
+if(sizeof($usableTierList) < 0){
+    return "Error";
+} else {
+
+$form .= "<form action='addShipBuild.php' method='post'>";
+$form .= "<div class='row'>";
+$form .= "<div class='col'>";
+$form .= "<select class=form-select' aria-label='shipTierSelector' id='shipTierSelector' name='shipTierSelector' onchange='sendRecords()'>";
+for($j=0;$j<sizeof($usableTierList);$j++){
+    $shipTierID = $usableTierList[$j]->id;
+    $shipTierText = $usableTierList[$j]->shipTier;
+    if($shipTierID == 1 || $shipTierID == 2 || $shipTierID ==3||$shipTierID ==4 ||$shipTierID ==5 || $shipTierID ==6){
+        $form.= "<option value='".$shipTierID."'> Tier " . $shipTierText ."</option>";
+    }
+}
+$form .= "</select>";
+$form .= "</div>";
+$form .= "</div>";
+
 ?>
 <html>
 <body>
@@ -11,9 +39,8 @@ global $pdo;
 
         // JSON document
         const mParameters = {
-            title: document.querySelector('#Utitle').value,
-            userid: document.querySelector('#UId').value,
-            body: document.querySelector('#Ubody').value
+            title: document.querySelector('#shipTierID').value,
+            userid: document.querySelector('#shipTierText').value
         }
         // Creating call back function
         zhttp.onreadystatechange = function() {
@@ -35,7 +62,7 @@ global $pdo;
 </script>
 
 <!--Creating simple form-->
-<h2>Enter data</h2>
+<!--<h2>Enter data</h2>
 <label for="Utitle">Title</label>
 <input id="Utitle" type="text" name="title"><br>
 
@@ -46,6 +73,10 @@ global $pdo;
 <input id="Ubody" type="text" name="body"><br>
 
 <button type="button" onclick="sendRecords()">Submit</button>
-<div id="example"></div>
+<div id="example"></div>-->
+<?php
+echo $form;
+?>
+?>
 </body>
 </html>

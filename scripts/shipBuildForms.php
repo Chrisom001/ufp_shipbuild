@@ -13,7 +13,7 @@
             $form .= "<select class=form-select' aria-label='shipTierSelector' id='shipTierSelector' name='shipTierSelector'>";
             for($j=0;$j<sizeof($usableTierList);$j++){
                 //$form.= "<option value='".$usableTierList[$j]->id."> Tier " . $usableTierList[$j]->shipTier ."</option>";
-                $form.= "<option value='".($j+1)."> Tier " . ($j+1) ."</option>";
+                $form.= "<option value='".$j."> Tier " . $j ."</option>";
             }
             $form .= "</div>";
             var_dump($usableTierList);

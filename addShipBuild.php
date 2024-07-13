@@ -29,17 +29,6 @@ function databaseError(){
     <p>Select the options for your build below:</p>
     <?php
     if(!isset($_POST['shipSelector'])){
-        ?>
-        <script>
-            jQuery(document).ready(function($){
-                $('#shipTierSelector').on('change', function(e){
-                    var className = e.target.value;
-                    $('#shipSelector option').prop('disabled', true);
-                    $('#shipSelector').find('option.' + className).prop('disabled', false);
-                });
-            });
-            </script>
-    <?php
         echo shipChoice();
     } else {
         $shipID = $_POST['shipSelector'];
@@ -102,6 +91,15 @@ function databaseError(){
 
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+    jQuery(document).ready(function($){
+        $('#shipTierSelector').on('change', function(e){
+            var className = e.target.value;
+            $('#shipSelector option').prop('disabled', true);
+            $('#shipSelector').find('option.' + className).prop('disabled', false);
+        });
+    });
+</script>
 </body>
 <footer class="footer">
     <?php include "scripts/footer.php"; ?>

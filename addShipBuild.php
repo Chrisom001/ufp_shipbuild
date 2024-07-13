@@ -32,11 +32,11 @@ include "model/api_shipType.php";
             echo "There has been error, please alert technical support";
         } else {
             $weaponSlotData = json_decode($weaponSlotJson, true);
-            //$fore = $weaponSlotData[0] -> foreSlots;
-            //$rear = $weaponSlotData[0] -> rearSlots;
+            $fore = $weaponSlotData -> foreSlots;
+            $rear = $weaponSlotData -> rearSlots;
 
-            //echo "Fore: " . $fore;
-            //echo "Rear: " . $rear;
+            echo "Fore: " . $fore;
+            echo "Rear: " . $rear;
 
             echo var_dump($weaponSlotData);
             //for($i=0; $i < $fore; $i++){

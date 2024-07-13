@@ -6,6 +6,7 @@
         if(sizeof($usableTierList) < 0){
             return "Error";
         } else {
+            var_dump($usableTierList);
             $form .= "<form action='addShipBuild.php' method='post'>";
             $form .= "<div class='row'>";
             $form .= "<div class='col'>";

@@ -29,6 +29,17 @@ function databaseError(){
     <p>Select the options for your build below:</p>
     <?php
     if(!isset($_POST['shipSelector'])){
+        ?>
+        <script>
+            jQuery(document).ready(function($){
+                $('#shipTierSelector').on('change', function(e){
+                    var className = e.target.value;
+                    $('#shipSelector option').prop('disabled', true);
+                    $('#shipSelector').find('option.' + className).prop('disabled', false);
+                });
+            });
+            </script>
+    <?php
         echo shipChoice();
     } else {
         $shipID = $_POST['shipSelector'];

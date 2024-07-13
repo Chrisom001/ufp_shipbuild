@@ -32,8 +32,8 @@ include "model/api_ships.php";
             echo "There has been error, please alert technical support";
         } else {
             $weaponSlotData = json_decode($weaponSlotJson, true);
-            $fore = $weaponSlotData["foreSlots"];
-            $rear = $weaponSlotData["rearSlots"];
+            $fore = $weaponSlotData["frontSlot"];
+            $rear = $weaponSlotData["rearSlot"];
 
             for($i=0; $i < $fore; $i++){
                 echo shipWeapon("Fore", $i);

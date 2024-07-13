@@ -13,7 +13,7 @@ function getShipWeaponSlots($shipTypeID){
 
         return $myJson;
     } elseif ($shipTypeID == 2){
-        $myObject = "";
+        $myObject = new stdClass();
         $myObject->foreSlots = 2;
         $myObject->rearSlots = 2;
 
@@ -21,7 +21,7 @@ function getShipWeaponSlots($shipTypeID){
 
         return $myJson;
     } elseif ($shipTypeID == 3){
-        $myObject = "";
+        $myObject = new stdClass();
         $myObject->foreSlots = 3;
         $myObject->rearSlots = 3;
 
@@ -29,7 +29,7 @@ function getShipWeaponSlots($shipTypeID){
 
         return $myJson;
     } elseif ($shipTypeID == 4){
-        $myObject = "";
+        $myObject = new stdClass();
         $myObject->foreSlots = 4;
         $myObject->rearSlots = 4;
 

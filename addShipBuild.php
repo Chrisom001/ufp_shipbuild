@@ -29,7 +29,7 @@ include "scripts/header.php";
             <label>Fore Weapon 1: </label>
             <div class="col">
                 <select class="form-select" aria-label="Default select example">
-                    <option selected>Select the class of weapon</option>
+                    <option selected>Weapon Damage</option>
                     <option value="1">Phaser</option>
                     <option value="2">Maser</option>
                     <option value="3">Quaser</option>
@@ -37,7 +37,7 @@ include "scripts/header.php";
             </div>
             <div class="col">
                 <select class="form-select" aria-label="Default select example">
-                    <option selected>Select the type of Weapon</option>
+                    <option selected>Weapon Type</option>
                     <option value="1">Beam Array</option>
                     <option value="2">Cannon</option>
                     <option value="3">Torpedo</option>
@@ -45,7 +45,7 @@ include "scripts/header.php";
             </div>
             <div class="col">
                 <select class="form-select" aria-label="Default select example">
-                    <option selected>Select the level of weapon</option>
+                    <option selected>Weapon Level</option>
                     <option value="1">Mk I</option>
                     <option value="2">Mk II</option>
                     <option value="3">Mk III</option>
@@ -53,7 +53,7 @@ include "scripts/header.php";
             </div>
             <div class="col">
                 <select class="form-select" aria-label="Default select example">
-                    <option selected>Select the first modifier</option>
+                    <option selected>Mod 1</option>
                     <option value="1">ACC</option>
                     <option value="2">ACC2</option>
                     <option value="3">ACC3</option>
@@ -61,7 +61,7 @@ include "scripts/header.php";
             </div>
             <div class="col">
                 <select class="form-select" aria-label="Default select example">
-                    <option selected>Select the second modifier</option>
+                    <option selected>Mod 2</option>
                     <option value="1">ACC</option>
                     <option value="2">ACC2</option>
                     <option value="3">ACC3</option>
@@ -69,7 +69,7 @@ include "scripts/header.php";
             </div>
             <div class="col">
                 <select class="form-select" aria-label="Default select example">
-                    <option selected>Select the third modifier</option>
+                    <option selected>Mod 3</option>
                     <option value="1">ACC</option>
                     <option value="2">ACC2</option>
                     <option value="3">ACC3</option>
@@ -77,7 +77,7 @@ include "scripts/header.php";
             </div>
             <div class="col">
                 <select class="form-select" aria-label="Default select example">
-                    <option selected>Select the fourth modifier</option>
+                    <option selected>Mod 4</option>
                     <option value="1">ACC</option>
                     <option value="2">ACC2</option>
                     <option value="3">ACC3</option>

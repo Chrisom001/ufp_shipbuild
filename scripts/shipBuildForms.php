@@ -12,9 +12,9 @@
             $form .= "<div class='col'>";
             $form .= "<select class=form-select' aria-label='shipTierSelector' id='shipTierSelector' name='shipTierSelector'>";
             for($j=0;$j<sizeof($usableTierList);$j++){
-                echo "Current Value of J " . $j;
-                echo "Current ID: " . $usableTierList[$j]->id;
-                echo "Current Tier: " . $usableTierList[$j]->shipTier;
+                echo "Current Value of J " . $j ."</br>";
+                echo "Current ID: " . $usableTierList[$j]->id."</br>";
+                echo "Current Tier: " . $usableTierList[$j]->shipTier."</br>";
                 //$form.= "<option value='".$usableTierList[$j]->id."> Tier " . $usableTierList[$j]->shipTier ."</option>";
             }
             $form .= "</div>";

@@ -13,6 +13,7 @@
             $form .= "<select class=form-select' aria-label='shipTierSelector' id='shipTierSelector' name='shipTierSelector'>";
             for($j=0;$j<sizeof($usableTierList);$j++){
                 if($usableTierList[$j]->shipTier != "6-X" || "6-2X" || "5-U"){
+                    echo "Value: " . $usableTierList[$j]->shipTier . "is fine";
                     $form.= "<option value='".$usableTierList[$j]->id."'> Tier " . $usableTierList[$j]->shipTier ."</option>";
                 }
             }

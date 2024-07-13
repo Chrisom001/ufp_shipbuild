@@ -35,63 +35,61 @@ function databaseError(){
         $shipID = $_POST['shipSelector'];
         echo $shipID;
         if($shipID == 0){
-            echo "False";
+            echo shipChoice();
         } else {
-            echo "True";
-        }
-        echo "<p>Enter the relevant weapons</p>";
+            echo "<p>Enter the relevant weapons</p>";
 
-/*        $weaponSlotJson = getShipWeaponSlots($shipID);
-        if($weaponSlotJson == "Error"){
-            databaseError();
-        } else {
-
-            $weaponSlotData = json_decode($weaponSlotJson);
-
-            $fore = $weaponSlotData[0]-> frontSlot;
-            $rear = $weaponSlotData[0]-> rearSlot;
-
-            for($i=0; $i < $fore; $i++){
-                echo shipWeapon("Fore", $i);
-            }
-            for($j=0; $j < $rear; $j++) {
-                echo shipWeapon("Rear", $j);
-            }
-            echo "</br>";
-            echo "<p>Select the correct equipment for the ship</p>";
-            $equipmentSlotJson = getShipEquipmentSlots($shipID);
-            if($equipmentSlotJson == "Error"){
+            $weaponSlotJson = getShipWeaponSlots($shipID);
+            if($weaponSlotJson == "Error"){
                 databaseError();
             } else {
-                $equipmentSlotData = json_decode($equipmentSlotJson);
-                $tacSlots = $equipmentSlotData[0]->tacConsoleNum;
-                $engSlots = $equipmentSlotData[0]->engConsoleNum;
-                $sciSlots = $equipmentSlotData[0]->sciConsoleNum;
-                $uniSlots = $equipmentSlotData[0]->universalConsoleNum;
 
-                for($i=0; $i < $tacSlots; $i++){
-                    echo shipEquip("Tactical", $i);
+                $weaponSlotData = json_decode($weaponSlotJson);
+
+                $fore = $weaponSlotData[0]-> frontSlot;
+                $rear = $weaponSlotData[0]-> rearSlot;
+
+                for($i=0; $i < $fore; $i++){
+                    echo shipWeapon("Fore", $i);
                 }
-                for($i=0; $i < $engSlots; $i++){
-                    echo shipEquip("Engineering", $i);
+                for($j=0; $j < $rear; $j++) {
+                    echo shipWeapon("Rear", $j);
                 }
-                for($i=0; $i < $sciSlots; $i++){
-                    echo shipEquip("Science", $i);
-                }
-                if($uniSlots = 0){
-                    echo "This ship doesn't have any universal slots";
+                echo "</br>";
+                echo "<p>Select the correct equipment for the ship</p>";
+                $equipmentSlotJson = getShipEquipmentSlots($shipID);
+                if($equipmentSlotJson == "Error"){
+                    databaseError();
                 } else {
-                    for($i=0; $i < $uniSlots; $i++){
-                        echo shipEquip("Universal", $i);
+                    $equipmentSlotData = json_decode($equipmentSlotJson);
+                    $tacSlots = $equipmentSlotData[0]->tacConsoleNum;
+                    $engSlots = $equipmentSlotData[0]->engConsoleNum;
+                    $sciSlots = $equipmentSlotData[0]->sciConsoleNum;
+                    $uniSlots = $equipmentSlotData[0]->universalConsoleNum;
+
+                    for($i=0; $i < $tacSlots; $i++){
+                        echo shipEquip("Tactical", $i);
                     }
+                    for($i=0; $i < $engSlots; $i++){
+                        echo shipEquip("Engineering", $i);
+                    }
+                    for($i=0; $i < $sciSlots; $i++){
+                        echo shipEquip("Science", $i);
+                    }
+                    if($uniSlots = 0){
+                        echo "This ship doesn't have any universal slots";
+                    } else {
+                        for($i=0; $i < $uniSlots; $i++){
+                            echo shipEquip("Universal", $i);
+                        }
+                    }
+
                 }
 
             }
+        }
 
-        }*/
     }
-
-
         ?>
 
     </form>

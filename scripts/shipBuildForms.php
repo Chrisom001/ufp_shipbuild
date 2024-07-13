@@ -15,7 +15,7 @@
                 echo "Current Value of J " . $j ."</br>";
                 echo "Current ID: " . $usableTierList[$j]->id."</br>";
                 echo "Current Tier: " . $usableTierList[$j]->shipTier."</br>";
-                //$form.= "<option value='".$usableTierList[$j]->id."> Tier " . $usableTierList[$j]->shipTier ."</option>";
+                $form.= "<option value='".$usableTierList[$j]->id."> Tier " . $usableTierList[$j]->shipTier ."</option>";
             }
             $form .= "</div>";
             var_dump($usableTierList);

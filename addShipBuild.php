@@ -1,5 +1,6 @@
 <?php
 include "scripts/header.php";
+include "scripts/weaponForm.php";
 ?>
 <!doctype html>
 <html lang="en">
@@ -30,12 +31,10 @@ include "scripts/header.php";
         $rear = 4;
 
         for($i=0; $i < $fore; $i++){
-            echo '<label>Fore Weapon ' . $i + 1 . ': </label>';
-            include "/scripts/weaponForm.php";
+            echo shipWeapon("Fore", $i);
         }
-        for($i=0; $i < rear; $i++){
-            echo '<label>Rear Weapon ' . $i + 1 . ': </label>';
-            include "/scripts/weaponForm.php";
+        for($j=0; $j < rear; $j++){
+            echo shipWeapon("Rear", $j);
         }
         ?>
 

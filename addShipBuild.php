@@ -26,7 +26,7 @@ include "model/api_shipType.php";
         echo shipChoice();
     } else {
         echo "<p>Enter the relevant weapons</p>";
-        echo $_POST['shipSelector'];
+
         $weaponSlotJson = getShipWeaponSlots($_POST['shipSelector']);
         if($weaponSlotJson == "Error"){
             echo "There has been error, please alert technical support";

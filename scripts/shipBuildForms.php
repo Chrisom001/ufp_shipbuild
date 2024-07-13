@@ -11,7 +11,8 @@
             $form .= "<div class='row'>";
             $form .= "<div class='col'>";
             $form .= "<select class=form-select' aria-label='shipTierSelector' id='shipTierSelector' name='shipTierSelector'>";
-            for($j=0;$j<sizeof($usableTierList);$j++){
+            //for($j=0;$j<sizeof($usableTierList);$j++){
+            for($j=0;$j<8;$j++){
                 //$form.= "<option value='".$usableTierList[$j]->id."> Tier " . $usableTierList[$j]->shipTier ."</option>";
                 $form.= "<option value='".$j."> Tier " . $j ."</option>";
             }

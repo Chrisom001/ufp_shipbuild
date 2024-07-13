@@ -12,10 +12,10 @@
             $form .= "<div class='col'>";
             $form .= "<select class=form-select' aria-label='shipTierSelector' id='shipTierSelector' name='shipTierSelector'>";
             for($j=0;$j<sizeof($usableTierList);$j++){
-                if(strcmp($usableTierList[$j]->shipTier, "6-X") !== 0 || strcmp($usableTierList[$j]->shipTier, "6-2X") !== 0 || strcmp($usableTierList[$j]->shipTier, "5-U") !== 0){
-                    echo "Nooooooo";
+                if($usableTierList[$j]->shipTier == 1 || $usableTierList[$j]->shipTier == 2 || $usableTierList[$j]->shipTier ==3){
+                    echo "In Range";
                 } else {
-                    echo "Yes!";
+                    echo "Outside of Range!";
                 }
                 //if($usableTierList[$j]->shipTier != "6-X" || $usableTierList[$j]->shipTier != "6-2X" || $usableTierList[$j]->shipTier != "5-U"){
                 //    echo "Value: " . $usableTierList[$j]->shipTier . "is fine";

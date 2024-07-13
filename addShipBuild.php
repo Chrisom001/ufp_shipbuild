@@ -33,7 +33,7 @@ include "scripts/weaponForm.php";
         for($i=0; $i < $fore; $i++){
             echo shipWeapon("Fore", $i);
         }
-        for($j=0; $j < rear; $j++){
+        for($j=0; $j < $rear; $j++){
             echo shipWeapon("Rear", $j);
         }
         ?>

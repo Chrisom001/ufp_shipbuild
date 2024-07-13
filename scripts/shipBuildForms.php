@@ -31,13 +31,19 @@
         } else {
             echo "<script>";
             echo "function updateShip(){";
-
+            echo "jQuery(document).ready(function($){";
+                    echo "$('#shipTierSelector').on('change', function(e){";
+                echo "var className = e.target.value;";
+                        echo "$('#shipSelector option').prop('disabled', true);";
+                        echo "$('#shipSelector').find('option.' + className).prop('disabled', false);";
+                    echo "});";
+                echo "});";
             echo "}";
             echo "</script>";
             $form .= "<select class='form-select' aria-label='ShipSelector' id='shipSelector' name='shipSelector'>";
             $form .= "<option selected>Select the type of ship</option>";
             for ($i = 0; $i < sizeof($usableShip); $i++) {
-                $form .= "<option value='" . $usableShip[$i]->id . "'id='".$usableShip[$i]->shipTierID."'>" . $usableShip[$i]->shipName . "</option>";
+                $form .= "<option value='" . $usableShip[$i]->id . "'class='".$usableShip[$i]->shipTierID."'>" . $usableShip[$i]->shipName . "</option>";
             }
             $form .= "</select>";
             $form .= "</div>";

@@ -31,7 +31,7 @@ include "model/api_shipType.php";
         if($weaponSlotJson == "Error"){
             echo "There has been error, please alert technical support";
         } else {
-            $weaponSlotData = json_decode($weaponSlotJson);
+            $weaponSlotData = json_decode($weaponSlotJson, true);
             $fore = $weaponSlotData[0] -> foreSlots;
             $rear = $weaponSlotData[0] -> rearSlots;
 

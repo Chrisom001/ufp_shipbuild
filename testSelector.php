@@ -14,15 +14,16 @@ if(sizeof($usableTierList) < 0){
     return "Error";
 } else {
 
-$form .= "<form action='addShipBuild.php' method='post'>";
-$form .= "<div class='row'>";
-$form .= "<div class='col'>";
-$form .= "<select class=form-select' aria-label='shipTierSelector' id='shipTierSelector' name='shipTierSelector' onchange='sendRecords()'>";
-for($j=0;$j<sizeof($usableTierList);$j++){
-    $shipTierID = $usableTierList[$j]->id;
-    $shipTierText = $usableTierList[$j]->shipTier;
-    if($shipTierID == 1 || $shipTierID == 2 || $shipTierID ==3||$shipTierID ==4 ||$shipTierID ==5 || $shipTierID ==6){
-        $form.= "<option value='".$shipTierID."'> Tier " . $shipTierText ."</option>";
+    $form .= "<form action='addShipBuild.php' method='post'>";
+    $form .= "<div class='row'>";
+    $form .= "<div class='col'>";
+    $form .= "<select class=form-select' aria-label='shipTierSelector' id='shipTierSelector' name='shipTierSelector' onchange='sendRecords()'>";
+    for ($j = 0; $j < sizeof($usableTierList); $j++) {
+        $shipTierID = $usableTierList[$j]->id;
+        $shipTierText = $usableTierList[$j]->shipTier;
+        if ($shipTierID == 1 || $shipTierID == 2 || $shipTierID == 3 || $shipTierID == 4 || $shipTierID == 5 || $shipTierID == 6) {
+            $form .= "<option value='" . $shipTierID . "'> Tier " . $shipTierText . "</option>";
+        }
     }
 }
 $form .= "</select>";

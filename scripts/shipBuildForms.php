@@ -18,6 +18,7 @@
             }
             $form .= "</select>";
             $form .= "</div>";
+            $form .= "</div>";
             var_dump($usableTierList);
         }
 

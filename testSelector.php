@@ -16,6 +16,7 @@
     <option class="b" value="2">2</option>
     <option class="b" value="3">3</option>
 </select>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>jQuery(document).ready(function($){
         $('#test1').on('change', function(e){
             var className = e.target.value;

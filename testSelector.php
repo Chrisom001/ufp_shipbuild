@@ -52,7 +52,7 @@ $form .= "</div>";
             console.log("Error found")
         };
         // Post/Add JSON document on the given API
-        zhttp.open("POST", "https://jsonplaceholder.typicode.com/todos", true);
+        zhttp.open("POST", "https://ufp.chriswilkinson.uk/testSelector.php", true);
 
         // Setting HTTP request header
         zhttp.setRequestHeader('Content-type', 'application/json')

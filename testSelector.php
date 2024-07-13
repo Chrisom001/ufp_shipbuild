@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Dynamic Select Update</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 <body>
 <h1>Select Form Update Example</h1>

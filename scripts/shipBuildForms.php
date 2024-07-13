@@ -24,16 +24,16 @@
         }
 
         $form .= "<div class='col'>";
-        $shipData = getShipList();
-        $usableShip = json_decode($shipData);
-        if(sizeof($usableShip) < 1){
-            return "Error";
-        } else {
+        //$shipData = getShipList();
+        //$usableShip = json_decode($shipData);
+        //if(sizeof($usableShip) < 1){
+        //    return "Error";
+        //} else {
             $form .= "<select class='form-select' aria-label='ShipSelector' id='shipSelector' name='shipSelector'>";
             $form .= "<option selected>Select the type of ship</option>";
-            for ($i = 0; $i < sizeof($usableShip); $i++) {
-                $form .= "<option value='" . $usableShip[$i]->id . "'class='".$usableShip[$i]->shipTierID."'>" . $usableShip[$i]->shipName . "</option>";
-            }
+            //for ($i = 0; $i < sizeof($usableShip); $i++) {
+            //    $form .= "<option value='" . $usableShip[$i]->id . "'class='".$usableShip[$i]->shipTierID."'>" . $usableShip[$i]->shipName . "</option>";
+            //}
             $form .= "</select>";
             $form .= "</div>";
             $form .= "</div>";
@@ -41,7 +41,7 @@
             $form .= "</form>";
 
             return $form;
-        }
+        //}
     }
     function shipWeapon($weaponLocation, $slotNumber){
         $form = "";

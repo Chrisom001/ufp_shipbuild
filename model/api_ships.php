@@ -18,8 +18,8 @@ function getShipListByTier($shipTier){
     $readShips = "SELECT id, shipName FROM ships WHERE shipTierID = $shipTier";
 
     $readShipsQuery = $pdo -> query($readShips);
-    $readShip = $readShipsQuery -> fetchAll(PDO::FETCH_OBJ);
+    $readShip = $readShipsQuery -> fetchAll(PDO::FETCH_ASSOC);
 
-    return json_encode($readShip);
+    return $readShip;
 }
 ?>

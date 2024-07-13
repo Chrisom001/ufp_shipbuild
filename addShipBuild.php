@@ -35,16 +35,12 @@ include "model/api_shipType.php";
             $fore = $weaponSlotData["foreSlots"];
             $rear = $weaponSlotData["rearSlots"];
 
-            echo "Fore: " . $fore;
-            echo "Rear: " . $rear;
-
-            echo var_dump($weaponSlotData);
-            //for($i=0; $i < $fore; $i++){
-            //    echo shipWeapon("Fore", $i);
-            //}
-            //for($j=0; $j < $rear; $j++) {
-            //    echo shipWeapon("Rear", $j);
-            //}
+            for($i=0; $i < $fore; $i++){
+                echo shipWeapon("Fore", $i);
+            }
+            for($j=0; $j < $rear; $j++) {
+                echo shipWeapon("Rear", $j);
+            }
         }
 
     }

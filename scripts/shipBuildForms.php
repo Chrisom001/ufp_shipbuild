@@ -12,8 +12,10 @@
             $form .= "<div class='col'>";
             $form .= "<select class=form-select' aria-label='shipTierSelector' id='shipTierSelector' name='shipTierSelector'>";
             for($j=0;$j<sizeof($usableTierList);$j++){
-                if($usableTierList[$j]->shipTier == 1 || $usableTierList[$j]->shipTier == 2 || $usableTierList[$j]->shipTier ==3||$usableTierList[$j]->shipTier ==5 || $usableTierList[$j]->shipTier ==6){
-                    $form.= "<option value='".$usableTierList[$j]->id."'> Tier " . $usableTierList[$j]->shipTier ."</option>";
+                $shipTierID = $usableTierList[$j]->id;
+                $shipTierText = $usableTierList[$j]->shipTier;
+                if($shipTierID == 1 || $shipTierID == 2 || $shipTierID ==3||$shipTierID ==4 ||$shipTierID ==5 || $shipTierID ==6){
+                    $form.= "<option value='".$shipTierID."'> Tier " . $shipTierText ."</option>";
                 }
                 //if($usableTierList[$j]->shipTier != "6-X" || $usableTierList[$j]->shipTier != "6-2X" || $usableTierList[$j]->shipTier != "5-U"){
                 //    echo "Value: " . $usableTierList[$j]->shipTier . "is fine";

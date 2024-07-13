@@ -34,8 +34,8 @@ include "model/api_ships.php";
 
             $weaponSlotData = json_decode($weaponSlotJson);
             var_dump($weaponSlotData);
-            $fore = $weaponSlotData["frontSlot"];
-            $rear = $weaponSlotData["rearSlot"];
+            $fore = $weaponSlotData[0]-> frontSlot;
+            $rear = $weaponSlotData[0]-> rearSlot;
 
             for($i=0; $i < $fore; $i++){
                 echo shipWeapon("Fore", $i);

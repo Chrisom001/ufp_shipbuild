@@ -34,7 +34,7 @@ function databaseError(){
     } else {
         $shipID = $_POST['shipSelector'];
         echo $shipID;
-        if($shipID = 0){
+        if($shipID == 0){
             echo "False";
         } else {
             echo "True";

@@ -11,7 +11,7 @@
             $form .= "<form action='addShipBuild.php' method='post'>";
             $form .= "<div class='row'>";
             $form .= "<div class='col'>";
-            $form .= "<select class=form-select' aria-label='shipTierSelector' id='shipTierSelector' name='shipTierSelector' onchange='updateShip()'>";
+            $form .= "<select class=form-select' aria-label='shipTierSelector' id='shipTierSelector' name='shipTierSelector'>";
             for($j=0;$j<sizeof($usableTierList);$j++){
                 $shipTierID = $usableTierList[$j]->id;
                 $shipTierText = $usableTierList[$j]->shipTier;

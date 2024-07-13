@@ -17,19 +17,14 @@
                 if($shipTierID == 1 || $shipTierID == 2 || $shipTierID ==3||$shipTierID ==4 ||$shipTierID ==5 || $shipTierID ==6){
                     $form.= "<option value='".$shipTierID."'> Tier " . $shipTierText ."</option>";
                 }
-                //if($usableTierList[$j]->shipTier != "6-X" || $usableTierList[$j]->shipTier != "6-2X" || $usableTierList[$j]->shipTier != "5-U"){
-                //    echo "Value: " . $usableTierList[$j]->shipTier . "is fine";
-                //    $form.= "<option value='".$usableTierList[$j]->id."'> Tier " . $usableTierList[$j]->shipTier ."</option>";
-                //}
             }
             $form .= "</select>";
-            $form .= "</div>";
             $form .= "</div>";
         }
 
 
-        //$form .= "<div class='col'>";
-        /*$shipData = getShipList();
+        $form .= "<div class='col'>";
+        $shipData = getShipList();
         $usableShip = json_decode($shipData);
         if(sizeof($usableShip) < 1){
             return "Error";
@@ -43,10 +38,10 @@
             $form .= "</div>";
             $form .= "</div>";
             $form .= "<input type='submit' value='Submit'>";
-            $form .= "</form>";*/
+            $form .= "</form>";
 
             return $form;
-        //}
+        }
     }
     function shipWeapon($weaponLocation, $slotNumber){
         $form = "";

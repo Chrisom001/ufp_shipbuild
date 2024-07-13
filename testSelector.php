@@ -17,7 +17,7 @@ if(sizeof($usableTierList) < 0){
     $form .= "<form action='addShipBuild.php' method='post'>";
     $form .= "<div class='row'>";
     $form .= "<div class='col'>";
-    $form .= "<select class=form-select' aria-label='shipTierSelector' id='shipTierSelector' name='shipTierSelector' onchange='sendRecords()'>";
+    $form .= "<select class=form-select' aria-label='shipTierSelector' id='shipTierSelector' name='shipTierSelector' onclick='sendRecords()'>";
     for ($j = 0; $j < sizeof($usableTierList); $j++) {
         $shipTierID = $usableTierList[$j]->id;
         $shipTierText = $usableTierList[$j]->shipTier;
@@ -77,7 +77,6 @@ $form .= "</div>";
 <div id="example"></div>-->
 <?php
 echo $form;
-?>
 ?>
 </body>
 </html>

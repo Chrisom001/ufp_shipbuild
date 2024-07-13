@@ -1,5 +1,6 @@
 <?php
     function shipChoice(){
+
         $shipTierListJson = getShipTiers();
         $usableTierList = json_decode($shipTierListJson);
         $form = "";
@@ -10,7 +11,7 @@
             $form .= "<form action='addShipBuild.php' method='post'>";
             $form .= "<div class='row'>";
             $form .= "<div class='col'>";
-            $form .= "<select class=form-select' aria-label='shipTierSelector' id='shipTierSelector' name='shipTierSelector'>";
+            $form .= "<select class=form-select' aria-label='shipTierSelector' id='shipTierSelector' name='shipTierSelector' onchange='updateShip()'>";
             for($j=0;$j<sizeof($usableTierList);$j++){
                 $shipTierID = $usableTierList[$j]->id;
                 $shipTierText = $usableTierList[$j]->shipTier;
@@ -22,17 +23,21 @@
             $form .= "</div>";
         }
 
-
         $form .= "<div class='col'>";
         $shipData = getShipList();
         $usableShip = json_decode($shipData);
         if(sizeof($usableShip) < 1){
             return "Error";
         } else {
+            echo "<script>";
+            echo "function updateShip(){";
+
+            echo "}";
+            echo "</script>";
             $form .= "<select class='form-select' aria-label='ShipSelector' id='shipSelector' name='shipSelector'>";
             $form .= "<option selected>Select the type of ship</option>";
             for ($i = 0; $i < sizeof($usableShip); $i++) {
-                $form .= "<option value='" . $usableShip[$i]->id . "'>" . $usableShip[$i]->shipName . "</option>";
+                $form .= "<option value='" . $usableShip[$i]->id . "'id='".$usableShip[$i]->shipTierID."'>" . $usableShip[$i]->shipName . "</option>";
             }
             $form .= "</select>";
             $form .= "</div>";

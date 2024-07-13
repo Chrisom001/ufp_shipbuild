@@ -5,7 +5,7 @@ $pdo =  $db->getConnstring();
 
 function getShipList(){
     global $pdo;
-    $readShips = "SELECT id, shipName FROM ships";
+    $readShips = "SELECT id, shipName, shipTierID FROM ships";
 
     $readShipsQuery = $pdo -> query($readShips);
     $readShip = $readShipsQuery -> fetchAll(PDO::FETCH_OBJ);

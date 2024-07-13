@@ -5,7 +5,7 @@ $pdo =  $db->getConnstring();
 
 function getShipWeaponSlots($shipTypeID){
     if($shipTypeID == 1){
-        $myObject = "";
+        $myObject = new stdClass();
         $myObject->foreSlots = 1;
         $myObject->rearSlots = 1;
 

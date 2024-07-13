@@ -22,7 +22,6 @@ include "model/api_shipType.php";
     <p>Select the options for your build below:</p>
     <?php
     if(!isset($_POST['shipSelector'])){
-        echo "POST: " . $_POST['shipSelector'];
         echo shipChoice();
     } else {
         echo "<p>Enter the relevant weapons</p>";

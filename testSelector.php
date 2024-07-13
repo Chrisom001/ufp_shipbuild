@@ -1,27 +1,36 @@
+<?php
+include "scripts/db_connection.php";
+global $pdo;
+?>
 <html>
-<link href="css/style.css" rel="stylesheet">
-<select name="test1" id="test1">
-    <option value="Select">Select</option>
-    <option value="a">a</option>
-    <option value="b">b</option>
+<select name="campusselect">
+    <?php
+    $result= $pdo->query("select `shipTier` from `shipTiers`");
+    while( $row = $result->fetch_assoc() ) {
+        printf( '<option>%s', $row['shipTier'] );
+    }
+    ?>
 </select>
 
+<script>
+    document.querySelector('select[name="campusselect"]').addEventListener('change', function(e){
+        location.search='campus='+this.value;
+    });
+</script>
 
-<select id="test2" name="test2">
-    <option value="Select">Select</option>
-    <option class="a" value="a">a</option>
-    <option class="a" value="b">b</option>
-    <option class="a" value="c">c</option>
-    <option class="b" value="1">1</option>
-    <option class="b" value="2">2</option>
-    <option class="b" value="3">3</option>
+
+<!--room drop down-->
+<select name="roomsselect">
+    <?php
+    if( isset( $_GET['campus'] ) ){
+        $sql='select `shipName` from `ships` where `shipTierID`=?';
+        $stmt=$pdo->prepare($sql);
+        $stmt->bind_param('s',$_GET['campus']);
+        $res=$stmt->execute();
+        $stmt->bind_result($room);
+
+        while( $stmt->fetch() )printf('<option>%s',$room);
+    }
+    ?>
 </select>
-<script>jQuery(document).ready(function($){
-        $('#test1').on('change', function(e){
-            var className = e.target.value;
-            $('#test2 option').prop('disabled', true);
-            $('#test2').find('option.' + className).prop('disabled', false);
-        });
-    });</script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </html>

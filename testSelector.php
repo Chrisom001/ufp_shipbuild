@@ -1,49 +1,26 @@
 <html>
-<script>
-    var selector1 = document.getElementById("color");
-    var selector2 = document.getElementById("car");
-    selector2.hidden = true;
-
-function testSelector(){
-    if(selector1.value==="red"){
-        for(i=0; i<selector2.length; i++){
-            selector2item = selector2[i];
-            if(selector2item.valueOf() != "vw"){
-                selector2item.hidden = true;
-            } else {
-                selector2.item.hidden = false;
-            }
-        }
-    } else if(selector1.value === "green"){
-        selector2item = selector2[i];
-        if(selector2item.toString(). != "jag"){
-            selector2item.hidden = true;
-        } else {
-            selector2.item.hidden = false;
-        }
-    } else if(selector1.value === "blue"){
-        selector2item = selector2[i];
-        if(selector2item.valueOf() != "vauxhall"){
-            selector2item.hidden = true;
-        } else {
-            selector2.item.hidden = false;
-        }
-    }
-}
-</script>
-<label for="color">Background Color:</label>
-<select name="color" id="color" onchange="testSelector()">
-	<option value="">--- Choose a color ---</option>
-	<option value="red">Red</option>
-	<option value="green">Green</option>
-	<option value="blue">Blue</option>
+<link href="css/style.css" rel="stylesheet">
+<select name="test1" id="test1">
+    <option value="Select">Select</option>
+    <option value="a">a</option>
+    <option value="b">b</option>
 </select>
 
-<label for="car">Background Car:</label>
-<select name="car" id="car">
-	<option value="">--- Choose a car ---</option>
-	<option value="vw">Volkswagen</option>
-	<option value="jag">Jaguar</option>
-	<option value="vauxhall">Vauxhall</option>
+
+<select id="test2" name="test2">
+    <option value="Select">Select</option>
+    <option class="a" value="a">a</option>
+    <option class="a" value="b">b</option>
+    <option class="a" value="c">c</option>
+    <option class="b" value="1">1</option>
+    <option class="b" value="2">2</option>
+    <option class="b" value="3">3</option>
 </select>
+<script>jQuery(document).ready(function($){
+        $('#test1').on('change', function(e){
+            var className = e.target.value;
+            $('#test2 option').prop('disabled', true);
+            $('#test2').find('option.' + className).prop('disabled', false);
+        });
+    });</script>
 </html>

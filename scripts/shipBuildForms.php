@@ -110,15 +110,36 @@
         return $form;
     }
 
-    function shipTacticalEquipment(){
-
-    }
-
-    function shipEngineeringEquipment(){
-
-    }
-
-    function shipScienceEquipment(){
-
+    function shipEquip($consoleType, $slotNumber){
+        $form = "";
+        $form .= '<label>'.$consoleType .'console'. ($slotNumber + 1) . ': </label>';
+        $form .= '<div class="row">';
+        $form .= '<div class="col">';
+        $form .= '<select class="form-select" aria-label="Default select example">';
+        $form .= '<option selected>Console Type</option>';
+        $form .= '<option value="1">Type 1</option>';
+        $form .= '<option value="2">Type 2</option>';
+        $form .= '<option value="3">Type 3</option>';
+        $form .= '</select>';
+        $form .= '</div>';
+        $form .= '<div class="col">';
+        $form .= '<select class="form-select" aria-label="Default select example">';
+        $form .= '<option selected>Weapon Level</option>';
+        $getItemTiersJson = json_decode(getItemTiers());
+        for($i=0;$i<sizeof($getItemTiersJson);$i++){
+            $form .= "<option value='".$getItemTiersJson[$i]->id."'> MK".$getItemTiersJson[$i]->tierLevel."</option>";
+        }
+        $form .= '</select>';
+        $form .= '</div>';
+        $form .= '<div class="col">';
+        $form .= '<select class="form-select" aria-label="Default select example">';
+        $form .= '<option selected>Rarity</option>';
+        $getItemRaritysJson = json_decode(getAllRaritys());
+        for($i=0;$i<sizeof($getItemRaritysJson);$i++){
+            $form .= "<option value='".$getItemRaritysJson[$i]->id."'> MK".$getItemTiersJson[$i]->rarityType."</option>";
+        }
+        $form .= '</select>';
+        $form .= '</div>';
+        return $form;
     }
 ?>

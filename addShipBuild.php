@@ -37,7 +37,8 @@ function databaseError(){
         if($shipID == 0){
             echo shipChoice();
         } else {
-            echo json_encode(getShipClassName($shipID));
+            $shipName = getShipClassName($shipID);
+            echo json_decode($shipName);
             echo "<p>Enter the relevant weapons</p>";
 
             $weaponSlotJson = getShipWeaponSlots($shipID);

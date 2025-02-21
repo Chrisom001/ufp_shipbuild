@@ -22,4 +22,14 @@ function getShipListByTier($shipTier){
 
     return $readShip;
 }
+
+function getShipClassName($shipID){
+    global $pdo;
+    $getShipClass = "SELECT shipName FROM ships WHERE id = $shipID";
+    $check = $pdo -> prepare($getShipClass);
+    $check -> execute();
+    $checkResult = $check -> fetchcolumn();
+
+    return json_encode($checkResult);
+}
 ?>

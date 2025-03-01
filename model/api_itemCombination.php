@@ -31,7 +31,7 @@ function readItemCombination($shipbuildID){
     global $pdo;
 
     global $pdo;
-    $readShipBuildByID = "SELECT * FROM itemCombination WHERE id = '$shipbuildID' LIMIT 1";
+    $readShipBuildByID = "SELECT * FROM itemCombination WHERE id = '$shipbuildID'";
 
     $readShipBuildQuery = $pdo -> query($readShipBuildByID);
     $readShipBuilds = $readShipBuildQuery -> fetchAll(PDO::FETCH_OBJ);
@@ -39,17 +39,18 @@ function readItemCombination($shipbuildID){
     return json_encode($readShipBuilds);
 }
 
-function deleteShipBuild($shipbuildID){
+function deleteShipBuild($shipbuildID)
+{
     global $pdo;
 
     $deleteShipBuild = "DELETE FROM itemCombination WHERE id = :articleID";
-    $statement = $pdo -> prepare($deleteShipBuild);
+    $statement = $pdo->prepare($deleteShipBuild);
 
-    $success = $statement -> execute([
+    $success = $statement->execute([
         "articleID" => $shipbuildID
     ]);
 
-    if($success && $statement -> rowCount() > 0){
+    if ($success && $statement->rowCount() > 0) {
         return json_encode(true);
     } else {
         return json_encode(false);

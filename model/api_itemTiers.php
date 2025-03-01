@@ -12,4 +12,14 @@ function getItemTiers(){
 
     return json_encode($itemTier);
 }
+
+function getItemTierById($id){
+    global $pdo;
+    $getItemTierSQL = "SELECT tierLevel FROM itemTiers WHERE id = $id";
+    $check = $pdo -> prepare($getItemTierSQL);
+    $check -> execute();
+    $checkResult = $check -> fetchcolumn();
+
+    return json_encode($checkResult);
+}
 ?>

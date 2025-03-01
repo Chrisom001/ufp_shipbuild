@@ -13,8 +13,14 @@ function getAllDamageTypes(){
     return json_encode($readDamage);
 }
 
-function getDamageTypeById($id){
+function getDamageTypeByID($id){
+    global $pdo;
+    $getNameSQL = "SELECT damageType FROM damageType WHERE id = $id";
+    $check = $pdo -> prepare($getNameSQL);
+    $check -> execute();
+    $checkResult = $check -> fetchcolumn();
 
+    return json_encode($checkResult);
 }
 
 function editDamageType($id,$damageType){

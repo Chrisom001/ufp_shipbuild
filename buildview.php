@@ -31,6 +31,8 @@ if(!isset($_GET["id"])){
             $sciConsoleSlots = $consoleSlotJson[0]->sciConsoleNum;
             $tacConsoleSlots = $consoleSlotJson[0]->tacConsoleNum;
             $uniConsoleSlots = $consoleSlotJson[0]->universalConsoleNum;
+            $shipItems = json_decode(readItemCombination($id));
+            var_dump($shipItems);
         }
     }
 }
@@ -60,6 +62,7 @@ if(!isset($_GET["id"])){
                     for($i=0; $i < $fore; $i++){
                         echo "<div class='col'>";
                         echo "<p>Fore Weapon " . $i+1 . "</p>";
+                        echo "<p> </p>";
                         echo "</div>";
                     }
                 ?>

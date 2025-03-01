@@ -53,4 +53,14 @@ function deleteEquipmentType($id){
 function updateEquipmentType($id, $name, $type){
 
 }
+
+function getEquipmentNameById($id){
+    global $pdo;
+    $getNameSQL = "SELECT equipmentType FROM equipmentTypes WHERE id = $id";
+    $check = $pdo -> prepare($getNameSQL);
+    $check -> execute();
+    $checkResult = $check -> fetchcolumn();
+
+    return json_encode($checkResult);
+}
 ?>

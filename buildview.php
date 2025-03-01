@@ -76,8 +76,8 @@ if(!isset($_GET["id"])){
                 var_dump($WeaponsArray);
                 for($i=0; $i < $fore; $i++){
                     echo "<div class='col'>";
-                    if($WeaponsArray[1] != null){
-                        echo "<p>Fore Weapon " . $i+1 . $WeaponsArray[1] ."</p>";
+                    if($WeaponsArray[$i] != null){
+                        echo "<p>Fore Weapon " . $i+1 . $WeaponsArray[$i] ."</p>";
                     } else {
                         echo "<p>Fore Weapon " . $i+1 . " is empty</p>";
                     }

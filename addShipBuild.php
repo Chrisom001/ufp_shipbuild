@@ -1,5 +1,4 @@
 <?php
-include "scripts/db_connection.php";
 include "scripts/header.php";
 include "scripts/shipBuildForms.php";
 include "model/api_shipType.php";

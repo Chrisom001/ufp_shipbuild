@@ -5,7 +5,7 @@ include "scripts/header.php";
 include "model/api_shipBuild.php"
 $getAllShipsJson = json_decode(getLatestShipBuilds());
 $shipBuildForm = "";
-foreach ($getAllShipsJson as $shipBuild) {
+for($i = 0; $i < count($getAllShipsJson); $i++) {
     $shipBuildForm .= "<div class='container text-center'>";
     $shipBuildForm .= "<div class='row'>";
     $shipBuildForm .= "<div class='col'>";

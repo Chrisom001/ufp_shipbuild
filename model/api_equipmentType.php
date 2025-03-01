@@ -33,10 +33,9 @@ function getAllEquipments(){
     return json_encode($readEquipment);
 }
 
-function getAllConsoles($consoleType){
+function getAllConsoles(){
     global $pdo;
-    $readAllEngConsoles = "SELECT equipmentType.id, equipmentName, equipmentType FROM equipmentType INNER JOIN equipmentTypes ON equipmentType.equipmentTypeID = equipmentTypes.id WHERE isConsole = 1 AND equipmentTypes.equipmentType = $consoleType;";
-    echo $readAllEngConsoles;
+    $readAllEngConsoles = "SELECT equipmentType.id, equipmentName, equipmentType FROM equipmentType INNER JOIN equipmentTypes ON equipmentType.equipmentTypeID = equipmentTypes.id WHERE isConsole = 1;";
     $readEngConsoleQuery = $pdo -> query($readAllEngConsoles);
     $readEquipment = $readEngConsoleQuery -> fetchAll(PDO::FETCH_OBJ);
 

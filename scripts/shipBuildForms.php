@@ -119,9 +119,11 @@
         $form .= '<div class="col">';
         $form .= '<select class="form-select" aria-label="Default select example">';
         $form .= '<option selected>Console Type</option>';
-        $getConsolesJson = json_decode(getAllConsoles(strtolower($consoleType)));
+        $getConsolesJson = json_decode(getAllConsoles());
         for($i=0;$i<sizeof($getConsolesJson);$i++){
-            $form .= "<option value='".$getConsolesJson[$i]->id."'>".$getConsolesJson[$i]->equipmentName."</option>";
+            if($getConsolesJson[$i]->equipmentType == strtolower($consoleType)){
+                $form .= "<option value='".$getConsolesJson[$i]->id."'>".$getConsolesJson[$i]->equipmentName."</option>";
+            }
         }
         $form .= '</select>';
         $form .= '</div>';

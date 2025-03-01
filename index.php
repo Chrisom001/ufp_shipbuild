@@ -1,5 +1,29 @@
 <?php
 include "scripts/header.php";
+include "model/api_shipBuild.php"
+$getAllShipsJson = json_decode(getLatestShipBuilds());
+$shipBuildForm = "";
+foreach ($getAllShipsJson as $shipBuild) {
+    $shipBuildForm .= "<div class='container text-center'>";
+    $shipBuildForm .= "<div class='row'>";
+    $shipBuildForm .= "<div class='col'>";
+    $shipBuildForm .= "<div class='card' style='width: 18rem;'>";
+    $shipBuildForm .= "<img src='...' class='card-img-top' alt='...'>";
+    $shipBuildForm .= "<div class='card-body'>";
+    $shipBuildForm .= "<h5 class='card-title'>Ship Name</h5>";
+    $shipBuildForm .= "<p class='card-text'>Brief Description</p>";
+    $shipBuildForm .= "<ul class='list-group list-group-flush'>";
+    $shipBuildForm .= "<li class='list-group-item'>Faction</li>";
+    $shipBuildForm .= "<li class='list-group-item'>Ship Type</li>";
+    $shipBuildForm .= "<li class='list-group-item'>Tier Level</li>";
+    $shipBuildForm .= "<li class='list-group-item'>Created By</li>";
+    $shipBuildForm .= "</ul>";
+    $shipBuildForm .= " <a href='buildview.php' class='btn btn-primary'>Go somewhere</a>";
+    $shipBuildForm .= "</div>";
+    $shipBuildForm .= "</div>";
+    $shipBuildForm .= "</div>";
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -22,55 +46,9 @@ include "scripts/header.php";
     <div class="container">
         <!-- Content here -->
         <h2>Latest Builds</h2>
-        <div class="container text-center">
-            <div class="row">
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Test Ship 1</h5>
-                            <p class="card-text">This will contain a brief summary</p>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Faction</li>
-                                <li class="list-group-item">Ship Type</li>
-                                <li class="list-group-item">Tier Level</li>
-                            </ul>
-                            <a href="buildview.php" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Test Ship 1</h5>
-                            <p class="card-text">This will contain a brief summary</p>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Faction</li>
-                                <li class="list-group-item">Ship Type</li>
-                                <li class="list-group-item">Tier Level</li>
-                            </ul>
-                            <a href="buildview.php" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Test Ship 1</h5>
-                            <p class="card-text">This will contain a brief summary</p>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Faction</li>
-                                <li class="list-group-item">Ship Type</li>
-                                <li class="list-group-item">Tier Level</li>
-                            </ul>
-                            <a href="buildview.php" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php
+        echo $shipBuildForm;
+        ?>
     </div>
 </div>
 

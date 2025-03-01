@@ -3,6 +3,26 @@
 $db = new dbObj();
 $pdo =  $db->getConnstring();
 
+function getAllShipBuilds(){
+    global $pdo;
+    $readShipBuilds = "SELECT * FROM shipBuild";
+
+    $readShipBuildsQuery = $pdo -> query($readShipBuilds);
+    $readShipBuilds = $readShipBuildsQuery -> fetchAll(PDO::FETCH_OBJ);
+
+    return json_encode($readShipBuilds);
+}
+
+function getLatestShipBuilds(){
+    global $pdo;
+    $readShipBuilds = "SELECT * FROM shipBuild ORDER BY id DESC LIMIT 3";
+
+    $readShipBuildsQuery = $pdo -> query($readShipBuilds);
+    $readShipBuilds = $readShipBuildsQuery -> fetchAll(PDO::FETCH_OBJ);
+
+    return json_encode($readShipBuilds);
+}
+
 function addShipBuild($user, $ship){
     global $pdo;
 

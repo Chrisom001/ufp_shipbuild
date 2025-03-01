@@ -114,7 +114,7 @@
 
     function shipEquip($consoleType, $slotNumber){
         $form = "";
-        $form .= '<label>'.$consoleType .'console'. ($slotNumber + 1) . ': </label>';
+        $form .= '<label>'.$consoleType .' console '. ($slotNumber + 1) . ': </label>';
         $form .= '<div class="row">';
         $form .= '<div class="col">';
         $form .= '<select class="form-select" aria-label="Default select example">';

@@ -8,6 +8,7 @@ include "model/api_shipType.php";
 include "model/api_equipmentType.php";
 include "model/api_damageType.php";
 include "model/api_itemTiers.php";
+include "scripts/reusableScripts.php";
 
 if(!isset($_GET["id"])){
     header("Location: index.php");
@@ -60,14 +61,15 @@ if(!isset($_GET["id"])){
             <p>This section will show the weapons attached to this ship</p>
             <div class="row">
                 <?php
-                    $shipItems = json_decode(readItemCombination($id));
-                    $WeaponsArray = array();
-                foreach($shipItems as $shipItem){
-                    if($shipItem->isFrontWeapon == 1){
-                        $weaponData = json_decode(getDamageTypeByID($shipItem->damageTypeID)) . " " . json_decode(getEquipmentNameById($shipItem->equipmentTypeID)) . " MK" . json_decode(getItemTierById($shipItem->itemTierID));
-                        $WeaponsArray[] = $weaponData;
-                    }
-                }
+                    $WeaponsArray = viewShipItems("foreweapons", $id);
+                    //$shipItems = json_decode(readItemCombination($id));
+                    //$WeaponsArray = array();
+                //foreach($shipItems as $shipItem){
+                    //if($shipItem->isFrontWeapon == 1){
+                        //$weaponData = json_decode(getDamageTypeByID($shipItem->damageTypeID)) . " " . json_decode(getEquipmentNameById($shipItem->equipmentTypeID)) . " MK" . json_decode(getItemTierById($shipItem->itemTierID));
+                        //$WeaponsArray[] = $weaponData;
+                    //}
+                //}
                 $sizeOfArray = count($WeaponsArray);
                 $count = 0;
                 for($i=0; $i < $fore; $i++){

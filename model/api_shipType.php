@@ -32,4 +32,14 @@ function getShipTypeByID($shipTypeID){
 
     return json_encode($checkResult);
 }
+
+function getConsoleSlotsByShipTypeID($shipTypeID){
+    global $pdo;
+    $readShipWeaponSlots = "SELECT engConsoleNum, tacConsoleNum, sciConsoleNum, universalConsoleNum FROM ships WHERE id = $shipTypeID";
+
+    $readShipWeaponSlotsQuery = $pdo -> query($readShipWeaponSlots);
+    $weaponSlots = $readShipWeaponSlotsQuery -> fetchAll(PDO::FETCH_OBJ);
+
+    return json_encode($weaponSlots);
+}
 ?>

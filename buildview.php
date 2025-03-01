@@ -17,18 +17,20 @@ if(!isset($_GET["id"])){
             header("Location: index.php");
         } else {
             $shipBuildDetails = json_decode(getShipBuildByID($id));
-            $shipName = json_decode(getShipClassName($shipBuildDetails[0]->shipID));
+            $shipID = $shipBuildDetails[0]->shipID;
+            $shipName = json_decode(getShipClassName($shipID));
             $userName = json_decode(getUserNameByID($shipBuildDetails[0]->userID));
             $shipLongDescription = $shipBuildDetails[0]->shipBuildLongText;
             $shipItemJson = json_decode(readItemCombination($id));
-            $weaponSlotJson = getShipWeaponSlots($shipBuildDetails[0]->shipID);
-            if ($weaponSlotJson == "Error") {
-                echo "Problem with Database";
-            } else {
-                $weaponSlotData = json_decode($weaponSlotJson);
-                $fore = $weaponSlotData[0]->frontSlot;
-                $rear = $weaponSlotData[0]->rearSlot;
-            }
+            $weaponSlotJson = getShipWeaponSlots($shipID);
+            $weaponSlotData = json_decode($weaponSlotJson);
+            $fore = $weaponSlotData[0]->frontSlot;
+            $rear = $weaponSlotData[0]->rearSlot;
+            $consoleSlotJson = json_decode(getConsoleSlotsByShipTypeID($shipID));
+            $engConsoleSlots = $consoleSlotJson[0]->engConsoleNum;
+            $sciConsoleSlots = $consoleSlotJson[0]->sciConsoleNum;
+            $tacConsoleSlots = $consoleSlotJson[0]->tacConsoleNum;
+            $uniConsoleSlots = $consoleSlotJson[0]->universalConsoleNum;
         }
     }
 }
@@ -86,64 +88,31 @@ if(!isset($_GET["id"])){
                     <p>Universal Console 2</p>
                 </div>
                 <div class="row">
-                    <div class="col">
-                        <p>Tactical Consoles:</p>
-                    </div>
-                    <div class="col">
-                        <p>Tactical Console 1</p>
-                    </div>
-                    <div class="col">
-                        <p>Tactical Console 2</p>
-                    </div>
-                    <div class="col">
-                        <p>Tactical Console 3</p>
-                    </div>
-                    <div class="col">
-                        <p>Tactical Console 4</p>
-                    </div>
-                    <div class="col">
-                        <p>Tactical Console 5</p>
-                    </div>
+                    <?php
+                    for($i=0; $i < $tacConsoleSlots; $i++){
+                        echo "<div class='col'>";
+                        echo "<p>Tactical console " . $i+1 . "</p>";
+                        echo "</div>";
+                    }
+                    ?>
                 </div>
                 <div class="row">
-                    <div class="col">
-                        <p>Engineering Consoles:</p>
-                    </div>
-                    <div class="col">
-                        <p>Engineering Console 1</p>
-                    </div>
-                    <div class="col">
-                        <p>Engineering Console 2</p>
-                    </div>
-                    <div class="col">
-                        <p>Engineering Console 3</p>
-                    </div>
-                    <div class="col">
-                        <p>Engineering Console 4</p>
-                    </div>
-                    <div class="col">
-                        <p>Engineering Console 5</p>
-                    </div>
+                    <?php
+                    for($i=0; $i < $engConsoleSlots; $i++){
+                        echo "<div class='col'>";
+                        echo "<p>Engineering Console " . $i+1 . "</p>";
+                        echo "</div>";
+                    }
+                    ?>
                 </div>
                 <div class="row">
-                    <div class="col">
-                        <p>Science Consoles:</p>
-                    </div>
-                    <div class="col">
-                        <p>Science Console 1</p>
-                    </div>
-                    <div class="col">
-                        <p>Science Console 2</p>
-                    </div>
-                    <div class="col">
-                        <p>Science Console 3</p>
-                    </div>
-                    <div class="col">
-                        <p>Science Console 4</p>
-                    </div>
-                    <div class="col">
-                        <p>Science Console 5</p>
-                    </div>
+                    <?php
+                    for($i=0; $i < $sciConsoleSlots; $i++){
+                        echo "<div class='col'>";
+                        echo "<p>Science Console " . $i+1 . "</p>";
+                        echo "</div>";
+                    }
+                    ?>
                 </div>
             </div>
         </div>

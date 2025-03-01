@@ -76,7 +76,7 @@ if(!isset($_GET["id"])){
                 for($i=0; $i < $fore; $i++){
                     echo "<div class='col'>";
                     for($j=0; $j < sizeof($WeaponsArray); $j++){
-                        echo "<p>Fore Weapon " . $i+1 . $WeaponsArray[$i] ."</p>";
+                        echo "<p>Fore Weapon " . $i+1 . $WeaponsArray[$j] ."</p>";
                     }
                     echo "<p>Fore Weapon " . $i+1 . " is empty</p>";
                     echo "</div>";

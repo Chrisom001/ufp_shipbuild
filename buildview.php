@@ -10,10 +10,10 @@ if(!isset($_GET["id"])){
     header("Location: index.php");
 } else {
     $id = $_GET["id"];
-    if(!is_numeric($id)){
+    if (!is_numeric($id)) {
         header("Location: index.php");
     } else {
-        if(json_decode(checkIfBuildExists($id)) == "False"){
+        if (json_decode(checkIfBuildExists($id)) == "False") {
             header("Location: index.php");
         } else {
             $shipBuildDetails = json_decode(getShipBuildByID($id));
@@ -22,12 +22,13 @@ if(!isset($_GET["id"])){
             $shipLongDescription = $shipBuildDetails[0]->shipBuildLongText;
             $shipItemJson = json_decode(readItemCombination($id));
             $weaponSlotJson = getShipWeaponSlots($shipBuildDetails[0]->shipID);
-            if($weaponSlotJson == "Error"){
+            if ($weaponSlotJson == "Error") {
                 echo "Problem with Database";
             } else {
                 $weaponSlotData = json_decode($weaponSlotJson);
-                $fore = $weaponSlotData[0]-> frontSlot;
-                $rear = $weaponSlotData[0]-> rearSlot;
+                $fore = $weaponSlotData[0]->frontSlot;
+                $rear = $weaponSlotData[0]->rearSlot;
+            }
         }
     }
 }

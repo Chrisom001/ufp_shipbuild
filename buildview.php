@@ -6,6 +6,7 @@ if(!isset($_GET["id"])){
     header("Location: index.php");
 } else {
     $id = $_GET["id"];
+    echo json_decode(checkIfBuildExists($id));
     if(!json_decode(checkIfBuildExists($id))){
         header("Location: index.php");
     }

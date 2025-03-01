@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 include "scripts/header.php";
 include "model/api_shipBuild.php"
 $getAllShipsJson = json_decode(getLatestShipBuilds());

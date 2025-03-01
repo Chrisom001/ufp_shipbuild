@@ -65,8 +65,7 @@ if(!isset($_GET["id"])){
                     for($i=0; $i < $fore; $i++){
                             if($shipItem->isFrontWeapon == 1){
                                 echo "<div class='col'>";
-                                echo "<p>Fore Weapon " . $i+1 . "</p>";
-                                echo "<p>".json_decode(getDamageTypeByID($shipItem->damageTypeID)) . " " . json_decode(getEquipmentNameById($shipItem->equipmentTypeID)) . " MK " . json_decode(getItemTierById($shipItem->itemTierID)). " "."</p>";
+                                echo "<p>Fore Weapon " . $i+1 .json_decode(getDamageTypeByID($shipItem->damageTypeID)) . " " . json_decode(getEquipmentNameById($shipItem->equipmentTypeID)) . " MK " . json_decode(getItemTierById($shipItem->itemTierID))."</p>";
                                 echo "</div>";
                             }
                         }

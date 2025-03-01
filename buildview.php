@@ -77,16 +77,19 @@ if(!isset($_GET["id"])){
         </div>
         <div class="col">
             <p>This section will show the Consoles attached to this ship</p>
-            <div class="row">
-                <div class="col">
-                    <p>Universal Consoles:</p>
-                </div>
-                <div class="col">
-                    <p>Universal Console 1</p>
-                </div>
-                <div class="col">
-                    <p>Universal Console 2</p>
-                </div>
+            <?php
+                if($uniConsoleSlots > 0){
+                    echo "<div class='row'>";
+                    echo "<div class='col'>";
+                    echo "<p>Universal Consoles:</p>";
+                    echo "</div>";
+                    for($i=0; $i < $uniConsoleSlots; $i++){
+                        echo "<div class='col'>";
+                        echo "<p>Universal console " . $i+1 . "</p>";
+                        echo "</div>";
+                    }
+                }
+            ?>
                 <div class="row">
                     <?php
                     for($i=0; $i < $tacConsoleSlots; $i++){

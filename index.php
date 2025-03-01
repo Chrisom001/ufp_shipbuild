@@ -3,7 +3,10 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include "scripts/header.php";
 include "model/api_shipBuild.php";
+include "model/api_shipType.php";
+include "model/api_users.php";
 $getAllShipsJson = json_decode(getLatestShipBuilds());
+var_dump($getAllShipsJson);
 $shipBuildForm = "";
 for($i = 0; $i < count($getAllShipsJson); $i++) {
     $shipBuildForm .= "<div class='container text-center'>";
@@ -12,13 +15,13 @@ for($i = 0; $i < count($getAllShipsJson); $i++) {
     $shipBuildForm .= "<div class='card' style='width: 18rem;'>";
     $shipBuildForm .= "<img src='...' class='card-img-top' alt='...'>";
     $shipBuildForm .= "<div class='card-body'>";
-    $shipBuildForm .= "<h5 class='card-title'>Ship Name</h5>";
+    $shipBuildForm .= "<h5 class='card-title'>". $getAllShipsJson->shipName ."</h5>";
     $shipBuildForm .= "<p class='card-text'>Brief Description</p>";
     $shipBuildForm .= "<ul class='list-group list-group-flush'>";
     $shipBuildForm .= "<li class='list-group-item'>Faction</li>";
-    $shipBuildForm .= "<li class='list-group-item'>Ship Type</li>";
+    $shipBuildForm .= "<li class='list-group-item'>".json_decode(getShipTypeByID($getAllShipsJson->shipTypeID))."</li>";
     $shipBuildForm .= "<li class='list-group-item'>Tier Level</li>";
-    $shipBuildForm .= "<li class='list-group-item'>Created By</li>";
+    $shipBuildForm .= "<li class='list-group-item'>".json_decode(checkUsernameByID($getAllShipsJson->userID))."</li>";
     $shipBuildForm .= "</ul>";
     $shipBuildForm .= " <a href='buildview.php' class='btn btn-primary'>Go somewhere</a>";
     $shipBuildForm .= "</div>";

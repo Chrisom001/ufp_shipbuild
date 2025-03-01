@@ -15,7 +15,7 @@ function getAllShipBuilds(){
 
 function getLatestShipBuilds(){
     global $pdo;
-    $readShipBuilds = "SELECT * FROM shipBuild ORDER BY id DESC LIMIT 3";
+    $readShipBuilds = "SELECT * FROM shipBuild INNER JOIN ships ON shipBuild.shipID = ships.id ORDER BY shipBuild.id DESC LIMIT 3 ;";
 
     $readShipBuildsQuery = $pdo -> query($readShipBuilds);
     $readShipBuilds = $readShipBuildsQuery -> fetchAll(PDO::FETCH_OBJ);

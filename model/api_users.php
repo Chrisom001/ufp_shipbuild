@@ -53,7 +53,7 @@ function checkUsernameByID($id)
 {
     global $pdo;
 
-    $checkUsernameSQL = "SELECT userName FROM GW_Users WHERE userID = $id";
+    $checkUsernameSQL = "SELECT userName FROM users WHERE id = $id";
     $check = $pdo -> prepare($checkUsernameSQL);
     $check -> execute();
     $checkResult = $check -> fetchcolumn();

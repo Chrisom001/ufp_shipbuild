@@ -4,6 +4,8 @@ include "model/api_shipBuild.php";
 include "model/api_itemCombination.php";
 include "model/api_users.php";
 include "model/api_ships.php";
+include "model/api_shipType.php";
+
 if(!isset($_GET["id"])){
     header("Location: index.php");
 } else {
@@ -19,7 +21,13 @@ if(!isset($_GET["id"])){
             $userName = json_decode(getUserNameByID($shipBuildDetails[0]->userID));
             $shipLongDescription = $shipBuildDetails[0]->shipBuildLongText;
             $shipItemJson = json_decode(readItemCombination($id));
-
+            $weaponSlotJson = getShipWeaponSlots($shipBuildDetails[0]->shipID);
+            if($weaponSlotJson == "Error"){
+                echo "Problem with Database";
+            } else {
+                $weaponSlotData = json_decode($weaponSlotJson);
+                $fore = $weaponSlotData[0]-> frontSlot;
+                $rear = $weaponSlotData[0]-> rearSlot;
         }
     }
 }
@@ -45,39 +53,23 @@ if(!isset($_GET["id"])){
         <div class="col">
             <p>This section will show the weapons attached to this ship</p>
             <div class="row">
-                <div class="col">
-                    <p>Fore Weapon 1</p>
-                </div>
-                <div class="col">
-                    <p>Fore Weapon 2</p>
-                </div>
-                <div class="col">
-                    <p>Fore Weapon 3</p>
-                </div>
-                <div class="col">
-                    <p>Fore Weapon 4</p>
-                </div>
-                <div class="col">
-                    <p>Fore Weapon 5</p>
-                </div>
+                <?php
+                    for($i=0; $i < $fore; $i++){
+                        echo "<div class='col'>";
+                        echo "<p>Fore Weapon " . $i . "</p>";
+                        echo "</div>";
+                    }
+                ?>
             </div>
             <br/>
             <div class="row">
-                <div class="col">
-                    <p>Rear Weapon 1</p>
-                </div>
-                <div class="col">
-                    <p>Rear Weapon 2</p>
-                </div>
-                <div class="col">
-                    <p>Rear Weapon 3</p>
-                </div>
-                <div class="col">
-                    <p>Rear Weapon 4</p>
-                </div>
-                <div class="col">
-                    <p>Rear Weapon 5</p>
-                </div>
+                <?php
+                    for($i=0; $i < $rear; $i++){
+                        echo "<div class='col'>";
+                        echo "<p>Rear Weapon " . $i . "</p>";
+                        echo "</div>";
+                    }
+                ?>
             </div>
         </div>
         <div class="col">

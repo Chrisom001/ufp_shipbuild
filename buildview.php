@@ -61,8 +61,8 @@ if(!isset($_GET["id"])){
             <div class="row">
                 <?php
                     $shipItems = json_decode(readItemCombination($id));
+                foreach($shipItems as $shipItem){
                     for($i=0; $i < $fore; $i++){
-                        foreach($shipItems as $shipItem){
                             if($shipItem->isFrontWeapon == 1){
                                 echo "<div class='col'>";
                                 echo "<p>Fore Weapon " . $i+1 . "</p>";

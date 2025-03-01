@@ -119,14 +119,15 @@
         $form .= '<div class="col">';
         $form .= '<select class="form-select" aria-label="Default select example">';
         $form .= '<option selected>Console Type</option>';
-        $form .= '<option value="1">Type 1</option>';
-        $form .= '<option value="2">Type 2</option>';
-        $form .= '<option value="3">Type 3</option>';
+        $getConsolesJson = json_decode(getAllConsoles($consoleType));
+        for($i=0;$i<sizeof($getConsolesJson);$i++){
+            $form .= "<option value='".$getConsolesJson[$i]->id."'>".$getConsolesJson[$i]->equipmentName."</option>";
+        }
         $form .= '</select>';
         $form .= '</div>';
         $form .= '<div class="col">';
         $form .= '<select class="form-select" aria-label="Default select example">';
-        $form .= '<option selected>Weapon Level</option>';
+        $form .= '<option selected>Console Level</option>';
         $getItemTiersJson = json_decode(getItemTiers());
         for($i=0;$i<sizeof($getItemTiersJson);$i++){
             $form .= "<option value='".$getItemTiersJson[$i]->id."'> MK".$getItemTiersJson[$i]->tierLevel."</option>";

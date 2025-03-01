@@ -58,7 +58,7 @@
         $form .= '</select>';
         $form .= '</div>';
         $form .= '<div class="col">';
-        $getAllEquipment = json_decode(getAllEquipments());
+        $getAllEquipment = json_decode(getAllEquipmentTypes());
         $form .= '<select class="form-select" aria-label="Default select example">';
         for($i=0;$i<sizeof($getAllEquipment);$i++){
             if($getAllEquipment[$i]->isWeapon){

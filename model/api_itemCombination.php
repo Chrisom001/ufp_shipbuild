@@ -29,9 +29,7 @@ function addItemCombination($shipBuild, $equipmentType, $itemType, $rarityType, 
 
 function readItemCombination($shipbuildID){
     global $pdo;
-
-    global $pdo;
-    $readShipBuildByID = "SELECT * FROM itemCombination WHERE id = '$shipbuildID'";
+    $readShipBuildByID = "SELECT * FROM itemCombination WHERE id = $shipbuildID";
 
     $readShipBuildQuery = $pdo -> query($readShipBuildByID);
     $readShipBuilds = $readShipBuildQuery -> fetchAll(PDO::FETCH_OBJ);

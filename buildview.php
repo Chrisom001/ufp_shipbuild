@@ -11,7 +11,6 @@ if(!isset($_GET["id"])){
     if(!is_numeric($id)){
         header("Location: index.php");
     } else {
-        echo json_decode(checkIfBuildExists($id));
         if(json_decode(checkIfBuildExists($id)) == "False"){
             header("Location: index.php");
         } else {

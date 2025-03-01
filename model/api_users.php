@@ -74,7 +74,7 @@ function getUserIDByUsername($userName){
 
 function getUserNameByID($id){
     global $pdo;
-    $checkUserIDSQL = "SELECT userName FROM users WHERE id = . $id";
+    $checkUserIDSQL = "SELECT userName FROM users WHERE id = $id";
 
     $check = $pdo -> prepare($checkUserIDSQL);
     $check -> execute();

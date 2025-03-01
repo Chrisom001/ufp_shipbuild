@@ -1,5 +1,11 @@
 <?php
 include "scripts/header.php";
+
+if(!isset($_GET["id"])){
+    header("Location: index.php");
+} else {
+    $id = $_GET["id"];
+}
 ?>
 <!doctype html>
 <html lang="en">

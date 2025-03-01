@@ -137,9 +137,8 @@
         $form .= '<select class="form-select" aria-label="Default select example">';
         $form .= '<option selected>Rarity</option>';
         $getItemRaritysJson = json_decode(getAllRaritys());
-        var_dump($getItemRaritysJson);
         for($i=0;$i<sizeof($getItemRaritysJson);$i++){
-            //$form .= "<option value='".$getItemRaritysJson[$i]->id."'>".$getItemTiersJson[$i]->rarityType."</option>";
+            $form .= "<option value='".$getItemRaritysJson[$i]->id."'>".$getItemRaritysJson[$i]->rarityType."</option>";
         }
         $form .= '</select>';
         $form .= '</div>';

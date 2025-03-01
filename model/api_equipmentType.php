@@ -56,7 +56,7 @@ function updateEquipmentType($id, $name, $type){
 
 function getEquipmentNameById($id){
     global $pdo;
-    $getNameSQL = "SELECT equipmentType FROM equipmentTypes WHERE id = $id";
+    $getNameSQL = "SELECT equipmentName FROM equipmentType WHERE id = $id";
     $check = $pdo -> prepare($getNameSQL);
     $check -> execute();
     $checkResult = $check -> fetchcolumn();

@@ -61,22 +61,22 @@ function getShipIDbyShipBuildID($shipBuildID){
     return json_encode($checkResult);
 }
 
-function deleteShipBuild($shipbuildID){
-    global $pdo;
-
-    $deleteShipBuild = "DELETE FROM shipBuild WHERE id = :articleID";
-    $statement = $pdo -> prepare($deleteShipBuild);
-
-    $success = $statement -> execute([
-        "articleID" => $shipbuildID
-    ]);
-
-    if($success && $statement -> rowCount() > 0){
-        return json_encode(true);
-    } else {
-        return json_encode(false);
-    }
-}
+//function deleteShipBuild($shipbuildID){
+//    global $pdo;
+//
+//    $deleteShipBuild = "DELETE FROM shipBuild WHERE id = :articleID";
+//    $statement = $pdo -> prepare($deleteShipBuild);
+//
+//    $success = $statement -> execute([
+//        "articleID" => $shipbuildID
+//    ]);
+//
+//    if($success && $statement -> rowCount() > 0){
+//        return json_encode(true);
+//    } else {
+//        return json_encode(false);
+//    }
+//}
 
 function checkIfBuildExists($shipbuildID){
     global $pdo;

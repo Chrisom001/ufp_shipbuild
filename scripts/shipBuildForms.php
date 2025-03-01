@@ -59,11 +59,11 @@
         $form .= '</div>';
         $form .= '<div class="col">';
         $getAllEquipment = json_decode(getAllEquipmentTypes());
-        var_dump($getAllEquipment);
         $form .= '<select class="form-select" aria-label="Default select example">';
         for($i=0;$i<sizeof($getAllEquipment);$i++){
             if($getAllEquipment[$i]->isWeapon == 1){
-                $form .= "<option value='".$getAllEquipment[$i]->id."'>".$getWeaponDamageType[$i]->equipmentName."</option>";
+                echo "Is a weapon";
+                //$form .= "<option value='".$getAllEquipment[$i]->id."'>".$getWeaponDamageType[$i]->equipmentName."</option>";
             }
         }
         $form .= '</select>';

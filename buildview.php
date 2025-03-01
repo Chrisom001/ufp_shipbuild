@@ -5,10 +5,16 @@ include "model/api_shipBuild.php";
 if(!isset($_GET["id"])){
     header("Location: index.php");
 } else {
-    $id = $_GET["id"];
-    echo json_decode(checkIfBuildExists($id));
-    if(!json_decode(checkIfBuildExists($id))){
+    $id = filter_var($_GET["id"], FILTER_SANITIZE_STRING);
+    if(!is_numeric($id)){
         header("Location: index.php");
+    } else {
+        echo json_decode(checkIfBuildExists($id));
+        if(json_decode(checkIfBuildExists($id)) == "False"){
+            header("Location: index.php");
+        } else {
+            echo "Yahoo";
+        }
     }
 }
 ?>

@@ -75,15 +75,12 @@ if(!isset($_GET["id"])){
                 }
                 for($i=0; $i < $fore; $i++){
                     echo "<div class='col'>";
-                    echo sizeof($WeaponsArray);
-                    echo $i;
-                    if(sizeof($WeaponsArray) <= $i){
+                    for($j=0; $j < sizeof($WeaponsArray); $j++){
                         echo "<p>Fore Weapon " . $i+1 . $WeaponsArray[$i] ."</p>";
-                    } else {
-                        echo "<p>Fore Weapon " . $i+1 . " is empty</p>";
                     }
-                        echo "</div>";
-                }
+                    echo "<p>Fore Weapon " . $i+1 . " is empty</p>";
+                    echo "</div>";
+                    }
                 ?>
             </div>
             <br/>

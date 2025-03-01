@@ -57,7 +57,7 @@ if(!isset($_GET["id"])){
                 <?php
                     for($i=0; $i < $fore; $i++){
                         echo "<div class='col'>";
-                        echo "<p>Fore Weapon " . $i . "</p>";
+                        echo "<p>Fore Weapon " . $i+1 . "</p>";
                         echo "</div>";
                     }
                 ?>
@@ -67,7 +67,7 @@ if(!isset($_GET["id"])){
                 <?php
                     for($i=0; $i < $rear; $i++){
                         echo "<div class='col'>";
-                        echo "<p>Rear Weapon " . $i . "</p>";
+                        echo "<p>Rear Weapon " . $i+1 . "</p>";
                         echo "</div>";
                     }
                 ?>

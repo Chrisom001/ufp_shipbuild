@@ -64,12 +64,7 @@ if(!isset($_GET["id"])){
                     $WeaponsArray = array();
                 foreach($shipItems as $shipItem){
                     if($shipItem->isFrontWeapon == 1){
-                        $weaponData = "";
-                        $weaponData .= json_decode(getDamageTypeByID($shipItem->damageTypeID));
-                        $weaponData .= " ";
-                        $weaponData .= json_decode(getEquipmentNameById($shipItem->equipmentTypeID));
-                        $weaponData .= " MK";
-                        $weaponData .= json_decode(getItemTierById($shipItem->itemTierID));
+                        $weaponData = json_decode(getDamageTypeByID($shipItem->damageTypeID)) . " " . json_decode(getEquipmentNameById($shipItem->equipmentTypeID)) . " MK" . json_decode(getItemTierById($shipItem->itemTierID));
                         $WeaponsArray[] = $weaponData;
                     }
                 }

@@ -62,7 +62,7 @@
         var_dump($getAllEquipment);
         $form .= '<select class="form-select" aria-label="Default select example">';
         for($i=0;$i<sizeof($getAllEquipment);$i++){
-            if($getAllEquipment[$i]->isWeapon){
+            if($getAllEquipment[$i]->isWeapon == 1){
                 $form .= "<option value='".$getAllEquipment[$i]->id."'>".$getWeaponDamageType[$i]->equipmentName."</option>";
             }
         }

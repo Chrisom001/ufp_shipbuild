@@ -61,13 +61,19 @@ if(!isset($_GET["id"])){
             <div class="row">
                 <?php
                     $shipItems = json_decode(readItemCombination($id));
+                    $WeaponSlotData = array();
                 foreach($shipItems as $shipItem){
+                    if($shipItem->isFrontWeapon == 1){
+                        $weaponSlotData[] = json_decode(getDamageTypeByID($shipItem->damageTypeID)) . " " . json_decode(getEquipmentNameById($shipItem->equipmentTypeID)) . " MK " . json_decode(getItemTierById($shipItem->itemTierID));
+                    }
                     for($i=0; $i < $fore; $i++){
-                            if($shipItem->isFrontWeapon == 1){
-                                echo "<div class='col'>";
-                                echo "<p>Fore Weapon " . $i+1 .json_decode(getDamageTypeByID($shipItem->damageTypeID)) . " " . json_decode(getEquipmentNameById($shipItem->equipmentTypeID)) . " MK " . json_decode(getItemTierById($shipItem->itemTierID))."</p>";
-                                echo "</div>";
+                        echo "<div class='col'>";
+                        if($weaponSlotData[i] != null){
+                            echo "<p>Fore Weapon " . $i+1 . $weaponSlotData[i] ."</p>";
+                            } else {
+                            echo "<p>Fore Weapon " . $i+1 . " is empty</p>";
                             }
+                        echo "</div>";
                         }
                     }
                 ?>

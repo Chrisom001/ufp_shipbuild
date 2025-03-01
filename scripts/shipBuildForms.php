@@ -62,8 +62,7 @@
         $form .= '<select class="form-select" aria-label="Default select example">';
         for($i=0;$i<sizeof($getAllEquipment);$i++){
             if($getAllEquipment[$i]->isWeapon == 1){
-                echo "Is a weapon";
-                //$form .= "<option value='".$getAllEquipment[$i]->id."'>".$getWeaponDamageType[$i]->equipmentName."</option>";
+                $form .= "<option value='".$getAllEquipment[$i]->id."'>".$getAllEquipment[$i]->equipmentName."</option>";
             }
         }
         $form .= '</select>';

@@ -14,11 +14,23 @@ function getAllEquipmentTypes(){
 }
 
 function getAllWeaponTypes(){
+    global $pdo;
+    $readAllWeapons = "SELECT equipmentType.id, equipmentName, equipmentType FROM equipmentType INNER JOIN equipmentTypes ON equipmentType.equipmentTypeID = equipmentTypes.id WHERE isWeapons = 1;";
 
+    $readWeaponsQuery = $pdo -> query($readAllWeapons);
+    $readWeapon = $readWeaponsQuery -> fetchAll(PDO::FETCH_OBJ);
+
+    return json_encode($readWeapon);
 }
 
 function getAllEquipments(){
+    global $pdo;
+    $readAllEquipment = "SELECT equipmentType.id, equipmentName, equipmentType FROM equipmentType INNER JOIN equipmentTypes ON equipmentType.equipmentTypeID = equipmentTypes.id WHERE isEquipment = 1;";
 
+    $readEquipmentQuery = $pdo -> query($readAllEquipment);
+    $readEquipment = $readEquipmentQuery -> fetchAll(PDO::FETCH_OBJ);
+
+    return json_encode($readEquipment);
 }
 
 function addEquipmentType($name, $equipmentName, $type){

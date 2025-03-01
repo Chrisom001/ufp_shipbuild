@@ -63,7 +63,7 @@ if(!isset($_GET["id"])){
                             if($shipItem->isFrontWeapon == 1){
                                 echo "<div class='col'>";
                                 echo "<p>Fore Weapon " . $i+1 . "</p>";
-                                echo "<p> </p>";
+                                echo "<p>".json_decode(getEquipmentNameById($shipItem->equipmentTypeID))."</p>";
                                 echo "</div>";
                             }
                         }

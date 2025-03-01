@@ -6,6 +6,7 @@ include "model/api_users.php";
 include "model/api_ships.php";
 include "model/api_shipType.php";
 include "model/api_equipmentType.php";
+include "model/api_damageType.php";
 
 if(!isset($_GET["id"])){
     header("Location: index.php");
@@ -65,7 +66,7 @@ if(!isset($_GET["id"])){
                             if($shipItem->isFrontWeapon == 1){
                                 echo "<div class='col'>";
                                 echo "<p>Fore Weapon " . $i+1 . "</p>";
-                                echo "<p>".json_decode(getEquipmentNameById($shipItem->equipmentTypeID))."</p>";
+                                echo "<p>".json_decode(getDamageTypeByID($shipItem->damageTypeID)) . " " . json_decode(getEquipmentNameById($shipItem->equipmentTypeID))."</p>";
                                 echo "</div>";
                             }
                         }

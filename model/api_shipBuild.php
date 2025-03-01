@@ -99,10 +99,9 @@ function checkIfBuildExists($shipbuildID){
 function getShipBuildByID($shipBuildID){
     global $pdo;
     $readShipTypeByIDQuery = "SELECT * FROM shipBuild WHERE id = $shipBuildID";
-    $check = $pdo -> prepare($readShipTypeByIDQuery);
-    $check -> execute();
-    $checkResult = $check -> fetchcolumn();
+    $readShipTypeByIDQuery = $pdo -> query($readShipTypeByIDQuery);
+    $readShipTypeByID = $readShipTypeByIDQuery -> fetchAll(PDO::FETCH_OBJ);
 
-    return json_encode($checkResult);
+    return json_encode($readShipTypeByID);
 }
 ?>

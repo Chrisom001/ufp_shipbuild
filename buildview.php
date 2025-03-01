@@ -22,7 +22,6 @@ if(!isset($_GET["id"])){
             //$shipName = json_decode(getShipClassName($shipBuildDetails[0]->shipID));
             //$userName = json_decode(getUserNameByID($shipBuildDetails[0]->userID));
             $shipItemJson = json_decode(readItemCombination($id));
-            var_dump($shipItemJson);
 
         }
     }

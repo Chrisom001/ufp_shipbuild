@@ -1,12 +1,9 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 include "scripts/header.php";
 include "model/api_shipBuild.php";
 include "model/api_shipType.php";
 include "model/api_users.php";
 $getAllShipsJson = json_decode(getLatestShipBuilds());
-var_dump($getAllShipsJson);
 $shipBuildForm = "";
 for($i = 0; $i < count($getAllShipsJson); $i++) {
     $shipBuildForm .= "<div class='container text-center'>";

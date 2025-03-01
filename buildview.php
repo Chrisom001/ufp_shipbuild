@@ -73,9 +73,10 @@ if(!isset($_GET["id"])){
                         $WeaponsArray[] = $weaponData;
                     }
                 }
-                var_dump($WeaponsArray);
                 for($i=0; $i < $fore; $i++){
                     echo "<div class='col'>";
+                    echo sizeof($WeaponsArray);
+                    echo $i;
                     if(!sizeof($WeaponsArray) <$i){
                         echo "<p>Fore Weapon " . $i+1 . $WeaponsArray[$i] ."</p>";
                     } else {

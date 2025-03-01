@@ -16,11 +16,8 @@ if(!isset($_GET["id"])){
             header("Location: index.php");
         } else {
             $shipBuildDetails = json_decode(getShipBuildByID($id));
-            var_dump($shipBuildDetails);
-            $shipName = "Test";
-            $userName = "Test";
-            //$shipName = json_decode(getShipClassName($shipBuildDetails[0]->shipID));
-            //$userName = json_decode(getUserNameByID($shipBuildDetails[0]->userID));
+            $shipName = json_decode(getShipClassName($shipBuildDetails[0]->shipID));
+            $userName = json_decode(getUserNameByID($shipBuildDetails[0]->userID));
             $shipItemJson = json_decode(readItemCombination($id));
 
         }

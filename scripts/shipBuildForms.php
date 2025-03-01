@@ -119,7 +119,7 @@
         $form .= '<div class="col">';
         $form .= '<select class="form-select" aria-label="Default select example">';
         $form .= '<option selected>Console Type</option>';
-        $getConsolesJson = json_decode(getAllConsoles($consoleType));
+        $getConsolesJson = json_decode(getAllConsoles(strtolower($consoleType)));
         for($i=0;$i<sizeof($getConsolesJson);$i++){
             $form .= "<option value='".$getConsolesJson[$i]->id."'>".$getConsolesJson[$i]->equipmentName."</option>";
         }

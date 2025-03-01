@@ -67,4 +67,22 @@ function deleteShipBuild($shipbuildID){
         return json_encode(false);
     }
 }
+
+function checkIfBuildExists($shipbuildID){
+    global $pdo;
+
+    $checkUserSQL = "SELECT * FROM shipBuild WHERE id = :shipID";
+
+    $statement = $pdo -> prepare($checkUserSQL);
+
+    $success = $statement -> execute ([
+        "shipID" => $shipbuildID
+    ]);
+
+    if($success && $statement -> rowCount() > 0){
+        return json_encode("True");
+    } else {
+        return json_encode("False");
+    }
+}
 ?>

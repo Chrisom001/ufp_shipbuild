@@ -1,10 +1,14 @@
 <?php
 include "scripts/header.php";
+include "model/api_shipBuild.php";
 
 if(!isset($_GET["id"])){
     header("Location: index.php");
 } else {
     $id = $_GET["id"];
+    if(!checkIfBuildExists($id)){
+        header("Location: index.php");
+    }
 }
 ?>
 <!doctype html>

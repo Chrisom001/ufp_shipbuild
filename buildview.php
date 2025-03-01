@@ -31,8 +31,6 @@ if(!isset($_GET["id"])){
             $sciConsoleSlots = $consoleSlotJson[0]->sciConsoleNum;
             $tacConsoleSlots = $consoleSlotJson[0]->tacConsoleNum;
             $uniConsoleSlots = $consoleSlotJson[0]->universalConsoleNum;
-            $shipItems = json_decode(readItemCombination($id));
-            var_dump($shipItems);
         }
     }
 }
@@ -59,7 +57,11 @@ if(!isset($_GET["id"])){
             <p>This section will show the weapons attached to this ship</p>
             <div class="row">
                 <?php
+                    $shipItems = json_decode(readItemCombination($id));
                     for($i=0; $i < $fore; $i++){
+                        foreach($shipItems as $shipItem){
+                            var_dump($shipItem);
+                        }
                         echo "<div class='col'>";
                         echo "<p>Fore Weapon " . $i+1 . "</p>";
                         echo "<p> </p>";

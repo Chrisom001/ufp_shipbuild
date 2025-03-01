@@ -5,7 +5,7 @@ include "model/api_itemCombination.php";
 include "model/api_users.php";
 include "model/api_ships.php";
 include "model/api_shipType.php";
-include "model/api_equipment.php";
+include "model/api_equipmentType.php";
 
 if(!isset($_GET["id"])){
     header("Location: index.php");

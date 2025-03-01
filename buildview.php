@@ -76,8 +76,8 @@ if(!isset($_GET["id"])){
                 var_dump($weaponSlotData);
                 for($i=0; $i < $fore; $i++){
                     echo "<div class='col'>";
-                    if($weaponSlotData[$i] != null){
-                        echo "<p>Fore Weapon " . $i+1 . $weaponSlotData[$i] ."</p>";
+                    if($weaponSlotData[1] != null){
+                        echo "<p>Fore Weapon " . $i+1 . $weaponSlotData[1] ."</p>";
                     } else {
                         echo "<p>Fore Weapon " . $i+1 . " is empty</p>";
                     }

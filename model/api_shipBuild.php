@@ -51,6 +51,16 @@ function readShipBuild($shipbuildID){
     return json_encode($readShipBuilds);
 }
 
+function getShipIDbyShipBuildID($shipBuildID){
+    global $pdo;
+    $readShipTypeByIDQuery = "SELECT shipID FROM shipBuild WHERE id = $shipBuildID";
+    $check = $pdo -> prepare($readShipTypeByIDQuery);
+    $check -> execute();
+    $checkResult = $check -> fetchcolumn();
+
+    return json_encode($checkResult);
+}
+
 function deleteShipBuild($shipbuildID){
     global $pdo;
 
@@ -84,5 +94,15 @@ function checkIfBuildExists($shipbuildID){
     } else {
         return json_encode("False");
     }
+}
+
+function getShipBuildByID($shipBuildID){
+    global $pdo;
+    $readShipTypeByIDQuery = "SELECT * FROM shipBuild WHERE id = $shipBuildID";
+    $check = $pdo -> prepare($readShipTypeByIDQuery);
+    $check -> execute();
+    $checkResult = $check -> fetchcolumn();
+
+    return json_encode($checkResult);
 }
 ?>

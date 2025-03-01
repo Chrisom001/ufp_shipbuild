@@ -1,11 +1,13 @@
 <?php
 include "scripts/header.php";
 include "model/api_shipBuild.php";
-
+include "model/api_itemCombination.php";
+include "model/api_users.php";
+include "model/api_ships.php";
 if(!isset($_GET["id"])){
     header("Location: index.php");
 } else {
-    $id = filter_var($_GET["id"], FILTER_SANITIZE_STRING);
+    $id = $_GET["id"];
     if(!is_numeric($id)){
         header("Location: index.php");
     } else {
@@ -13,7 +15,12 @@ if(!isset($_GET["id"])){
         if(json_decode(checkIfBuildExists($id)) == "False"){
             header("Location: index.php");
         } else {
-            echo "Yahoo";
+            $shipBuildDetails = json_decode(getShipBuildByID($id));
+            $shipName = json_decode(getShipClassName($shipBuildDetails[0]->shipID));
+            $userName = json_decode(getUserNameByID($shipBuildDetails[0]->userID));
+            $shipItemJson = json_decode(readItemCombination($id));
+            var_dump($shipItemJson);
+
         }
     }
 }
@@ -32,6 +39,7 @@ if(!isset($_GET["id"])){
 <?php echo $navbar; ?>
 <div class="container">
 <!-- Content Here -->
+    <h1><?php echo $shipName; ?> by <?php echo $userName ?></h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non suscipit velit, vel vehicula justo. Etiam fermentum porttitor ligula eu euismod. Aliquam erat volutpat. Suspendisse convallis tincidunt dui, eu hendrerit sem ultrices a. Suspendisse faucibus augue nec mauris rutrum, vel pellentesque nunc tempor. Vestibulum vitae scelerisque nunc. Etiam tristique, magna eget lobortis lobortis, tellus nisl dignissim ex, vel gravida odio nunc at ligula. Nullam hendrerit mauris ac tellus pretium, quis ultricies neque faucibus. Mauris a orci sagittis, porttitor mi sed, ullamcorper mauris. Aliquam dapibus nunc mi, ac faucibus magna eleifend nec.
 
         Quisque malesuada mauris quis lacus finibus accumsan. Integer at leo lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget sapien dictum arcu accumsan porta quis vel massa. Aenean auctor nibh risus, id semper odio hendrerit vitae. Mauris et tempor lorem, eget venenatis tortor. Donec nec leo velit. Maecenas at feugiat dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>

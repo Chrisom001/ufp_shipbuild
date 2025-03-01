@@ -71,4 +71,15 @@ function getUserIDByUsername($userName){
 
     return json_encode($checkResult);
 }
+
+function getUserNameByID($id){
+    global $pdo;
+    $checkUserIDSQL = "SELECT userName FROM users WHERE id = . $id";
+
+    $check = $pdo -> prepare($checkUserIDSQL);
+    $check -> execute();
+    $checkResult = $check -> fetchcolumn();
+
+    return json_encode($checkResult);
+}
 ?>

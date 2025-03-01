@@ -6,6 +6,7 @@ include "model/api_shipType.php";
 include "model/api_ships.php";
 include "model/api_itemTiers.php";
 include "model/api_shipTiers.php";
+include "model/api_rarity.php";
 
 function databaseError(){
     echo "Please alert technical support of this error";

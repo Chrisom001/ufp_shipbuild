@@ -51,17 +51,20 @@
         $form .= '<div class="col">';
         $form .= '<select class="form-select" aria-label="Default select example">';
         $form .= '<option selected>Weapon Damage</option>';
-        $form .= '<option value="1">Phaser</option>';
-        $form .= '<option value="2">Maser</option>';
-        $form .= '<option value="3">Quaser</option>';
+        $getWeaponDamageType = json_decode(getAllDamageTypes());
+        for($i=0;$i<sizeof($getWeaponDamageType);$i++){
+            $form .= "<option value='".$getWeaponDamageType[$i]->id."'>".$getWeaponDamageType[$i]->damageType."</option>";
+        }
         $form .= '</select>';
         $form .= '</div>';
         $form .= '<div class="col">';
+        $getAllEquipment = json_decode(getAllEquipments());
         $form .= '<select class="form-select" aria-label="Default select example">';
-        $form .= '<option selected>Weapon Type</option>';
-        $form .= '<option value="1">Beam Array</option>';
-        $form .= '<option value="2">Cannon</option>';
-        $form .= '<option value="3">Torpedo</option>';
+        for($i=0;$i<sizeof($getAllEquipment);$i++){
+            if($getAllEquipment[$i]->isWeapon){
+                $form .= "<option value='".$getAllEquipment[$i]->id."'>".$getWeaponDamageType[$i]->equipmentName."</option>";
+            }
+        }
         $form .= '</select>';
         $form .= '</div>';
         $form .= '<div class="col">';

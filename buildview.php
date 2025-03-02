@@ -66,27 +66,18 @@ if(!isset($_GET["id"])){
             </div>
             <br/>
             <div class="row">
-                <?php
-                $result = weaponConsoleRepeater($id, "rearweapons");
-                echo $result;
-                ?>
+            <?php
+            $result = weaponConsoleRepeater($id, "rearweapons");
+            echo $result;
+            ?>
             </div>
         </div>
         <div class="col">
             <p>This section will show the Consoles attached to this ship</p>
             <?php
 
-                if($uniConsoleSlots > 0){
-                    echo "<div class='row'>";
-                    echo "<div class='col'>";
-                    echo "<p>Universal Consoles:</p>";
-                    echo "</div>";
-                    for($i=0; $i < $uniConsoleSlots; $i++){
-                        echo "<div class='col'>";
-                        echo "<p>Universal console " . $i+1 . "</p>";
-                        echo "</div>";
-                    }
-                }
+            $result = weaponConsoleRepeater($id, "uni");
+            echo $result;
             ?>
                 <div class="row">
                     <?php

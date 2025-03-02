@@ -8,7 +8,7 @@ function viewShipItems($type, $shipID){
     } else if($type == "rearweapons"){
         $check = "isRearWeapon";
         $itemType = "weapon";
-    } elseif($type == "science" || $type == "engineering" || $type == "tactical"){
+    } elseif($type == "science" || $type == "engineering" || $type == "tactical" || $type =="universal"){
         $check = "isConsole";
         $itemType = "console";
     }
@@ -44,6 +44,8 @@ function weaponConsoleRepeater($shipID, $slotType){
         $slotTypeText = "Engineering Console";
     } elseif($slotType == "tactical"){
         $slotTypeText = "Tactical Console";
+    } elseif($slotType == "uni"){
+        $slotTypeText = "Universal Console";
     }
     $itemArray = viewShipItems($slotType, $shipID);
     $slotArray = getNumberOfSlots($shipID);

@@ -73,6 +73,8 @@ if(!isset($_GET["id"])){
             ?>
             </div>
         </div>
+        </br>
+        <hr>
         <div class="col">
             <p>This section will show the Consoles attached to this ship</p>
             <?php

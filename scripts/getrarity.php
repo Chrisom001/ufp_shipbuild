@@ -22,5 +22,7 @@ if (isset($_POST['rarityValue'])) {
         $form .= '</select>';
         $form .= '</div>';
     }
+} else {
+    echo "Failure!!!";
 }
 ?>

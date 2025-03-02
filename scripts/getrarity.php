@@ -3,9 +3,9 @@
 if (isset($_POST['value'])) {
 //    echo "Rarity: " . $_POST['value'];
     $value = $_POST['value'];
-    echo "Rarity: " . $value . "<br>";
-    //$numOfModifiers = json_decode(getNumberOfModifiersByID($value));
-    //echo "Number of modifiers : ".$numOfModifiers;
+    //echo "Rarity: " . $value . "<br>";
+    $numOfModifiers = json_decode(getNumberOfModifiersByID($value));
+    echo "Number of modifiers : ".$numOfModifiers;
 //    var_dump($numOfModifiers);
 //    if ($numOfModifiers > 0) {
 //        for($i = 0; $i < $numOfModifiers; $i++) {

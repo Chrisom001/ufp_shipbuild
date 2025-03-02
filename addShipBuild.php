@@ -3,8 +3,6 @@ include "scripts/header.php";
 include "scripts/shipBuildForms.php";
 include "model/api_ships.php";
 
-echo getNumberOfModifiersByID(1);
-
 function databaseError(){
     echo "Please alert technical support of this error";
 }

@@ -121,7 +121,7 @@ if(!isset($_GET["id"])){
                     for($i=0; $i < $tacConsoleSlots; $i++) {
                         echo "<div class='col'>";
                         if ($countTac < $sizeOfTacConsoleArray) {
-                            echo "<p>Tactical console " . $i+1 . "</p>";
+                            echo "<p>Tactical console " . $i + 1 . ": " . $tacticalConsolesArray[$countTac] . "</p>";
                         } else {
                             echo "<p>Rear Weapon " . $i + 1 . ": " . " is empty</p>";
                         }

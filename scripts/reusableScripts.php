@@ -47,7 +47,7 @@ function weaponConsoleRepeater($shipID, $slotType, $numberOfSlots){
     }
     $itemArray = viewShipItems($slotType, $shipID);
     $slotArray = getNumberOfSlots($shipID);
-    var_dump($slotArray[0]);
+
     $sizeOfArray = count($itemArray);
     $count = 0;
     echo getNumSlotsFromArray($slotArray, $slotType);
@@ -67,9 +67,9 @@ function weaponConsoleRepeater($shipID, $slotType, $numberOfSlots){
 
 function getNumSlotsFromArray($slotArray, $type){
     for($i = 0; $i < count($slotArray); $i++){
-        if($slotArray[$i] == $type){
-            echo $slotArray[$i][$type];
-            return $slotArray[$i][$type];
+        if($slotArray["type"] == $type){
+            echo $slotArray[$i]["value"];
+            return $slotArray[$i]["value"];
         }
     }
 }
@@ -80,12 +80,12 @@ function getNumberOfSlots($shipID){
     $officeSlotJson = "";
 
     $slotArray = array();
-    $slotArray[] = array("foreweapons" => $weaponSlotData[0]->frontSlot);
-    $slotArray[] = array("rearweapons" => $weaponSlotData[0]->rearSlot);
-    $slotArray[] = array("engineering" => $consoleSlotJson[0]->engConsoleNum);
-    $slotArray[] = array("science" => $consoleSlotJson[0]->sciConsoleNum);
-    $slotArray[] = array("tactical" => $consoleSlotJson[0]->tacConsoleNum);
-    $slotArray[] = array("uniConsole" => $consoleSlotJson[0]->universalConsoleNum);
+    $slotArray[] = array("type" => "foreweapons", "value" => $weaponSlotData[0]->frontSlot);
+    $slotArray[] = array("type" => "rearweapons", "value" => $weaponSlotData[0]->rearSlot);
+    $slotArray[] = array("type" => "engineering", "value" => $consoleSlotJson[0]->engConsoleNum);
+    $slotArray[] = array("type" => "science", "value" => $consoleSlotJson[0]->sciConsoleNum);
+    $slotArray[] = array("type" => "tactical", "value" => $consoleSlotJson[0]->tacConsoleNum);
+    $slotArray[] = array("type" => "uniConsole", "value" => $consoleSlotJson[0]->universalConsoleNum);
 
     return $slotArray;
 }

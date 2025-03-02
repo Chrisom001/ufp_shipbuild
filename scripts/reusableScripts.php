@@ -52,13 +52,13 @@ function weaponConsoleRepeater($shipID, $slotType, $numberOfSlots){
     $sizeOfArray = count($itemArray);
     $count = 0;
     for($i=0; $i < $numberOfSlots; $i++) {
-        echo "<div class='col'>";
+        $result .= "<div class='col'>";
         if ($count < $sizeOfArray) {
             $result .= "<p>" . $slotTypeText . $i + 1 . ": " . $itemArray[$count] . "</p>";
         } else {
             $result .= "<p>" . $slotTypeText . $i + 1 . ": " . " is empty</p>";
         }
-        echo "</div>";
+        $result .= "</div>";
         $count++;
     }
 

@@ -23,6 +23,7 @@ if (isset($_POST['rarityValue'])) {
         $form .= '</div>';
     }
 } else {
+    var_dump($_POST['rarityValue']);
     echo "Failure!!!";
 }
 ?>

@@ -35,7 +35,6 @@ function readItemCombination($shipbuildID, $isCheck, $type){
         $readShipBuildByID = "SELECT * FROM itemCombination INNER JOIN equipmentType ON itemCombination.equipmentTypeID = equipmentType.id INNER JOIN equipmentTypes ON equipmentType.equipmentTypeID = equipmentTypes.id WHERE shipBuildID = $shipbuildID AND $isCheck = 1";
     }
 
-    echo $readShipBuildByID;
     $readShipBuildQuery = $pdo -> query($readShipBuildByID);
     $readShipBuilds = $readShipBuildQuery -> fetchAll(PDO::FETCH_OBJ);
 

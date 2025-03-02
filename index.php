@@ -3,6 +3,7 @@ include "scripts/header.php";
 include "model/api_shipBuild.php";
 include "model/api_shipType.php";
 include "model/api_users.php";
+include "model/api_shipTiers.php";
 $getAllShipsJson = json_decode(getLatestShipBuilds());
 $shipBuildForm = "";
 for($i = 0; $i < count($getAllShipsJson); $i++) {

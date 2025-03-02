@@ -123,10 +123,10 @@ if(!isset($_GET["id"])){
                         if ($countTac < $sizeOfTacConsoleArray) {
                             echo "<p>Tactical console " . $i + 1 . ": " . $tacticalConsolesArray[$countTac] . "</p>";
                         } else {
-                            echo "<p>Rear Weapon " . $i + 1 . ": " . " is empty</p>";
+                            echo "<p>Tactical console " . $i + 1 . ": " . " is empty</p>";
                         }
                         echo "</div>";
-                        $countRear++;
+                        $countTac++;
                     }
 //                    for($i=0; $i < $tacConsoleSlots; $i++){
 //                        echo "<div class='col'>";
@@ -137,15 +137,43 @@ if(!isset($_GET["id"])){
                 </div>
                 <div class="row">
                     <?php
-                    for($i=0; $i < $engConsoleSlots; $i++){
+                    $engineeringConsolesArray = viewShipItems("engineering", $id);
+
+                    $sizeOfEngConsoleArray = count($engineeringConsolesArray);
+                    $countEng = 0;
+                    for($i=0; $i < $engConsoleSlots; $i++) {
                         echo "<div class='col'>";
-                        echo "<p>Engineering Console " . $i+1 . "</p>";
+                        if ($countEng < $sizeOfEngConsoleArray) {
+                            echo "<p>Engineering console " . $i + 1 . ": " . $engineeringConsolesArray[$countEng] . "</p>";
+                        } else {
+                            echo "<p>Engineering console " . $i + 1 . ": " . " is empty</p>";
+                        }
                         echo "</div>";
+                        $countEng++;
                     }
+//                    for($i=0; $i < $engConsoleSlots; $i++){
+//                        echo "<div class='col'>";
+//                        echo "<p>Engineering Console " . $i+1 . "</p>";
+//                        echo "</div>";
+//                    }
                     ?>
                 </div>
                 <div class="row">
                     <?php
+                    $scienceConsolesArray = viewShipItems("science", $id);
+
+                    $sizeOfSciConsoleArray = count($scienceConsolesArray);
+                    $countSci = 0;
+                    for($i=0; $i < $sciConsoleSlots; $i++) {
+                        echo "<div class='col'>";
+                        if ($countSci < $sizeOfSciConsoleArray) {
+                            echo "<p>Science console " . $i + 1 . ": " . $scienceConsolesArray[$countSci] . "</p>";
+                        } else {
+                            echo "<p>Science console " . $i + 1 . ": " . " is empty</p>";
+                        }
+                        echo "</div>";
+                        $countSci++;
+                    }
                     for($i=0; $i < $sciConsoleSlots; $i++){
                         echo "<div class='col'>";
                         echo "<p>Science Console " . $i+1 . "</p>";

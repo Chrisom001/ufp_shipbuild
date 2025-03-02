@@ -17,6 +17,7 @@ if(!isset($_GET["id"])){
             $shipID = $shipBuildDetails[0]->shipID;
             $shipName = json_decode(getShipClassName($shipID));
             $userName = json_decode(getUserNameByID($shipBuildDetails[0]->userID));
+            $imageLocation = $shipBuildDetails[0]->imageName;
             $shipLongDescription = $shipBuildDetails[0]->shipBuildLongText;
         }
     }
@@ -36,7 +37,12 @@ if(!isset($_GET["id"])){
 <?php echo $navbar; ?>
 <div class="container">
 <!-- Content Here -->
-    <h1><?php echo $shipName; ?> by <?php echo $userName ?></h1>
+    <h1 style="text-align: center"><?php echo $shipName; ?> by <?php echo $userName ?></h1>
+    <?php
+    if($imageLocation != ""){
+        echo "<img src='images/$imageLocation' alt='Ship Image' style='width: 500px; height: 500px; align-content: center;'>";
+    }
+    ?>
     <p><?php echo $shipLongDescription?></p>
 
     <div class="row">

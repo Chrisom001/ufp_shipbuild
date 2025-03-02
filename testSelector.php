@@ -1,6 +1,7 @@
 <?php
 include "scripts/db_connection.php";
 include "model/api_modifiers.php";
+include "model/api_rarity.php";
 
 $options = getAllModifiersByEquipmentType(9);
 
@@ -16,7 +17,7 @@ $options = getAllModifiersByEquipmentType(9);
         document.addEventListener("DOMContentLoaded", function () {
             let options = <?php echo $options; ?>; // Convert PHP array to JavaScript
 
-            document.getElementById("numDropdowns").addEventListener("change", function () {
+            document.getElementById("raritySelect").addEventListener("change", function () {
                 let num = this.value;
                 let container = document.getElementById("dropdownContainer");
                 container.innerHTML = ""; // Clear previous dropdowns
@@ -42,15 +43,24 @@ $options = getAllModifiersByEquipmentType(9);
 <body>
 
 <form method="POST">
-    <label for="numDropdowns">Select Number of Dropdowns:</label>
-    <select id="numDropdowns" name="numDropdowns">
-        <option value="0">Select</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select>
+    <label for="raritySelect">Select Rarity:</label>
+    <select id="raritySelect" name="raritySelect">
+    <?php
+        echo '<option selected>Rarity</option>';
+        $getItemRaritysJson = json_decode(getAllRaritys());
+        for($i=0;$i<sizeof($getItemRaritysJson);$i++){
+            echo "<option value='".$getItemRaritysJson[$i]->id."'>".$getItemRaritysJson[$i]->rarityType."</option>";
+        }
+    ?>
+<!--    <label for="numDropdowns">Select Number of Dropdowns:</label>-->
+<!--    <select id="numDropdowns" name="numDropdowns">-->
+<!--        <option value="0">Select</option>-->
+<!--        <option value="1">1</option>-->
+<!--        <option value="2">2</option>-->
+<!--        <option value="3">3</option>-->
+<!--        <option value="4">4</option>-->
+<!--        <option value="5">5</option>-->
+<!--    </select>-->
 
     <div id="dropdownContainer"></div>
 

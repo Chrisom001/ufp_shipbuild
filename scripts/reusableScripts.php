@@ -4,6 +4,8 @@ include "model/api_equipmentType.php";
 include "model/api_damageType.php";
 include "model/api_itemTiers.php";
 include "model/api_itemCombination.php";
+include "model/api_bridgeOfficers.php";
+
 function viewShipItems($type, $shipID){
     $itemType = "";
     $check ="";
@@ -82,7 +84,6 @@ function getNumSlotsFromArray($slotArray, $type){
 function getNumberOfSlots($shipID){
     $weaponSlotData = json_decode(getShipWeaponSlots($shipID));
     $consoleSlotJson = json_decode(getConsoleSlotsByShipTypeID($shipID));
-    $officeSlotJson = "";
 
     $slotArray = array();
     $slotArray[] = array("type" => "foreweapons", "value" => $weaponSlotData[0]->frontSlot);
@@ -93,5 +94,23 @@ function getNumberOfSlots($shipID){
     $slotArray[] = array("type" => "uniConsole", "value" => $consoleSlotJson[0]->universalConsoleNum);
 
     return $slotArray;
+}
+
+function getBridgeOfficerSlots($shipID){
+    $bridgeOfficerSlots = json_decode(getOfficers($shipID));
+    $result = "";
+    for($i = 0; $i < count($bridgeOfficerSlots); $i++){
+        $result .= "<div class='row'>";
+        $result .= "<p>Slot1:". $bridgeOfficerSlots[$i]->slotType ."</p>";
+        for($j =0; $j < 3; $j++){
+            $abilityID = "ability" . ($j+1) . "ID";
+            if($bridgeOfficerSlots[$i]->$abilityID != null){
+                $abilityName = getAbilityNameByID($bridgeOfficerSlots[$i]->$abilityID);
+                $result .= "<div class='col'>Officer Power " . ($j+1) .": " . $abilityName . "</div>";
+            }
+        }
+        $result .= "</div>";
+    }
+    return $result;
 }
 ?>

@@ -1,40 +1,48 @@
+<?php
+include "model/api_rarity.php";
+
+$options = getAllModifiers();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Dropdowns</title>
+    <title>Dynamic Dropdowns with DB Options</title>
     <script>
-        function generateDropdowns() {
-            let num = document.getElementById("numDropdowns").value;
-            let container = document.getElementById("dropdownContainer");
-            container.innerHTML = ""; // Clear previous dropdowns
+        document.addEventListener("DOMContentLoaded", function () {
+            let options = <?php echo $options; ?>; // Convert PHP array to JavaScript
 
-            for (let i = 0; i < num; i++) {
-                let select = document.createElement("select");
-                select.name = "dropdown" + (i + 1);
+            document.getElementById("numDropdowns").addEventListener("change", function () {
+                let num = this.value;
+                let container = document.getElementById("dropdownContainer");
+                container.innerHTML = ""; // Clear previous dropdowns
 
-                let option1 = document.createElement("option");
-                option1.value = "Option1";
-                option1.text = "Option 1";
+                for (let i = 0; i < num; i++) {
+                    let select = document.createElement("select");
+                    select.name = "dropdown" + (i + 1);
 
-                let option2 = document.createElement("option");
-                option2.value = "Option2";
-                option2.text = "Option 2";
+                    options.forEach(option => {
+                        let opt = document.createElement("option");
+                        opt.value = option.id;
+                        opt.text = option.name;
+                        select.appendChild(opt);
+                    });
 
-                select.appendChild(option1);
-                select.appendChild(option2);
-                container.appendChild(select);
-                container.appendChild(document.createElement("br"));
-            }
-        }
+                    container.appendChild(select);
+                    container.appendChild(document.createElement("br"));
+                }
+            });
+        });
     </script>
 </head>
 <body>
 
 <form method="POST">
     <label for="numDropdowns">Select Number of Dropdowns:</label>
-    <select id="numDropdowns" name="numDropdowns" onchange="generateDropdowns()">
+    <select id="numDropdowns" name="numDropdowns">
         <option value="0">Select</option>
         <option value="1">1</option>
         <option value="2">2</option>

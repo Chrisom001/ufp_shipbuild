@@ -206,6 +206,6 @@ include "model/api_shipType.php";
         $form .= "<input type='hidden' name='shipSelector' value='$shipID'>";
         $form .= "<input type='submit' value='Submit'>";
         $form .= "</form>";
-        return form;
+        return $form;
     }
 ?>

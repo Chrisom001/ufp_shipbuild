@@ -1,8 +1,8 @@
 <?php
 include "scripts/header.php";
 include "scripts/reusableScripts.php";
-?>
 
+?>
 <!doctype html>
 <html lang="en">
 <head>

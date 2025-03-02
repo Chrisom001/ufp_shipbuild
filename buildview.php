@@ -1,9 +1,6 @@
 <?php
 include "scripts/header.php";
 include "scripts/reusableScripts.php";
-include "model/api_shipBuild.php";
-include "model/api_users.php";
-include "model/api_ships.php";
 
 if(!isset($_GET["id"])){
     header("Location: index.php");

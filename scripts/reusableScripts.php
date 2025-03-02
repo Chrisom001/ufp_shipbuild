@@ -46,7 +46,8 @@ function weaponConsoleRepeater($shipID, $slotType, $numberOfSlots){
         $slotTypeText = "Tactical Console";
     }
     $itemArray = viewShipItems($slotType, $shipID);
-
+    $slotArray = getNumberOfSlots($shipID);
+    var_dump($slotArray);
 
     $sizeOfArray = count($itemArray);
     $count = 0;
@@ -62,5 +63,20 @@ function weaponConsoleRepeater($shipID, $slotType, $numberOfSlots){
     }
 
     return $result;
+}
+
+function getNumberOfSlots($shipID){
+    $weaponSlotData = json_decode(getShipWeaponSlots($shipID));
+    $consoleSlotJson = json_decode(getConsoleSlotsByShipTypeID($shipID));
+
+    $slotArray = array();
+    $slotArray[] = $weaponSlotData[0]->frontSlot;
+    $slotArray[] = $weaponSlotData[0]->rearSlot;
+    $slotArray[] = $consoleSlotJson[0]->engConsoleNum;
+    $slotArray[] = $consoleSlotJson[0]->sciConsoleNum;
+    $slotArray[] = $consoleSlotJson[0]->tacConsoleNum;
+    $slotArray[] = $consoleSlotJson[0]->universalConsoleNum;
+
+    return $slotArray;
 }
 ?>

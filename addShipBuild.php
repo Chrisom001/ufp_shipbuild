@@ -72,9 +72,6 @@ function databaseError(){
                     myFunction(response);
                     $('#modifierColumn').html(response);
                 }
-                error: function(response){
-                    myFunction(response);
-                }
             });
         });
     });

@@ -1,35 +1,8 @@
 <?php
 include "scripts/header.php";
-include "model/api_shipBuild.php";
-include "model/api_shipType.php";
-include "model/api_users.php";
-include "model/api_shipTiers.php";
-$getAllShipsJson = json_decode(getLatestShipBuilds());
-$shipBuildForm = "";
-for($i = 0; $i < count($getAllShipsJson); $i++) {
-    $shipBuildForm .= "<div class='container text-center'>";
-    $shipBuildForm .= "<div class='row'>";
-    $shipBuildForm .= "<div class='col'>";
-    $shipBuildForm .= "<div class='card' style='width: 18rem;'>";
-    $shipBuildForm .= "<img src='userimages/". $getAllShipsJson[$i]->imageName ."' class='card-img-top' alt='...'>";
-    $shipBuildForm .= "<div class='card-body'>";
-    $shipBuildForm .= "<h5 class='card-title'>". $getAllShipsJson[$i]->shipName ."</h5>";
-    $shipBuildForm .= "<p class='card-text'>".$getAllShipsJson[$i]->shipBuildDescription."</p>";
-    $shipBuildForm .= "<ul class='list-group list-group-flush'>";
-    $shipBuildForm .= "<li class='list-group-item'>Faction: " . $getAllShipsJson[$i]->shipFaction."</li>";
-    $shipBuildForm .= "<li class='list-group-item'>Ship Type: ".json_decode(getShipTypeByID($getAllShipsJson[$i]->shipTypeID))."</li>";
-    $shipBuildForm .= "<li class='list-group-item'>Tier: " . json_decode(getShipTierById($getAllShipsJson[$i]->shipTierID)) . "</li>";
-    $shipBuildForm .= "<li class='list-group-item'>Created by: ".json_decode(checkUsernameByID($getAllShipsJson[$i]->userID))."</li>";
-    $shipBuildForm .= "</ul>";
-    $shipBuildForm .= " <a href='buildview.php?id=".$getAllShipsJson[$i]->id."' class='btn btn-primary'>View this build</a>";
-    $shipBuildForm .= "</div>";
-    $shipBuildForm .= "</div>";
-    $shipBuildForm .= "</div>";
-    $shipBuildForm .= "</div>";
-    $shipBuildForm .= "</div>";
-}
-
+include "scripts/reusableScripts.php";
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -52,7 +25,7 @@ for($i = 0; $i < count($getAllShipsJson); $i++) {
         <!-- Content here -->
         <h2>Latest Builds</h2>
         <?php
-        echo $shipBuildForm;
+        echo shipBuildFormHomepage();
         ?>
     </div>
 </div>

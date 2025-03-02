@@ -17,7 +17,7 @@ function viewShipItems($type, $shipID){
     foreach($shipItems as $shipItem){
         if($shipItem->$check == 1){
             if($itemType == "console"){
-                if($shipItem->equipmentType == $type){
+                if($shipItem->equipmentType == "tactical"){
                     $consoleData = json_decode(getEquipmentNameById($shipItem->equipmentTypeID)) . " MK" . json_decode(getItemTierById($shipItem->itemTierID));
                     $WeaponsArray[] = $consoleData;
                 }

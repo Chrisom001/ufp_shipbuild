@@ -10,7 +10,7 @@ for($i = 0; $i < count($getAllShipsJson); $i++) {
     $shipBuildForm .= "<div class='row'>";
     $shipBuildForm .= "<div class='col'>";
     $shipBuildForm .= "<div class='card' style='width: 18rem;'>";
-    $shipBuildForm .= "<img src='...' class='card-img-top' alt='...'>";
+    $shipBuildForm .= "<img src='userimages/". $getAllShipsJson[$i]->imageName ."' class='card-img-top' alt='...'>";
     $shipBuildForm .= "<div class='card-body'>";
     $shipBuildForm .= "<h5 class='card-title'>". $getAllShipsJson[$i]->shipName ."</h5>";
     $shipBuildForm .= "<p class='card-text'>".$getAllShipsJson[$i]->shipBuildDescription."</p>";

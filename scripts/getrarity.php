@@ -3,6 +3,7 @@ if (isset($_POST['rarityValue'])) {
     echo "Rarity: " . $_POST['rarityValue'];
     $value = $_POST['rarityValue'];
     $numOfModifiers = json_decode(getNumberOfModifiersByID($value));
+    var_dump($numOfModifiers);
     if ($numOfModifiers > 0) {
         for($i = 0; $i < $numOfModifiers; $i++) {
             $form .= '<div class="col">';

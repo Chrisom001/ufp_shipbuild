@@ -25,7 +25,7 @@ if(!isset($_GET["id"])){
             $shipName = json_decode(getShipClassName($shipID));
             $userName = json_decode(getUserNameByID($shipBuildDetails[0]->userID));
             $shipLongDescription = $shipBuildDetails[0]->shipBuildLongText;
-            $shipItemJson = json_decode(readItemCombination($id));
+            //$shipItemJson = json_decode(readItemCombination($id));
             $weaponSlotJson = getShipWeaponSlots($shipID);
             $weaponSlotData = json_decode($weaponSlotJson);
             $fore = $weaponSlotData[0]->frontSlot;

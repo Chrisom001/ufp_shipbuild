@@ -1,7 +1,7 @@
 <?php
-if (isset($_POST['rarityValue'])) {
-    echo "Rarity: " . $_POST['rarityValue'];
-    $value = $_POST['rarityValue'];
+if (isset($_POST['rarityEntry'])) {
+    echo "Rarity: " . $_POST['rarityEntry'];
+    $value = $_POST['rarityEntry'];
     $numOfModifiers = json_decode(getNumberOfModifiersByID($value));
     var_dump($numOfModifiers);
     if ($numOfModifiers > 0) {

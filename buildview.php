@@ -18,7 +18,6 @@ if(!isset($_GET["id"])){
             $shipName = json_decode(getShipClassName($shipID));
             $userName = json_decode(getUserNameByID($shipBuildDetails[0]->userID));
             $imageLocation = $shipBuildDetails[0]->imageName;
-            echo $imageLocation;
             $shipLongDescription = $shipBuildDetails[0]->shipBuildLongText;
         }
     }
@@ -41,7 +40,7 @@ if(!isset($_GET["id"])){
     <h1 style="text-align: center"><?php echo $shipName; ?> by <?php echo $userName ?></h1>
     <?php
     if($imageLocation != ""){
-        echo "<img src='images/$imageLocation' alt='Ship Image' style='width: 500px; height: 500px; align-content: center;'>";
+        echo "<img src='userimages/$imageLocation' alt='Ship Image' style='width: 500px; height: 500px; align-content: center;'>";
     }
     ?>
     <p><?php echo $shipLongDescription?></p>

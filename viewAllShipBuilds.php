@@ -26,38 +26,44 @@ $paginationOutput = displayPagination(null, $currentPage, $numOfPages, "article"
 //This uses the ID, Current Page Number and Number of Pages to generate the pagination bar for the bottom of the page
 
 
-$articleOutput = "";
+$shipBuildForm = "";
 $artCount = 0;  //This starts a counter to record how many articles have been displayed
 $artRow = 1;	//This shows how far the row counter is.
 
 $shipBuildjson = json_decode($shipBuildtxt);
 
 if (sizeof($shipBuildjson) < 1){
-    $articleOutput .= "There were no ship builds found";
+    $shipBuildForm .= "There were no ship builds found";
 } else {
     for ($i=0; $i<sizeof($shipBuildjson); $i++){
         $artCount++;
         if($artCount == 1 || $artCount == $artRow + 3){
-            $articleOutput .= "<div class='row'>";
+            $shipBuildForm .= "<div class='row'>";
             if($artCount != 1){
                 $artRow = $artRow + 3;
             }
         }
 
-        $articleOutput .= "<div class='col-sm'>";
-        $articleOutput .= "<div class='card' style='width: 18rem;'>";
-        $articleOutput .= "<img class='card-img-top' src='' alt='fakenews' height='150' width='200'>";
-        $articleOutput .= "<div class='card-body'>";
-        $articleOutput .= "<h5 class='card-title'>123</h5>";
-        $articleOutput .= "<p class='card-text'>123</p>";
-        $articleOutput .= "<a href='displayArticle.php?id=1234' class='btn btn-primary'>Read Article</a>";
-        $articleOutput .= "</div>";
-        $articleOutput .= "</div>";
-        $articleOutput .= "</div>";
+        $shipBuildForm .= "<div class='col'>";
+        $shipBuildForm .= "<div class='card' style='width: 18rem;'>";
+        $shipBuildForm .= "<img src='userimages/" . $getAllShipsJson[$i]->imageName . "' class='card-img-top' alt='...'>";
+        $shipBuildForm .= "<div class='card-body'>";
+        $shipBuildForm .= "<h5 class='card-title'>" . $getAllShipsJson[$i]->shipName . "</h5>";
+        $shipBuildForm .= "<p class='card-text'>" . $getAllShipsJson[$i]->shipBuildDescription . "</p>";
+        $shipBuildForm .= "<ul class='list-group list-group-flush'>";
+        $shipBuildForm .= "<li class='list-group-item'>Faction: " . $getAllShipsJson[$i]->shipFaction . "</li>";
+        $shipBuildForm .= "<li class='list-group-item'>Ship Type: " . json_decode(getShipTypeByID($getAllShipsJson[$i]->shipTypeID)) . "</li>";
+        $shipBuildForm .= "<li class='list-group-item'>Tier: " . json_decode(getShipTierById($getAllShipsJson[$i]->shipTierID)) . "</li>";
+        $shipBuildForm .= "<li class='list-group-item'>Created by: " . json_decode(checkUsernameByID($getAllShipsJson[$i]->userID)) . "</li>";
+        $shipBuildForm .= "</ul>";
+        $shipBuildForm .= " <a href='buildview.php?id=" . $getAllShipsJson[$i]->id . "' class='btn btn-primary'>View this build</a>";
+        $shipBuildForm .= "</div>";
+        $shipBuildForm .= "</div>";
+        $shipBuildForm .= "</div>";
 
         //This checks if the article ID can be divided by three, as if it can be, then a new row needs to be started.
         if($artCount == 3) {
-            $articleOutput .= "</div> <hr>";
+            $shipBuildForm .= "</div> <hr>";
         }
     }
 }

@@ -122,25 +122,31 @@ function shipBuildFormHomepage(){
     for($i = 0; $i < count($getAllShipsJson); $i++) {
         $shipBuildForm .= "<div class='container text-center'>";
         $shipBuildForm .= "<div class='row'>";
-        $shipBuildForm .= "<div class='col'>";
-        $shipBuildForm .= "<div class='card' style='width: 18rem;'>";
-        $shipBuildForm .= "<img src='userimages/" . $getAllShipsJson[$i]->imageName . "' class='card-img-top' alt='...'>";
-        $shipBuildForm .= "<div class='card-body'>";
-        $shipBuildForm .= "<h5 class='card-title'>" . $getAllShipsJson[$i]->shipName . "</h5>";
-        $shipBuildForm .= "<p class='card-text'>" . $getAllShipsJson[$i]->shipBuildDescription . "</p>";
-        $shipBuildForm .= "<ul class='list-group list-group-flush'>";
-        $shipBuildForm .= "<li class='list-group-item'>Faction: " . $getAllShipsJson[$i]->shipFaction . "</li>";
-        $shipBuildForm .= "<li class='list-group-item'>Ship Type: " . json_decode(getShipTypeByID($getAllShipsJson[$i]->shipTypeID)) . "</li>";
-        $shipBuildForm .= "<li class='list-group-item'>Tier: " . json_decode(getShipTierById($getAllShipsJson[$i]->shipTierID)) . "</li>";
-        $shipBuildForm .= "<li class='list-group-item'>Created by: " . json_decode(checkUsernameByID($getAllShipsJson[$i]->userID)) . "</li>";
-        $shipBuildForm .= "</ul>";
-        $shipBuildForm .= " <a href='buildview.php?id=" . $getAllShipsJson[$i]->id . "' class='btn btn-primary'>View this build</a>";
-        $shipBuildForm .= "</div>";
-        $shipBuildForm .= "</div>";
-        $shipBuildForm .= "</div>";
+        $shipBuildForm .= shipCardBuilder($getAllShipsJson[$i]);
         $shipBuildForm .= "</div>";
         $shipBuildForm .= "</div>";
         return $shipBuildForm;
     }
+}
+
+function shipCardBuilder($getShipsData){
+    $shipBuildForm = "";
+    $shipBuildForm .= "<div class='col'>";
+    $shipBuildForm .= "<div class='card' style='width: 18rem;'>";
+    $shipBuildForm .= "<img src='userimages/" . $getShipsData->imageName . "' class='card-img-top' alt='...'>";
+    $shipBuildForm .= "<div class='card-body'>";
+    $shipBuildForm .= "<h5 class='card-title'>" . $getShipsData->shipName . "</h5>";
+    $shipBuildForm .= "<p class='card-text'>" . $getShipsData->shipBuildDescription . "</p>";
+    $shipBuildForm .= "<ul class='list-group list-group-flush'>";
+    $shipBuildForm .= "<li class='list-group-item'>Faction: " . $getShipsData->shipFaction . "</li>";
+    $shipBuildForm .= "<li class='list-group-item'>Ship Type: " . json_decode(getShipTypeByID($getShipsData->shipTypeID)) . "</li>";
+    $shipBuildForm .= "<li class='list-group-item'>Tier: " . json_decode(getShipTierById($getShipsData->shipTierID)) . "</li>";
+    $shipBuildForm .= "<li class='list-group-item'>Created by: " . json_decode(checkUsernameByID($getShipsData->userID)) . "</li>";
+    $shipBuildForm .= "</ul>";
+    $shipBuildForm .= " <a href='buildview.php?id=" . $getShipsData->id . "' class='btn btn-primary'>View this build</a>";
+    $shipBuildForm .= "</div>";
+    $shipBuildForm .= "</div>";
+    $shipBuildForm .= "</div>";
+    return $shipBuildForm;
 }
 ?>

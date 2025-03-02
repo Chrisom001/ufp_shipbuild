@@ -130,7 +130,6 @@ function shipBuildFormHomepage(){
 }
 
 function shipCardBuilder($getShipsData){
-    var_dump($getShipsData);
     $shipBuildForm = "";
     $shipBuildForm .= "<div class='col'>";
     $shipBuildForm .= "<div class='card' style='width: 18rem;'>";

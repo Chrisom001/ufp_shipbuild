@@ -9,21 +9,21 @@ if (isset($_POST['value'])) {
 //    var_dump($numOfModifiers);
     if ($numOfModifiers > 0) {
         for($i = 0; $i < $numOfModifiers; $i++) {
-            $form .= '<div class="col">';
-            $form .= '<select class="form-select" aria-label="Default select example">';
-            $form .= '<option selected>Mod 1</option>';
-            $form .= '<option value="1">ACC</option>';
-            $form .= '<option value="2">ACC2</option>';
-            $form .= '<option value="3">ACC3</option>';
-            $form .= '</select>';
-            $form .= '</div>';
+            echo '<div class="col">';
+            echo '<select class="form-select" aria-label="Default select example">';
+            echo '<option selected>Mod 1</option>';
+            echo '<option value="1">ACC</option>';
+            echo '<option value="2">ACC2</option>';
+            echo '<option value="3">ACC3</option>';
+            echo '</select>';
+            echo '</div>';
         }
     } else {
-        $form .= '<div class="col">';
-        $form .= '<select class="form-select" aria-label="Default select example">';
-        $form .= '<option selected>No modifiers available</option>';
-        $form .= '</select>';
-        $form .= '</div>';
+        echo '<div class="col">';
+        echo '<select class="form-select" aria-label="Default select example">';
+        echo '<option selected value='-1'>No modifiers available</option>';
+        echo '</select>';
+        echo '</div>';
     }
 } else {
     var_dump($_POST['value']);

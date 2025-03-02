@@ -32,7 +32,6 @@ function viewShipItems($type, $shipID){
 }
 
 function weaponConsoleRepeater($shipID, $slotType, $numberOfSlots){
-    $type = "";
     $result = "";
     $slotTypeText = "";
     if($slotType == "foreweapons"){
@@ -54,9 +53,9 @@ function weaponConsoleRepeater($shipID, $slotType, $numberOfSlots){
     for($i=0; $i < $numberOfSlots; $i++) {
         $result .= "<div class='col'>";
         if ($count < $sizeOfArray) {
-            $result .= "<p>" . $slotTypeText . $i + 1 . ": " . $itemArray[$count] . "</p>";
+            $result .= "<p>" . $slotTypeText . ($i + 1) . ": " . $itemArray[$count] . "</p>";
         } else {
-            $result .= "<p>" . $slotTypeText . $i + 1 . ": " . " is empty</p>";
+            $result .= "<p>" . $slotTypeText . ($i + 1) . ": " . " is empty</p>";
         }
         $result .= "</div>";
         $count++;

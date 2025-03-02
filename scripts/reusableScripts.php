@@ -62,6 +62,6 @@ function weaponConsoleRepeater($shipID, $slotType, $numberOfSlots){
         $count++;
     }
 
-    return result;
+    return $result;
 }
 ?>

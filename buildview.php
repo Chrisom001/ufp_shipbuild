@@ -76,8 +76,8 @@ if(!isset($_GET["id"])){
             <p>This section will show the Consoles attached to this ship</p>
             <?php
 
-            $result = weaponConsoleRepeater($id, "uni");
-            echo $result;
+            //$result = weaponConsoleRepeater($id, "uni");
+            //echo $result;
             ?>
                 <div class="row">
                     <?php

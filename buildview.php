@@ -60,16 +60,9 @@ if(!isset($_GET["id"])){
         <div class="col">
             <p>This section will show the weapons attached to this ship</p>
             <div class="row">
-                <?php
-                    $WeaponsArray = viewShipItems("foreweapons", $id);
-                    //$shipItems = json_decode(readItemCombination($id));
-                    //$WeaponsArray = array();
-                //foreach($shipItems as $shipItem){
-                    //if($shipItem->isFrontWeapon == 1){
-                        //$weaponData = json_decode(getDamageTypeByID($shipItem->damageTypeID)) . " " . json_decode(getEquipmentNameById($shipItem->equipmentTypeID)) . " MK" . json_decode(getItemTierById($shipItem->itemTierID));
-                        //$WeaponsArray[] = $weaponData;
-                    //}
-                //}
+            <?php
+                $WeaponsArray = viewShipItems("foreweapons", $id);
+
                 $sizeOfArray = count($WeaponsArray);
                 $count = 0;
                 for($i=0; $i < $fore; $i++){
@@ -81,17 +74,26 @@ if(!isset($_GET["id"])){
                     }
                     echo "</div>";
                     $count++;
-                    }
-                ?>
+                }
+            ?>
             </div>
             <br/>
             <div class="row">
                 <?php
-                    for($i=0; $i < $rear; $i++){
-                        echo "<div class='col'>";
-                        echo "<p>Rear Weapon " . $i+1 . "</p>";
-                        echo "</div>";
+                $WeaponsArrayRear = viewShipItems("rearweapons", $id);
+
+                $sizeOfArrayRear = count($WeaponsArrayRear);
+                $countRear = 0;
+                for($i=0; $i < $rear; $i++) {
+                    echo "<div class='col'>";
+                    if ($countRear < $sizeOfArrayRear) {
+                        echo "<p>Rear Weapon " . $i + 1 . $WeaponsArrayRear[$countRear] . "</p>";
+                    } else {
+                        echo "<p>Rear Weapon " . $i + 1 . " is empty</p>";
                     }
+                    echo "</div>";
+                    $countRear++;
+                }
                 ?>
             </div>
         </div>

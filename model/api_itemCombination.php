@@ -30,7 +30,6 @@ function addItemCombination($shipBuild, $equipmentType, $itemType, $rarityType, 
 function readItemCombination($shipbuildID){
     global $pdo;
     $readShipBuildByID = "SELECT * FROM itemCombination INNER JOIN equipmentType ON itemCombination.equipmentTypeID = equipmentType.id INNER JOIN equipmentTypes ON equipmentType.equipmentTypeID = equipmentTypes.id WHERE shipBuildID = $shipbuildID";
-    echo $readShipBuildByID;
     $readShipBuildQuery = $pdo -> query($readShipBuildByID);
     $readShipBuilds = $readShipBuildQuery -> fetchAll(PDO::FETCH_OBJ);
 

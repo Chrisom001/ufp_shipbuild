@@ -65,7 +65,7 @@ function databaseError(){
             var rarityValue = $(this).val();
 
             $.ajax({
-                url: 'scripts/getoptions.php',
+                url: 'scripts/getrarity.php',
                 type: 'POST',
                 data: { value: rarityValue },
                 success: function(response) {

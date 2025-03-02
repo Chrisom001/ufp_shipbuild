@@ -74,7 +74,8 @@ function databaseError(){
                     }
                 }
             }
-
+            echo "<input type='hidden' name='userID' value='1'>";
+            echo "<input type='hidden' name='shipSelector' value='$shipID'>";
             echo "<input type='submit' value='Submit'>";
             echo "</form>";
         }

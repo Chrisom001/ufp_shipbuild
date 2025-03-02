@@ -31,7 +31,7 @@ function viewShipItems($type, $shipID){
     return $WeaponsArray;
 }
 
-function weaponConsoleRepeater($shipID, $slotType, $numberOfSlots){
+function weaponConsoleRepeater($shipID, $slotType){
     $result = "";
     $slotTypeText = "";
     if($slotType == "foreweapons"){
@@ -47,7 +47,6 @@ function weaponConsoleRepeater($shipID, $slotType, $numberOfSlots){
     }
     $itemArray = viewShipItems($slotType, $shipID);
     $slotArray = getNumberOfSlots($shipID);
-    var_dump($slotArray);
     $sizeOfArray = count($itemArray);
     $count = 0;
     echo getNumSlotsFromArray($slotArray, $slotType);
@@ -68,7 +67,6 @@ function weaponConsoleRepeater($shipID, $slotType, $numberOfSlots){
 function getNumSlotsFromArray($slotArray, $type){
     for($i = 0; $i < count($slotArray); $i++){
         if($slotArray[$i]["type"] == $type){
-            echo $slotArray[$i]["value"];
             return $slotArray[$i]["value"];
         }
     }

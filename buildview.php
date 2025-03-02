@@ -25,15 +25,15 @@ if(!isset($_GET["id"])){
             $shipName = json_decode(getShipClassName($shipID));
             $userName = json_decode(getUserNameByID($shipBuildDetails[0]->userID));
             $shipLongDescription = $shipBuildDetails[0]->shipBuildLongText;
-            $weaponSlotJson = getShipWeaponSlots($shipID);
-            $weaponSlotData = json_decode($weaponSlotJson);
-            $fore = $weaponSlotData[0]->frontSlot;
-            $rear = $weaponSlotData[0]->rearSlot;
-            $consoleSlotJson = json_decode(getConsoleSlotsByShipTypeID($shipID));
-            $engConsoleSlots = $consoleSlotJson[0]->engConsoleNum;
-            $sciConsoleSlots = $consoleSlotJson[0]->sciConsoleNum;
-            $tacConsoleSlots = $consoleSlotJson[0]->tacConsoleNum;
-            $uniConsoleSlots = $consoleSlotJson[0]->universalConsoleNum;
+            //$weaponSlotJson = getShipWeaponSlots($shipID);
+            //$weaponSlotData = json_decode($weaponSlotJson);
+            //$fore = $weaponSlotData[0]->frontSlot;
+            //$rear = $weaponSlotData[0]->rearSlot;
+            //$consoleSlotJson = json_decode(getConsoleSlotsByShipTypeID($shipID));
+            //$engConsoleSlots = $consoleSlotJson[0]->engConsoleNum;
+           // $sciConsoleSlots = $consoleSlotJson[0]->sciConsoleNum;
+            //$tacConsoleSlots = $consoleSlotJson[0]->tacConsoleNum;
+            //$uniConsoleSlots = $consoleSlotJson[0]->universalConsoleNum;
         }
     }
 }
@@ -60,14 +60,14 @@ if(!isset($_GET["id"])){
             <p>This section will show the weapons attached to this ship</p>
             <div class="row">
             <?php
-            $result = weaponConsoleRepeater($id, "foreweapons",$fore);
+            $result = weaponConsoleRepeater($id, "foreweapons");
             echo $result;
             ?>
             </div>
             <br/>
             <div class="row">
                 <?php
-                $result = weaponConsoleRepeater($id, "rearweapons",$rear);
+                $result = weaponConsoleRepeater($id, "rearweapons");
                 echo $result;
                 ?>
             </div>
@@ -90,19 +90,19 @@ if(!isset($_GET["id"])){
             ?>
                 <div class="row">
                     <?php
-                    $result = weaponConsoleRepeater($id, "tactical", $rear);
+                    $result = weaponConsoleRepeater($id, "tactical");
                     echo $result;
                     ?>
                 </div>
                 <div class="row">
                     <?php
-                    $result = weaponConsoleRepeater($id, "engineering", $rear);
+                    $result = weaponConsoleRepeater($id, "engineering");
                     echo $result;
                     ?>
                 </div>
                 <div class="row">
                     <?php
-                    $result = weaponConsoleRepeater($id, "science", $rear);
+                    $result = weaponConsoleRepeater($id, "science");
                     echo $result;
                     ?>
                 </div>

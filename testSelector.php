@@ -49,7 +49,7 @@ $options = getAllModifiersByEquipmentType(9);
         echo '<option selected>Rarity</option>';
         $getItemRaritysJson = json_decode(getAllRaritys());
         for($i=0;$i<sizeof($getItemRaritysJson);$i++){
-            echo "<option value='".$getItemRaritysJson[$i]->id."'>".$getItemRaritysJson[$i]->rarityType."</option>";
+            echo "<option value='".$getItemRaritysJson[$i]->modifierCount."'>".$getItemRaritysJson[$i]->rarityType."</option>";
         }
     ?>
 <!--    <label for="numDropdowns">Select Number of Dropdowns:</label>-->

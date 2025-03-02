@@ -85,7 +85,6 @@ if(!isset($_GET["id"])){
                 </div>
             </div>
         </div>
-    </div>
     <p>Seating for the ship will go here</p>
     <?php
     $result = getBridgeOfficerSlots($id);

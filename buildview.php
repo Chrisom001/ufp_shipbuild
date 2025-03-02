@@ -18,6 +18,7 @@ if(!isset($_GET["id"])){
             $shipName = json_decode(getShipClassName($shipID));
             $userName = json_decode(getUserNameByID($shipBuildDetails[0]->userID));
             $imageLocation = $shipBuildDetails[0]->imageName;
+            echo $imageLocation;
             $shipLongDescription = $shipBuildDetails[0]->shipBuildLongText;
         }
     }

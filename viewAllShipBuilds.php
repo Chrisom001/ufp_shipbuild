@@ -1,7 +1,7 @@
 <?php
 include "scripts/header.php";
 include "scripts/pagination.php";
-include "model/api_shipBuild.php";
+include "scripts/reusableScripts.php";
 
 //This controls the paginations current page, how many pages there will be and hte offset for the SQL query
 $currentPage = "0";
@@ -44,23 +44,7 @@ if (sizeof($shipBuildjson) < 1){
             }
         }
 
-        $shipBuildForm .= "<div class='col'>";
-        $shipBuildForm .= "<div class='card' style='width: 18rem;'>";
-        $shipBuildForm .= "<img src='userimages/" . $getAllShipsJson[$i]->imageName . "' class='card-img-top' alt='...'>";
-        $shipBuildForm .= "<div class='card-body'>";
-        $shipBuildForm .= "<h5 class='card-title'>" . $getAllShipsJson[$i]->shipName . "</h5>";
-        $shipBuildForm .= "<p class='card-text'>" . $getAllShipsJson[$i]->shipBuildDescription . "</p>";
-        $shipBuildForm .= "<ul class='list-group list-group-flush'>";
-        $shipBuildForm .= "<li class='list-group-item'>Faction: " . $getAllShipsJson[$i]->shipFaction . "</li>";
-        $shipBuildForm .= "<li class='list-group-item'>Ship Type: " . json_decode(getShipTypeByID($getAllShipsJson[$i]->shipTypeID)) . "</li>";
-        $shipBuildForm .= "<li class='list-group-item'>Tier: " . json_decode(getShipTierById($getAllShipsJson[$i]->shipTierID)) . "</li>";
-        $shipBuildForm .= "<li class='list-group-item'>Created by: " . json_decode(checkUsernameByID($getAllShipsJson[$i]->userID)) . "</li>";
-        $shipBuildForm .= "</ul>";
-        $shipBuildForm .= " <a href='buildview.php?id=" . $getAllShipsJson[$i]->id . "' class='btn btn-primary'>View this build</a>";
-        $shipBuildForm .= "</div>";
-        $shipBuildForm .= "</div>";
-        $shipBuildForm .= "</div>";
-
+        $shipBuildForm .= shipCardBuilder($shipBuildjson[$i]);
         //This checks if the article ID can be divided by three, as if it can be, then a new row needs to be started.
         if($artCount == 3) {
             $shipBuildForm .= "</div> <hr>";

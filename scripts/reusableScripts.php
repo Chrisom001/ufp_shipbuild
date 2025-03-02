@@ -68,8 +68,8 @@ function weaponConsoleRepeater($shipID, $slotType, $numberOfSlots){
 function getNumSlotsFromArray($slotArray, $type){
     for($i = 0; $i < count($slotArray); $i++){
         if($slotArray[$i] == $type){
-            echo $slotArray[$i][0];
-            return $slotArray[$i][0];
+            echo $slotArray[$i][$type];
+            return $slotArray[$i][$type];
         }
     }
 }

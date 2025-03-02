@@ -3,9 +3,9 @@
 $db = new dbObj();
 $pdo =  $db->getConnstring();
 
-function getAllModifiers(){
+function getAllModifiersByEquipmentType($equipmentType){
     global $pdo;
-    $itemRarity = "SELECT * FROM modifiers";
+    $itemRarity = "SELECT * FROM modifiers WHERE equipmentTypeID = $equipmentType";
 
     $itemRarityQuery = $pdo -> query($itemRarity);
     $itemTrar = $itemRarityQuery -> fetchAll(PDO::FETCH_OBJ);

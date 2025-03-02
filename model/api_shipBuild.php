@@ -6,7 +6,7 @@ $pdo =  $db->getConnstring();
 function getAllShipBuilds($offset)
 {
     global $pdo;
-    $sqlReadSllShipBuilds = "SELECT * FROM shipBuild ORDER BY id DESC LIMIT 6 OFFSET $offset";
+    $sqlReadSllShipBuilds = "SELECT * FROM shipBuild INNER JOIN ships ON shipBuild.shipID = ships.id ORDER BY id DESC LIMIT 6 OFFSET $offset";
     $readallShipBuildsQuery = $pdo -> query($sqlReadSllShipBuilds);
     $readallShipBuilds = $readallShipBuildsQuery -> fetchAll(PDO::FETCH_OBJ);
 

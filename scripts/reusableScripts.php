@@ -19,7 +19,7 @@ function viewShipItems($type, $shipID){
             if($itemType == "console"){
                 if($shipItem->equipmentType == $type){
                     echo $shipItem->equipmentType . " vs " . $type;
-                    $consoleData = json_decode(getEquipmentNameById($shipItem->equipmentTypeID)) . " MK" . json_decode(getItemTierById($shipItem->itemTierID));
+                    $consoleData = json_decode(getEquipmentNameById($shipItem->equipmentTypeID)) . " MK" . json_decode(getItemTierById($shipItem->itemTierID)) . $shipItem->equipmentType;
                     $WeaponsArray[] = $consoleData;
                 }
             } elseif($itemType == "weapon"){

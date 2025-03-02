@@ -62,12 +62,12 @@ function databaseError(){
 <script>
     $(document).ready(function() {
         $('#weaponRaritySelector').change(function() {
-            var selectedValue = $(this).val();
+            var rarityValue = $(this).val();
 
             $.ajax({
                 url: 'scripts/getoptions.php',
                 type: 'POST',
-                data: { value: selectedValue },
+                data: { value: rarityValue },
                 success: function(response) {
                     $('#modifierColumn').html(response);
                 }

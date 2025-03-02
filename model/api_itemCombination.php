@@ -27,9 +27,14 @@ function addItemCombination($shipBuild, $equipmentType, $itemType, $rarityType, 
     }
 }
 
-function readItemCombination($shipbuildID, $isCheck){
+function readItemCombination($shipbuildID, $isCheck, $type){
     global $pdo;
-    $readShipBuildByID = "SELECT * FROM itemCombination INNER JOIN equipmentType ON itemCombination.equipmentTypeID = equipmentType.id INNER JOIN equipmentTypes ON equipmentType.equipmentTypeID = equipmentTypes.id WHERE shipBuildID = $shipbuildID AND $isCheck = 1";
+    if($type == "weapon"){
+        $readShipBuildByID = "SELECT * FROM itemCombination INNER JOIN equipmentType ON itemCombination.equipmentTypeID = equipmentType.id AND $isCheck = 1";
+    } elseif($type == "console"){
+        $readShipBuildByID = "SELECT * FROM itemCombination INNER JOIN equipmentType ON itemCombination.equipmentTypeID = equipmentType.id INNER JOIN equipmentTypes ON equipmentType.equipmentTypeID = equipmentTypes.id WHERE shipBuildID = $shipbuildID AND $isCheck = 1";
+    }
+
     echo $readShipBuildByID;
     $readShipBuildQuery = $pdo -> query($readShipBuildByID);
     $readShipBuilds = $readShipBuildQuery -> fetchAll(PDO::FETCH_OBJ);

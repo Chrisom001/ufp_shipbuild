@@ -70,12 +70,12 @@ function getNumberOfSlots($shipID){
     $consoleSlotJson = json_decode(getConsoleSlotsByShipTypeID($shipID));
 
     $slotArray = array();
-    $slotArray[] = $weaponSlotData[0]->frontSlot;
-    $slotArray[] = $weaponSlotData[0]->rearSlot;
-    $slotArray[] = $consoleSlotJson[0]->engConsoleNum;
-    $slotArray[] = $consoleSlotJson[0]->sciConsoleNum;
-    $slotArray[] = $consoleSlotJson[0]->tacConsoleNum;
-    $slotArray[] = $consoleSlotJson[0]->universalConsoleNum;
+    $slotArray[] = array("frontSlot" => $weaponSlotData[0]->frontSlot);
+    $slotArray[] = array("rearSlot" => $weaponSlotData[0]->rearSlot);
+    $slotArray[] = array("engConsole" => $consoleSlotJson[0]->engConsoleNum);
+    $slotArray[] = array("sciConsole" => $consoleSlotJson[0]->sciConsoleNum);
+    $slotArray[] = array("tacConsole" => $consoleSlotJson[0]->tacConsoleNum);
+    $slotArray[] = array("uniConsole" => $consoleSlotJson[0]->universalConsoleNum);
 
     return $slotArray;
 }

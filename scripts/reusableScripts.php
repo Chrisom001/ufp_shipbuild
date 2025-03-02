@@ -47,7 +47,7 @@ function weaponConsoleRepeater($shipID, $slotType, $numberOfSlots){
     }
     $itemArray = viewShipItems($slotType, $shipID);
     $slotArray = getNumberOfSlots($shipID);
-
+    var_dump($slotArray);
     $sizeOfArray = count($itemArray);
     $count = 0;
     echo getNumSlotsFromArray($slotArray, $slotType);

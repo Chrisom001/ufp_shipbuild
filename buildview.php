@@ -37,12 +37,12 @@ if(!isset($_GET["id"])){
 <?php echo $navbar; ?>
 <div class="container">
 <!-- Content Here -->
-    <h1 style="text-align: center"><?php echo $shipName; ?> by <?php echo $userName ?></h1>
+    <h1 style="text-align: center"><?php echo $shipName; ?> by <?php echo $userName ?>
     <?php
     if($imageLocation != ""){
         echo "<img src='userimages/$imageLocation' alt='Ship Image' style='width: 500px; height: 500px; align-content: center;'>";
     }
-    ?>
+    ?></h1>
     <p><?php echo $shipLongDescription?></p>
 
     <div class="row">

@@ -1,6 +1,6 @@
 <?php
 include "scripts/db_connection.php";
-include "model/api_rarity.php";
+include "model/api_modifiers.php";
 
 $options = getAllModifiers();
 

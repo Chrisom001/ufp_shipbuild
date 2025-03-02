@@ -18,6 +18,7 @@ if (isset($_POST['value'])) {
         }
     }
 } elseif (isset($_POST['rarity'])) {
+    echo "Rarity: " . $_POST['rarity'];
     $value = $_POST['rarity'];
     $numOfModifiers = json_decode(getNumberOfModifiersByID($value));
     if ($numOfModifiers > 0) {

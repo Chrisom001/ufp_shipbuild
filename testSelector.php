@@ -28,7 +28,7 @@ $options = getAllModifiers();
                     options.forEach(option => {
                         let opt = document.createElement("option");
                         opt.value = option.id;
-                        opt.text = option.name;
+                        opt.text = option.modifier;
                         select.appendChild(opt);
                     });
 

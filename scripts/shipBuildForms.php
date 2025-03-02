@@ -1,5 +1,10 @@
 <?php
 include "model/api_shipTiers.php";
+include "model/api_itemTiers.php";
+include "model/api_rarity.php";
+include "model/api_equipmentType.php";
+include "model/api_damageType.php";
+include "model/api_shipType.php";
     function shipChoice(){
 
         $shipTierListJson = getShipTiers();

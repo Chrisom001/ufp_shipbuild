@@ -1,4 +1,5 @@
 <?php
+include "model/api_shipTiers.php";
     function shipChoice(){
 
         $shipTierListJson = getShipTiers();

@@ -68,9 +68,9 @@ if(!isset($_GET["id"])){
                 for($i=0; $i < $fore; $i++){
                     echo "<div class='col'>";
                     if($count < $sizeOfArray){
-                        echo "<p>Fore Weapon " . $i+1 . $WeaponsArray[$count] ."</p>";
+                        echo "<p>Fore Weapon " . $i+1 . ": " . $WeaponsArray[$count] ."</p>";
                     } else {
-                        echo "<p>Fore Weapon " . $i+1 . " is empty</p>";
+                        echo "<p>Fore Weapon " . $i+1 . ": ". " is empty</p>";
                     }
                     echo "</div>";
                     $count++;
@@ -87,9 +87,9 @@ if(!isset($_GET["id"])){
                 for($i=0; $i < $rear; $i++) {
                     echo "<div class='col'>";
                     if ($countRear < $sizeOfArrayRear) {
-                        echo "<p>Rear Weapon " . $i + 1 . $WeaponsArrayRear[$countRear] . "</p>";
+                        echo "<p>Rear Weapon " . $i + 1 . ": " . $WeaponsArrayRear[$countRear] . "</p>";
                     } else {
-                        echo "<p>Rear Weapon " . $i + 1 . " is empty</p>";
+                        echo "<p>Rear Weapon " . $i + 1 . ": " . " is empty</p>";
                     }
                     echo "</div>";
                     $countRear++;

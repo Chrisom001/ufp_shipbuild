@@ -56,7 +56,7 @@
 
         for($i = 0; $i < $slotNumber; $i++){
             $form = "";
-            $form .= '<label>'.$weaponLocation .'Weapon'. ($slotNumber + 1) . ': </label>';
+            $form .= '<label>'.$weaponLocation .'Weapon'. ($i + 1) . ': </label>';
             $form .= '<div class="row">';
             $form .= '<div class="col">';
             $form .= '<select class="form-select" aria-label="Default select example">';

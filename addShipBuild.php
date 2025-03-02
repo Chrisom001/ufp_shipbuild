@@ -42,7 +42,7 @@ function databaseError(){
             echo $shipName;
             echo "<p>Enter the relevant weapons</p>";
             echo shipWeapon("fore", $shipID);
-            echo shipWeaon("rear", $shipID);
+            echo shipWeapon("rear", $shipID);
 
             //$weaponSlotJson = getShipWeaponSlots($shipID);
             //if($weaponSlotJson == "Error"){

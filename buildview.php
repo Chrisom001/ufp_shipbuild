@@ -1,14 +1,8 @@
 <?php
 include "scripts/header.php";
 include "model/api_shipBuild.php";
-include "model/api_itemCombination.php";
 include "model/api_users.php";
 include "model/api_ships.php";
-include "model/api_shipType.php";
-include "model/api_equipmentType.php";
-include "model/api_damageType.php";
-include "model/api_itemTiers.php";
-include "scripts/reusableScripts.php";
 
 if(!isset($_GET["id"])){
     header("Location: index.php");
@@ -25,15 +19,6 @@ if(!isset($_GET["id"])){
             $shipName = json_decode(getShipClassName($shipID));
             $userName = json_decode(getUserNameByID($shipBuildDetails[0]->userID));
             $shipLongDescription = $shipBuildDetails[0]->shipBuildLongText;
-            //$weaponSlotJson = getShipWeaponSlots($shipID);
-            //$weaponSlotData = json_decode($weaponSlotJson);
-            //$fore = $weaponSlotData[0]->frontSlot;
-            //$rear = $weaponSlotData[0]->rearSlot;
-            //$consoleSlotJson = json_decode(getConsoleSlotsByShipTypeID($shipID));
-            //$engConsoleSlots = $consoleSlotJson[0]->engConsoleNum;
-           // $sciConsoleSlots = $consoleSlotJson[0]->sciConsoleNum;
-            //$tacConsoleSlots = $consoleSlotJson[0]->tacConsoleNum;
-            //$uniConsoleSlots = $consoleSlotJson[0]->universalConsoleNum;
         }
     }
 }

@@ -1,4 +1,10 @@
 <?php
+include "model/api_shipType.php";
+include "model/api_equipmentType.php";
+include "model/api_damageType.php";
+include "model/api_itemTiers.php";
+include "scripts/reusableScripts.php";
+include "model/api_itemCombination.php";
 function viewShipItems($type, $shipID){
     $itemType = "";
     $check ="";

@@ -14,6 +14,12 @@ if (isset($_POST['rarityValue'])) {
             $form .= '</select>';
             $form .= '</div>';
         }
+    } else {
+        $form .= '<div class="col">';
+        $form .= '<select class="form-select" aria-label="Default select example">';
+        $form .= '<option selected>No modifiers available</option>';
+        $form .= '</select>';
+        $form .= '</div>';
     }
 }
 ?>

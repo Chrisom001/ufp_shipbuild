@@ -1,4 +1,5 @@
 <?php
+include "scripts/db_connection.php";
 include "model/api_rarity.php";
 
 $options = getAllModifiers();

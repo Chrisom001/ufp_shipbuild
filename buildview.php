@@ -73,8 +73,6 @@ if(!isset($_GET["id"])){
             ?>
             </div>
         </div>
-        </br>
-        <hr>
         <div class="col">
             <p>This section will show the Consoles attached to this ship</p>
             <?php
@@ -102,6 +100,8 @@ if(!isset($_GET["id"])){
                 </div>
             </div>
         </div>
+    </br>
+    <hr>
     <p>Seating for the ship will go here</p>
     <?php
     $result = getBridgeOfficerSlots($id);

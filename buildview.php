@@ -49,12 +49,13 @@ if(!isset($_GET["id"])){
                 ?>
             </div>
             <div class="col-sm">
-                Oecho $shipLongDescription?>
+                <?php echo $shipLongDescription?>
             </div>
             </div>
         </div>
     </div>
-
+    </br>
+    <hr>
     <div class="row">
         <div class="col">
             <p>This section will show the weapons attached to this ship</p>

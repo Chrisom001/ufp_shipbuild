@@ -63,7 +63,7 @@ function databaseError(){
     $(document).ready(function() {
         $('#weaponRaritySelector').change(function() {
             var rarityValue = $(this).val();
-            myFunction();
+            myFunction(rarityValue);
             $.ajax({
                 url: 'scripts/getrarity.php',
                 type: 'POST',
@@ -75,8 +75,8 @@ function databaseError(){
         });
     });
 
-    function myFunction() {
-        alert("I am an alert box!");
+    function myFunction(x) {
+        alert("Value Selected: " + x);
     }
 </script>
 </body>

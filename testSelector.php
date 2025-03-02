@@ -2,7 +2,7 @@
 include "scripts/db_connection.php";
 include "model/api_modifiers.php";
 
-$options = getAllModifiers(9);
+$options = getAllModifiersByEquipmentType(9);
 
 ?>
 

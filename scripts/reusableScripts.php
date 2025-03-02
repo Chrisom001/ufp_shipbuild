@@ -1,6 +1,7 @@
 <?php
 function viewShipItems($type, $shipID){
     $itemType = "";
+    $check ="";
     if($type == "foreweapons"){
         $check = "isFrontWeapon";
         $itemType = "weapon";

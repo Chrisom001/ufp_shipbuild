@@ -101,7 +101,7 @@ function getBridgeOfficerSlots($shipID){
     $result = "";
     for($i = 0; $i < count($bridgeOfficerSlots); $i++){
         $result .= "<div class='row'>";
-        $result .= "<p>Slot1:". $bridgeOfficerSlots[$i]->slotType ."</p>";
+        $result .= "<p>Slot " . ($i+1) ." :". $bridgeOfficerSlots[$i]->slotType ."</p>";
         for($j =0; $j < 3; $j++){
             $abilityID = "ability" . ($j+1) . "ID";
             if($bridgeOfficerSlots[$i]->$abilityID != null){

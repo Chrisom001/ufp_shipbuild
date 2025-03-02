@@ -1,5 +1,6 @@
 <?php
 include "scripts/header.php";
+include "scripts/pagination.php";
 
 //This controls the paginations current page, how many pages there will be and hte offset for the SQL query
 $currentPage = "0";

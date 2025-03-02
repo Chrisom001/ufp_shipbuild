@@ -17,9 +17,9 @@ if (isset($_POST['value'])) {
             echo "<option value='0'>No options available</option>";
         }
     }
-} elseif (isset($_POST['rarity'])) {
-    echo "Rarity: " . $_POST['rarity'];
-    $value = $_POST['rarity'];
+} elseif (isset($_POST['rarityValue'])) {
+    echo "Rarity: " . $_POST['rarityValue'];
+    $value = $_POST['rarityValue'];
     $numOfModifiers = json_decode(getNumberOfModifiersByID($value));
     if ($numOfModifiers > 0) {
         for($i = 0; $i < $numOfModifiers; $i++) {

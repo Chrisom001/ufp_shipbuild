@@ -52,7 +52,7 @@
             $weaponSlot="rearSlot";
         }
 
-        $slotNumber = json_decon(getShipWeaponSlots($shipID, $weaponSlot));
+        $slotNumber = json_decode(getShipWeaponSlots($shipID, $weaponSlot));
 
         for($i = 0; $i < sizeof($slotNumber); $i++){
             $form = "";

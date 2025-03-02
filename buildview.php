@@ -61,20 +61,22 @@ if(!isset($_GET["id"])){
             <p>This section will show the weapons attached to this ship</p>
             <div class="row">
             <?php
-                $WeaponsArray = viewShipItems("foreweapons", $id);
-
-                $sizeOfArray = count($WeaponsArray);
-                $count = 0;
-                for($i=0; $i < $fore; $i++){
-                    echo "<div class='col'>";
-                    if($count < $sizeOfArray){
-                        echo "<p>Fore Weapon " . $i+1 . ": " . $WeaponsArray[$count] ."</p>";
-                    } else {
-                        echo "<p>Fore Weapon " . $i+1 . ": ". " is empty</p>";
-                    }
-                    echo "</div>";
-                    $count++;
-                }
+//                $WeaponsArray = viewShipItems("foreweapons", $id);
+//
+//                $sizeOfArray = count($WeaponsArray);
+//                $count = 0;
+//                for($i=0; $i < $fore; $i++){
+//                    echo "<div class='col'>";
+//                    if($count < $sizeOfArray){
+//                        echo "<p>Fore Weapon " . $i+1 . ": " . $WeaponsArray[$count] ."</p>";
+//                    } else {
+//                        echo "<p>Fore Weapon " . $i+1 . ": ". " is empty</p>";
+//                    }
+//                    echo "</div>";
+//                    $count++;
+//                }
+            $result = weaponConsoleRepeater($id, "foreweapons",$fore);
+            echo $result;
             ?>
             </div>
             <br/>

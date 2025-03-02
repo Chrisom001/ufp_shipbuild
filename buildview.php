@@ -38,11 +38,22 @@ if(!isset($_GET["id"])){
 <div class="container">
 <!-- Content Here -->
     <h1 style="text-align: center"><?php echo $shipName; ?> by <?php echo $userName ?></h1>
-    <p style="text-align: left"><?php
-    if($imageLocation != ""){
-        echo "<img src='userimages/$imageLocation' alt='Ship Image' style='width: 500px; height: 500px; align-content: center;'>";
-    }
-    ?><?php echo $shipLongDescription?></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <?php if($imageLocation != ""){
+                echo "<img src='userimages/$imageLocation' alt='Ship Image' style='width: 500px; height: 500px; align-content: center;'>";
+                } else {
+                    echo "No image available";
+                }
+                ?>
+            </div>
+            <div class="col-sm">
+                Oecho $shipLongDescription?>
+            </div>
+            </div>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col">

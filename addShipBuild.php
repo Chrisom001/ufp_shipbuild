@@ -65,9 +65,9 @@ function databaseError(){
             var rarityValue = $(this).val();
             myFunction(rarityValue);
             $.ajax({
-                url: 'scripts/getrarity.php',
+                url: 'scripts/getoptions.php',
                 type: 'POST',
-                data: { value: rarityValue },
+                data: { rarityEntry: rarityValue },
                 success: function(response) {
                     myFunction(response);
                     $('#modifierColumn').html(response);

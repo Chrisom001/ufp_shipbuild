@@ -2,7 +2,6 @@
 include "scripts/header.php";
 include "scripts/shipBuildForms.php";
 include "model/api_ships.php";
-include "model/api_rarity.php";
 
 echo getNumberOfModifiersByID(1);
 

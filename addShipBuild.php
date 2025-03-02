@@ -1,13 +1,7 @@
 <?php
 include "scripts/header.php";
 include "scripts/shipBuildForms.php";
-include "model/api_shipType.php";
 include "model/api_ships.php";
-include "model/api_itemTiers.php";
-include "model/api_shipTiers.php";
-include "model/api_rarity.php";
-include "model/api_equipmentType.php";
-include "model/api_damageType.php";
 
 function databaseError(){
     echo "Please alert technical support of this error";
@@ -40,44 +34,7 @@ function databaseError(){
         } else {
             $shipName = json_decode(getShipClassName($shipID));
             echo $shipName;
-            echo "<form action=''>";
-
-            echo "<p>Enter the relevant weapons</p>";
-            echo shipWeapon("fore", $shipID);
-            echo shipWeapon("rear", $shipID);
-            echo "</br>";
-            echo "<p>Select the correct equipment for the ship</p>";
-            $equipmentSlotJson = getShipEquipmentSlots($shipID);
-            if($equipmentSlotJson == "Error"){
-                databaseError();
-            } else {
-                $equipmentSlotData = json_decode($equipmentSlotJson);
-                $tacSlots = $equipmentSlotData[0]->tacConsoleNum;
-                $engSlots = $equipmentSlotData[0]->engConsoleNum;
-                $sciSlots = $equipmentSlotData[0]->sciConsoleNum;
-                $uniSlots = $equipmentSlotData[0]->universalConsoleNum;
-
-                for($i=0; $i < $tacSlots; $i++){
-                    echo shipEquip("Tactical", $i);
-                }
-                for($i=0; $i < $engSlots; $i++){
-                    echo shipEquip("Engineering", $i);
-                }
-                for($i=0; $i < $sciSlots; $i++){
-                    echo shipEquip("Science", $i);
-                }
-                if($uniSlots = 0){
-                    echo "This ship doesn't have any universal slots";
-                } else {
-                    for($i=0; $i < $uniSlots; $i++){
-                        echo shipEquip("Universal", $i);
-                    }
-                }
-            }
-            echo "<input type='hidden' name='userID' value='1'>";
-            echo "<input type='hidden' name='shipSelector' value='$shipID'>";
-            echo "<input type='submit' value='Submit'>";
-            echo "</form>";
+            echo addShipWepAndConsole($shipID);
         }
     }
         ?>

@@ -157,4 +157,49 @@
         $form .= '</div>';
         return $form;
     }
+
+    function addShipWepAndConsole($shipID){
+        $form = "";
+        $form .= "<form action='' method='post'>";
+
+        $form .= "<p>Enter the relevant weapons</p>";
+        $form .= shipWeapon("fore", $shipID);
+        $form .= shipWeapon("rear", $shipID);
+        $form .= "</br>";
+        $form .= "<p>Select the correct equipment for the ship</p>";
+        $equipmentSlotJson = getShipEquipmentSlots($shipID);
+        if($equipmentSlotJson == "Error"){
+            databaseError();
+        } else {
+            $equipmentSlotData = json_decode($equipmentSlotJson);
+            $tacSlots = $equipmentSlotData[0]->tacConsoleNum;
+            $engSlots = $equipmentSlotData[0]->engConsoleNum;
+            $sciSlots = $equipmentSlotData[0]->sciConsoleNum;
+            $uniSlots = $equipmentSlotData[0]->universalConsoleNum;
+
+            for($i=0; $i < $tacSlots; $i++){
+                $form .= shipEquip("Tactical", $i);
+            }
+            for($i=0; $i < $engSlots; $i++){
+                $form .= shipEquip("Engineering", $i);
+            }
+            for($i=0; $i < $sciSlots; $i++){
+                $form .= shipEquip("Science", $i);
+            }
+            if($uniSlots = 0){
+                $form .= "This ship doesn't have any universal slots";
+            } else {
+                for($i=0; $i < $uniSlots; $i++){
+                    $form .= shipEquip("Universal", $i);
+                }
+            }
+        }
+        $form .= "</br>";
+        $form .= "<input type='hidden' name='shipWepInput' value='true'>";
+        $form .= "<input type='hidden' name='userID' value='1'>";
+        $form .= "<input type='hidden' name='shipSelector' value='$shipID'>";
+        $form .= "<input type='submit' value='Submit'>";
+        $form .= "</form>";
+        return form;
+    }
 ?>

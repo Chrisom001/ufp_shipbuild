@@ -69,6 +69,7 @@ function databaseError(){
                 type: 'POST',
                 data: { value: rarityValue },
                 success: function(response) {
+                    myFunction(response);
                     $('#modifierColumn').html(response);
                 }
             });

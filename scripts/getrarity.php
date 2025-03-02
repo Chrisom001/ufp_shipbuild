@@ -7,24 +7,24 @@ if (isset($_POST['value'])) {
     $numOfModifiers = 2;
     echo "Number of modifiers : ".$numOfModifiers;
 //    var_dump($numOfModifiers);
-    if ($numOfModifiers > 0) {
-        for($i = 0; $i < $numOfModifiers; $i++) {
-            echo '<div class="col">';
-            echo '<select class="form-select" aria-label="Default select example">';
-            echo '<option selected>Mod 1</option>';
-            echo '<option value="1">ACC</option>';
-            echo '<option value="2">ACC2</option>';
-            echo '<option value="3">ACC3</option>';
-            echo '</select>';
-            echo '</div>';
-        }
-    } else {
-        echo '<div class="col">';
-        echo '<select class="form-select" aria-label="Default select example">';
-        echo '<option selected value='-1'>No modifiers available</option>';
-        echo '</select>';
-        echo '</div>';
-    }
+//    if ($numOfModifiers > 0) {
+//        for($i = 0; $i < $numOfModifiers; $i++) {
+//            echo '<div class="col">';
+//            echo '<select class="form-select" aria-label="Default select example">';
+//            echo '<option selected>Mod 1</option>';
+//            echo '<option value="1">ACC</option>';
+//            echo '<option value="2">ACC2</option>';
+//            echo '<option value="3">ACC3</option>';
+//            echo '</select>';
+//            echo '</div>';
+//        }
+//    } else {
+//        echo '<div class="col">';
+//        echo '<select class="form-select" aria-label="Default select example">';
+//        echo '<option selected value='-1'>No modifiers available</option>';
+//        echo '</select>';
+//        echo '</div>';
+//    }
 } else {
     var_dump($_POST['value']);
     echo "Failure!!!";

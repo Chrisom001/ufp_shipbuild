@@ -114,11 +114,25 @@ if(!isset($_GET["id"])){
             ?>
                 <div class="row">
                     <?php
-                    for($i=0; $i < $tacConsoleSlots; $i++){
+                    $tacticalConsolesArray = viewShipItems("tactical", $id);
+
+                    $sizeOfTacConsoleArray = count($tacticalConsolesArray);
+                    $countTac = 0;
+                    for($i=0; $i < $tacConsoleSlots; $i++) {
                         echo "<div class='col'>";
-                        echo "<p>Tactical console " . $i+1 . "</p>";
+                        if ($countTac < $sizeOfTacConsoleArray) {
+                            echo "<p>Tactical console " . $i+1 . "</p>";
+                        } else {
+                            echo "<p>Rear Weapon " . $i + 1 . ": " . " is empty</p>";
+                        }
                         echo "</div>";
+                        $countRear++;
                     }
+//                    for($i=0; $i < $tacConsoleSlots; $i++){
+//                        echo "<div class='col'>";
+//                        echo "<p>Tactical console " . $i+1 . "</p>";
+//                        echo "</div>";
+//                    }
                     ?>
                 </div>
                 <div class="row">

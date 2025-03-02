@@ -4,13 +4,20 @@ function viewShipItems($type, $shipID){
         $check = "isFrontWeapon";
     } else if($type == "rearweapons"){
         $check = "isRearWeapon";
+    } elseif($type == "science" || $type == "engineering" || $type == "tactical"){
+        $check = "isConsole";
     }
+
     $shipItems = json_decode(readItemCombination($shipID));
     $WeaponsArray = array();
     foreach($shipItems as $shipItem){
         if($shipItem->$check == 1){
-            $weaponData = json_decode(getDamageTypeByID($shipItem->damageTypeID)) . " " . json_decode(getEquipmentNameById($shipItem->equipmentTypeID)) . " MK" . json_decode(getItemTierById($shipItem->itemTierID));
-            $WeaponsArray[] = $weaponData;
+            if($shipItem->equipmentType == $type){
+                $WeaponsArray[] = "Console 1: " . $type;
+            } else {
+                $weaponData = json_decode(getDamageTypeByID($shipItem->damageTypeID)) . " " . json_decode(getEquipmentNameById($shipItem->equipmentTypeID)) . " MK" . json_decode(getItemTierById($shipItem->itemTierID));
+                $WeaponsArray[] = $weaponData;
+            }
         }
     }
     return $WeaponsArray;

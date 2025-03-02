@@ -13,7 +13,7 @@ function viewShipItems($type, $shipID){
         $itemType = "console";
     }
 
-    $shipItems = json_decode(readItemCombination($shipID, $check));
+    $shipItems = json_decode(readItemCombination($shipID, $check, $itemType));
     $WeaponsArray = array();
     foreach($shipItems as $shipItem){
         if($shipItem->$check == 1){

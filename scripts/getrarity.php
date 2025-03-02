@@ -1,4 +1,5 @@
 <?php
+include "../model/api_rarity.php";
 if (isset($_POST['value'])) {
 //    echo "Rarity: " . $_POST['value'];
     $value = $_POST['value'];

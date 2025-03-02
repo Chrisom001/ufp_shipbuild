@@ -63,7 +63,7 @@ function databaseError(){
     $(document).ready(function() {
         $('#weaponRaritySelector').change(function() {
             var rarityValue = $(this).val();
-            myFunction(rarityValue);
+            //myFunction(rarityValue);
             $.ajax({
                 url: 'scripts/getrarity.php',
                 type: 'POST',

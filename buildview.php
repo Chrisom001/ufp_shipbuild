@@ -80,20 +80,22 @@ if(!isset($_GET["id"])){
             <br/>
             <div class="row">
                 <?php
-                $WeaponsArrayRear = viewShipItems("rearweapons", $id);
-
-                $sizeOfArrayRear = count($WeaponsArrayRear);
-                $countRear = 0;
-                for($i=0; $i < $rear; $i++) {
-                    echo "<div class='col'>";
-                    if ($countRear < $sizeOfArrayRear) {
-                        echo "<p>Rear Weapon " . $i + 1 . ": " . $WeaponsArrayRear[$countRear] . "</p>";
-                    } else {
-                        echo "<p>Rear Weapon " . $i + 1 . ": " . " is empty</p>";
-                    }
-                    echo "</div>";
-                    $countRear++;
-                }
+//                $WeaponsArrayRear = viewShipItems("rearweapons", $id);
+//
+//                $sizeOfArrayRear = count($WeaponsArrayRear);
+//                $countRear = 0;
+//                for($i=0; $i < $rear; $i++) {
+//                    echo "<div class='col'>";
+//                    if ($countRear < $sizeOfArrayRear) {
+//                        echo "<p>Rear Weapon " . $i + 1 . ": " . $WeaponsArrayRear[$countRear] . "</p>";
+//                    } else {
+//                        echo "<p>Rear Weapon " . $i + 1 . ": " . " is empty</p>";
+//                    }
+//                    echo "</div>";
+//                    $countRear++;
+//                }
+                $result = weaponConsoleRepeater($id, "rearweapons",$rear);
+                echo $result;
                 ?>
             </div>
         </div>
@@ -128,11 +130,6 @@ if(!isset($_GET["id"])){
                         echo "</div>";
                         $countTac++;
                     }
-//                    for($i=0; $i < $tacConsoleSlots; $i++){
-//                        echo "<div class='col'>";
-//                        echo "<p>Tactical console " . $i+1 . "</p>";
-//                        echo "</div>";
-//                    }
                     ?>
                 </div>
                 <div class="row">
@@ -151,11 +148,6 @@ if(!isset($_GET["id"])){
                         echo "</div>";
                         $countEng++;
                     }
-//                    for($i=0; $i < $engConsoleSlots; $i++){
-//                        echo "<div class='col'>";
-//                        echo "<p>Engineering Console " . $i+1 . "</p>";
-//                        echo "</div>";
-//                    }
                     ?>
                 </div>
                 <div class="row">
@@ -173,11 +165,6 @@ if(!isset($_GET["id"])){
                         }
                         echo "</div>";
                         $countSci++;
-                    }
-                    for($i=0; $i < $sciConsoleSlots; $i++){
-                        echo "<div class='col'>";
-                        echo "<p>Science Console " . $i+1 . "</p>";
-                        echo "</div>";
                     }
                     ?>
                 </div>

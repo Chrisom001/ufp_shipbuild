@@ -12,4 +12,14 @@ function getAllRaritys(){
 
     return json_encode($itemTrar);
 }
+
+function getNumberOfModifiersByID($rarityID){
+    global $pdo;
+    $readModNumByIDQuery = "SELECT modifierCount FROM rarity WHERE id = $rarityID";
+    $check = $pdo -> prepare($readModNumByIDQuery);
+    $check -> execute();
+    $checkResult = $check -> fetchcolumn();
+
+    return json_encode($checkResult);
+}
 ?>

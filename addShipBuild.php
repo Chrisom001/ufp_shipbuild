@@ -59,6 +59,22 @@ function databaseError(){
         });
     });
 </script>
+<script>
+    $(document).ready(function() {
+        $('#weaponRaritySelector').change(function() {
+            var selectedValue = $(this).val();
+
+            $.ajax({
+                url: 'scripts/getoptions.php',
+                type: 'POST',
+                data: { value: selectedValue },
+                success: function(response) {
+                    $('#modifierColumn').html(response);
+                }
+            });
+        });
+    });
+</script>
 </body>
 <footer class="footer">
     <?php include "scripts/footer.php"; ?>

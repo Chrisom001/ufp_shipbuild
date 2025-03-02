@@ -55,8 +55,9 @@
         $slotNumber = json_decode(getShipWeaponSlots($shipID, $weaponSlot));
 
         for($s = 0; $s < $slotNumber; $s++){
+            echo "loop " . $s;
             $form = "";
-            $form .= '<label>'.$weaponLocation .'Weapon'. ($i + 1) . ': </label>';
+            $form .= '<label>'.$weaponLocation .'Weapon'. ($s + 1) . ': </label>';
             $form .= '<div class="row">';
             $form .= '<div class="col">';
             $form .= '<select class="form-select" aria-label="Default select example">';

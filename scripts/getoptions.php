@@ -40,5 +40,7 @@ if (isset($_POST['value'])) {
         $form .= '</select>';
         $form .= '</div>';
     }
+} else {
+    var_dump($_POST['rarityEntry']);
 }
 ?>

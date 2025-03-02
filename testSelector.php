@@ -53,16 +53,26 @@ $options = getAllModifiersByEquipmentType(9);
         }
     ?>
     </select>
-<!--    <label for="numDropdowns">Select Number of Dropdowns:</label>-->
-<!--    <select id="numDropdowns" name="numDropdowns">-->
-<!--        <option value="0">Select</option>-->
-<!--        <option value="1">1</option>-->
-<!--        <option value="2">2</option>-->
-<!--        <option value="3">3</option>-->
-<!--        <option value="4">4</option>-->
-<!--        <option value="5">5</option>-->
-<!--    </select>-->
 
+    <select id="raritySelect" name="raritySelect">
+        <?php
+        echo '<option selected>Rarity</option>';
+        $getItemRaritysJson = json_decode(getAllRaritys());
+        for($i=0;$i<sizeof($getItemRaritysJson);$i++){
+            echo "<option value='".$getItemRaritysJson[$i]->modifierCount."'>".$getItemRaritysJson[$i]->rarityType."</option>";
+        }
+        ?>
+    </select>
+
+    <select id="raritySelect" name="raritySelect">
+        <?php
+        echo '<option selected>Rarity</option>';
+        $getItemRaritysJson = json_decode(getAllRaritys());
+        for($i=0;$i<sizeof($getItemRaritysJson);$i++){
+            echo "<option value='".$getItemRaritysJson[$i]->modifierCount."'>".$getItemRaritysJson[$i]->rarityType."</option>";
+        }
+        ?>
+    </select>
     <div id="dropdownContainer"></div>
 
     <br>

@@ -61,20 +61,6 @@ if(!isset($_GET["id"])){
             <p>This section will show the weapons attached to this ship</p>
             <div class="row">
             <?php
-//                $WeaponsArray = viewShipItems("foreweapons", $id);
-//
-//                $sizeOfArray = count($WeaponsArray);
-//                $count = 0;
-//                for($i=0; $i < $fore; $i++){
-//                    echo "<div class='col'>";
-//                    if($count < $sizeOfArray){
-//                        echo "<p>Fore Weapon " . $i+1 . ": " . $WeaponsArray[$count] ."</p>";
-//                    } else {
-//                        echo "<p>Fore Weapon " . $i+1 . ": ". " is empty</p>";
-//                    }
-//                    echo "</div>";
-//                    $count++;
-//                }
             $result = weaponConsoleRepeater($id, "foreweapons",$fore);
             echo $result;
             ?>
@@ -82,20 +68,6 @@ if(!isset($_GET["id"])){
             <br/>
             <div class="row">
                 <?php
-//                $WeaponsArrayRear = viewShipItems("rearweapons", $id);
-//
-//                $sizeOfArrayRear = count($WeaponsArrayRear);
-//                $countRear = 0;
-//                for($i=0; $i < $rear; $i++) {
-//                    echo "<div class='col'>";
-//                    if ($countRear < $sizeOfArrayRear) {
-//                        echo "<p>Rear Weapon " . $i + 1 . ": " . $WeaponsArrayRear[$countRear] . "</p>";
-//                    } else {
-//                        echo "<p>Rear Weapon " . $i + 1 . ": " . " is empty</p>";
-//                    }
-//                    echo "</div>";
-//                    $countRear++;
-//                }
                 $result = weaponConsoleRepeater($id, "rearweapons",$rear);
                 echo $result;
                 ?>
@@ -104,6 +76,7 @@ if(!isset($_GET["id"])){
         <div class="col">
             <p>This section will show the Consoles attached to this ship</p>
             <?php
+
                 if($uniConsoleSlots > 0){
                     echo "<div class='row'>";
                     echo "<div class='col'>";
@@ -118,56 +91,62 @@ if(!isset($_GET["id"])){
             ?>
                 <div class="row">
                     <?php
-                    $tacticalConsolesArray = viewShipItems("tactical", $id);
-
-                    $sizeOfTacConsoleArray = count($tacticalConsolesArray);
-                    $countTac = 0;
-                    for($i=0; $i < $tacConsoleSlots; $i++) {
-                        echo "<div class='col'>";
-                        if ($countTac < $sizeOfTacConsoleArray) {
-                            echo "<p>Tactical console " . $i + 1 . ": " . $tacticalConsolesArray[$countTac] . "</p>";
-                        } else {
-                            echo "<p>Tactical console " . $i + 1 . ": " . " is empty</p>";
-                        }
-                        echo "</div>";
-                        $countTac++;
-                    }
+                    $result = weaponConsoleRepeater($id, "tactical", $rear);
+                    echo $result;
+//                    $tacticalConsolesArray = viewShipItems("tactical", $id);
+//
+//                    $sizeOfTacConsoleArray = count($tacticalConsolesArray);
+//                    $countTac = 0;
+//                    for($i=0; $i < $tacConsoleSlots; $i++) {
+//                        echo "<div class='col'>";
+//                        if ($countTac < $sizeOfTacConsoleArray) {
+//                            echo "<p>Tactical console " . $i + 1 . ": " . $tacticalConsolesArray[$countTac] . "</p>";
+//                        } else {
+//                            echo "<p>Tactical console " . $i + 1 . ": " . " is empty</p>";
+//                        }
+//                        echo "</div>";
+//                        $countTac++;
+//                    }
                     ?>
                 </div>
                 <div class="row">
                     <?php
-                    $engineeringConsolesArray = viewShipItems("engineering", $id);
-
-                    $sizeOfEngConsoleArray = count($engineeringConsolesArray);
-                    $countEng = 0;
-                    for($i=0; $i < $engConsoleSlots; $i++) {
-                        echo "<div class='col'>";
-                        if ($countEng < $sizeOfEngConsoleArray) {
-                            echo "<p>Engineering console " . $i + 1 . ": " . $engineeringConsolesArray[$countEng] . "</p>";
-                        } else {
-                            echo "<p>Engineering console " . $i + 1 . ": " . " is empty</p>";
-                        }
-                        echo "</div>";
-                        $countEng++;
-                    }
+                    $result = weaponConsoleRepeater($id, "engineering", $rear);
+                    echo $result;
+//                    $engineeringConsolesArray = viewShipItems("engineering", $id);
+//
+//                    $sizeOfEngConsoleArray = count($engineeringConsolesArray);
+//                    $countEng = 0;
+//                    for($i=0; $i < $engConsoleSlots; $i++) {
+//                        echo "<div class='col'>";
+//                        if ($countEng < $sizeOfEngConsoleArray) {
+//                            echo "<p>Engineering console " . $i + 1 . ": " . $engineeringConsolesArray[$countEng] . "</p>";
+//                        } else {
+//                            echo "<p>Engineering console " . $i + 1 . ": " . " is empty</p>";
+//                        }
+//                        echo "</div>";
+//                        $countEng++;
+//                    }
                     ?>
                 </div>
                 <div class="row">
                     <?php
-                    $scienceConsolesArray = viewShipItems("science", $id);
-
-                    $sizeOfSciConsoleArray = count($scienceConsolesArray);
-                    $countSci = 0;
-                    for($i=0; $i < $sciConsoleSlots; $i++) {
-                        echo "<div class='col'>";
-                        if ($countSci < $sizeOfSciConsoleArray) {
-                            echo "<p>Science console " . $i + 1 . ": " . $scienceConsolesArray[$countSci] . "</p>";
-                        } else {
-                            echo "<p>Science console " . $i + 1 . ": " . " is empty</p>";
-                        }
-                        echo "</div>";
-                        $countSci++;
-                    }
+                    $result = weaponConsoleRepeater($id, "science", $rear);
+                    echo $result;
+//                    $scienceConsolesArray = viewShipItems("science", $id);
+//
+//                    $sizeOfSciConsoleArray = count($scienceConsolesArray);
+//                    $countSci = 0;
+//                    for($i=0; $i < $sciConsoleSlots; $i++) {
+//                        echo "<div class='col'>";
+//                        if ($countSci < $sizeOfSciConsoleArray) {
+//                            echo "<p>Science console " . $i + 1 . ": " . $scienceConsolesArray[$countSci] . "</p>";
+//                        } else {
+//                            echo "<p>Science console " . $i + 1 . ": " . " is empty</p>";
+//                        }
+//                        echo "</div>";
+//                        $countSci++;
+//                    }
                     ?>
                 </div>
             </div>

@@ -42,4 +42,14 @@ function getConsoleSlotsByShipTypeID($shipTypeID){
 
     return json_encode($weaponSlots);
 }
+
+function getOfficerSlotsByShipTypeID($shipTypeID){
+    global $pdo;
+    $readShipOfficerSlots = "SELECT numOfTacOfficers, numOfEngOfficers, numOfSciOfficers, numOfUniOfficers FROM ships WHERE id = $shipTypeID";
+
+    $readShipOfficerSlotsQuery = $pdo -> query($readShipOfficerSlots);
+    $officerSlots = $readShipOfficerSlotsQuery -> fetchAll(PDO::FETCH_OBJ);
+
+    return json_encode($officerSlots);
+}
 ?>

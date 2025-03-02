@@ -51,7 +51,7 @@ function weaponConsoleRepeater($shipID, $slotType){
     $slotArray = getNumberOfSlots($shipID);
     $sizeOfArray = count($itemArray);
     $count = 0;
-    echo getNumSlotsFromArray($slotArray, $slotType);
+
     for($i=0; $i < getNumSlotsFromArray($slotArray, $slotType); $i++) {
         $result .= "<div class='col'>";
         if ($count < $sizeOfArray) {

@@ -44,70 +44,81 @@
             return $form;
         //}
     }
-    function shipWeapon($weaponLocation, $slotNumber){
-        $form = "";
-        $form .= '<label>'.$weaponLocation .'Weapon'. ($slotNumber + 1) . ': </label>';
-        $form .= '<div class="row">';
-        $form .= '<div class="col">';
-        $form .= '<select class="form-select" aria-label="Default select example">';
-        $form .= '<option selected>Weapon Damage</option>';
-        $getWeaponDamageType = json_decode(getAllDamageTypes());
-        for($i=0;$i<sizeof($getWeaponDamageType);$i++){
-            $form .= "<option value='".$getWeaponDamageType[$i]->id."'>".$getWeaponDamageType[$i]->damageType."</option>";
+    function shipWeapon($weaponLocation, $shipID){
+        $weaponSlot = "";
+        if($weaponLocation == "fore"){
+            $weaponSlot="frontSlot";
+        } elseif($weaponLocation =="rear"){
+            $weaponSlot="rearSlot";
         }
-        $form .= '</select>';
-        $form .= '</div>';
-        $form .= '<div class="col">';
-        $form .= '<select class="form-select" aria-label="Default select example">';
-        $form .= '<option selected>Weapon Type</option>';
-        $getAllWeapons = json_decode(getAllWeaponTypes());
-        for($i=0;$i<sizeof($getAllWeapons);$i++){
-            $form .= "<option value='".$getAllWeapons[$i]->id."'>".$getAllWeapons[$i]->equipmentName."</option>";
+
+        $slotNumber = json_decon(getShipWeaponSlots($shipID, $weaponSlot));
+
+        for($i = 0; $i < sizeof($slotNumber); $i++){
+            $form = "";
+            $form .= '<label>'.$weaponLocation .'Weapon'. ($slotNumber + 1) . ': </label>';
+            $form .= '<div class="row">';
+            $form .= '<div class="col">';
+            $form .= '<select class="form-select" aria-label="Default select example">';
+            $form .= '<option selected>Weapon Damage</option>';
+            $getWeaponDamageType = json_decode(getAllDamageTypes());
+            for($i=0;$i<sizeof($getWeaponDamageType);$i++){
+                $form .= "<option value='".$getWeaponDamageType[$i]->id."'>".$getWeaponDamageType[$i]->damageType."</option>";
+            }
+            $form .= '</select>';
+            $form .= '</div>';
+            $form .= '<div class="col">';
+            $form .= '<select class="form-select" aria-label="Default select example">';
+            $form .= '<option selected>Weapon Type</option>';
+            $getAllWeapons = json_decode(getAllWeaponTypes());
+            for($i=0;$i<sizeof($getAllWeapons);$i++){
+                $form .= "<option value='".$getAllWeapons[$i]->id."'>".$getAllWeapons[$i]->equipmentName."</option>";
+            }
+            $form .= '</select>';
+            $form .= '</div>';
+            $form .= '<div class="col">';
+            $form .= '<select class="form-select" aria-label="Default select example">';
+            $form .= '<option selected>Weapon Level</option>';
+            $getItemTiersJson = json_decode(getItemTiers());
+            for($i=0;$i<sizeof($getItemTiersJson);$i++){
+                $form .= "<option value='".$getItemTiersJson[$i]->id."'> MK".$getItemTiersJson[$i]->tierLevel."</option>";
+            }
+            $form .= '</select>';
+            $form .= '</div>';
+            $form .= '<div class="col">';
+            $form .= '<select class="form-select" aria-label="Default select example">';
+            $form .= '<option selected>Mod 1</option>';
+            $form .= '<option value="1">ACC</option>';
+            $form .= '<option value="2">ACC2</option>';
+            $form .= '<option value="3">ACC3</option>';
+            $form .= '</select>';
+            $form .= '</div>';
+            $form .= '<div class="col">';
+            $form .= '<select class="form-select" aria-label="Default select example">';
+            $form .= '<option selected>Mod 2</option>';
+            $form .= '<option value="1">ACC</option>';
+            $form .= '<option value="2">ACC2</option>';
+            $form .= '<option value="3">ACC3</option>';
+            $form .= '</select>';
+            $form .= '</div>';
+            $form .= '<div class="col">';
+            $form .= '<select class="form-select" aria-label="Default select example">';
+            $form .= '<option selected>Mod 3</option>';
+            $form .= '<option value="1">ACC</option>';
+            $form .= '<option value="2">ACC2</option>';
+            $form .= '<option value="3">ACC3</option>';
+            $form .= '</select>';
+            $form .= '</div>';
+            $form .= '<div class="col">';
+            $form .= '<select class="form-select" aria-label="Default select example">';
+            $form .= '<option selected>Mod 4</option>';
+            $form .= '<option value="1">ACC</option>';
+            $form .= '<option value="2">ACC2</option>';
+            $form .= '<option value="3">ACC3</option>';
+            $form .= '</select>';
+            $form .= '</div>';
+            $form .= '</div>';
         }
-        $form .= '</select>';
-        $form .= '</div>';
-        $form .= '<div class="col">';
-        $form .= '<select class="form-select" aria-label="Default select example">';
-        $form .= '<option selected>Weapon Level</option>';
-        $getItemTiersJson = json_decode(getItemTiers());
-        for($i=0;$i<sizeof($getItemTiersJson);$i++){
-            $form .= "<option value='".$getItemTiersJson[$i]->id."'> MK".$getItemTiersJson[$i]->tierLevel."</option>";
-        }
-        $form .= '</select>';
-        $form .= '</div>';
-        $form .= '<div class="col">';
-        $form .= '<select class="form-select" aria-label="Default select example">';
-        $form .= '<option selected>Mod 1</option>';
-        $form .= '<option value="1">ACC</option>';
-        $form .= '<option value="2">ACC2</option>';
-        $form .= '<option value="3">ACC3</option>';
-        $form .= '</select>';
-        $form .= '</div>';
-        $form .= '<div class="col">';
-        $form .= '<select class="form-select" aria-label="Default select example">';
-        $form .= '<option selected>Mod 2</option>';
-        $form .= '<option value="1">ACC</option>';
-        $form .= '<option value="2">ACC2</option>';
-        $form .= '<option value="3">ACC3</option>';
-        $form .= '</select>';
-        $form .= '</div>';
-        $form .= '<div class="col">';
-        $form .= '<select class="form-select" aria-label="Default select example">';
-        $form .= '<option selected>Mod 3</option>';
-        $form .= '<option value="1">ACC</option>';
-        $form .= '<option value="2">ACC2</option>';
-        $form .= '<option value="3">ACC3</option>';
-        $form .= '</select>';
-        $form .= '</div>';
-        $form .= '<div class="col">';
-        $form .= '<select class="form-select" aria-label="Default select example">';
-        $form .= '<option selected>Mod 4</option>';
-        $form .= '<option value="1">ACC</option>';
-        $form .= '<option value="2">ACC2</option>';
-        $form .= '<option value="3">ACC3</option>';
-        $form .= '</select>';
-        $form .= '</div>';
-        $form .= '</div>';
 
         return $form;
     }

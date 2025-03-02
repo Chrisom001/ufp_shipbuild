@@ -3,14 +3,15 @@
 $db = new dbObj();
 $pdo =  $db->getConnstring();
 
-function getShipWeaponSlots($shipTypeID){
+function getShipWeaponSlots($shipTypeID, $slotType){
     global $pdo;
-    $readShipWeaponSlots = "SELECT frontSlot, rearSlot FROM ships WHERE id = $shipTypeID";
+    $readShipWeaponSlots = "SELECT $slotType FROM ships WHERE id = $shipTypeID";
 
-    $readShipWeaponSlotsQuery = $pdo -> query($readShipWeaponSlots);
-    $weaponSlots = $readShipWeaponSlotsQuery -> fetchAll(PDO::FETCH_OBJ);
+    $check = $pdo -> prepare($readShipWeaponSlots);
+    $check -> execute();
+    $checkResult = $check -> fetchcolumn();
 
-    return json_encode($weaponSlots);
+    return json_encode($checkResult);
 }
 
 function getShipEquipmentSlots($shipTypeID){

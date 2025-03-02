@@ -38,26 +38,28 @@ function databaseError(){
         if($shipID == 0){
             echo shipChoice();
         } else {
-            $shipName = getShipClassName($shipID);
-            echo json_decode($shipName);
+            $shipName = json_decode(getShipClassName($shipID));
+            echo $shipName;
             echo "<p>Enter the relevant weapons</p>";
+            echo shipWeapon("fore", $shipID);
+            echo shipWeaon("rear", $shipID);
 
-            $weaponSlotJson = getShipWeaponSlots($shipID);
-            if($weaponSlotJson == "Error"){
-                databaseError();
-            } else {
+            //$weaponSlotJson = getShipWeaponSlots($shipID);
+            //if($weaponSlotJson == "Error"){
+            //    databaseError();
+            //} else {
 
-                $weaponSlotData = json_decode($weaponSlotJson);
+                //$weaponSlotData = json_decode($weaponSlotJson);
 
-                $fore = $weaponSlotData[0]-> frontSlot;
-                $rear = $weaponSlotData[0]-> rearSlot;
+                //$fore = $weaponSlotData[0]-> frontSlot;
+                //$rear = $weaponSlotData[0]-> rearSlot;
 
-                for($i=0; $i < $fore; $i++){
-                    echo shipWeapon("Fore", $i);
-                }
-                for($j=0; $j < $rear; $j++) {
-                    echo shipWeapon("Rear", $j);
-                }
+                //for($i=0; $i < $fore; $i++){
+                //    echo shipWeapon("Fore", $i);
+                //}
+                //for($j=0; $j < $rear; $j++) {
+                //    echo shipWeapon("Rear", $j);
+                //}
                 echo "</br>";
                 echo "<p>Select the correct equipment for the ship</p>";
                 $equipmentSlotJson = getShipEquipmentSlots($shipID);
@@ -90,7 +92,6 @@ function databaseError(){
                 }
 
             }
-        }
 
     }
         ?>

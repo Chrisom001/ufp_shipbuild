@@ -70,7 +70,7 @@ function databaseError(){
                 data: { value: rarityValue },
                 success: function(response) {
                     //myFunction(response);
-                    $('#modifierColumn').append(response);
+                    $('#modifierSelector').html(response);
                 }
             });
         });

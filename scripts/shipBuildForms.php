@@ -100,7 +100,7 @@ include "model/api_shipType.php";
             $form .= '</select>';
             $form .= '</div>';
             $form .= "<div class='col' aria-label='modifierColumn' id='modifierColumn' name='modifierColumn'>";
-//            $form .= '<select class="form-select" aria-label="Default select example">';
+            $form .= "<select class='form-select' aria-label='modifierSelector' id='modifierSelector' name='modifierSelector'>";
 //            $form .= '<option selected>Mod 1</option>';
 //            $form .= '<option value="1">ACC</option>';
 //            $form .= '<option value="2">ACC2</option>';
@@ -129,7 +129,7 @@ include "model/api_shipType.php";
 //            $form .= '<option value="1">ACC</option>';
 //            $form .= '<option value="2">ACC2</option>';
 //            $form .= '<option value="3">ACC3</option>';
-//            $form .= '</select>';
+            $form .= '</select>';
             $form .= '</div>';
             $form .= '</div>';
         }

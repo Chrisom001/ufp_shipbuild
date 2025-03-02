@@ -2,7 +2,6 @@
 include "db_connection.php";
 include "../model/api_ships.php";
 
-
 if (isset($_POST['value'])) {
     $value = $_POST['value'];
     if($value == 0){

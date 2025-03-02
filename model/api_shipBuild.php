@@ -3,15 +3,27 @@
 $db = new dbObj();
 $pdo =  $db->getConnstring();
 
-//function getAllShipBuilds(){
-//    global $pdo;
-//    $readShipBuilds = "SELECT * FROM shipBuild";
-//
-//    $readShipBuildsQuery = $pdo -> query($readShipBuilds);
-//    $readShipBuilds = $readShipBuildsQuery -> fetchAll(PDO::FETCH_OBJ);
-//
-//    return json_encode($readShipBuilds);
-//}
+function getAllShipBuilds($offset)
+{
+    global $pdo;
+    $sqlReadSllShipBuilds = "SELECT * FROM shipBuild ORDER BY id DESC, timePosted DESC LIMIT 6 OFFSET $offset";
+    $readallShipBuildsQuery = $pdo -> query($sqlReadSllShipBuilds);
+    $readallShipBuilds = $readallShipBuildsQuery -> fetchAll(PDO::FETCH_OBJ);
+
+    //  convert to JSON
+    return json_encode($readallShipBuilds);
+}
+
+function getNumberOfShipBuilds(){
+    global $pdo;
+
+    $getNumArt = "SELECT COUNT(id) FROM shipBuild";
+    $check = $pdo -> prepare($getNumArt);
+    $check -> execute();
+    $checkResult = $check -> fetchcolumn();
+
+    return json_encode($checkResult);
+}
 
 function getLatestShipBuilds(){
     global $pdo;

@@ -1,11 +1,11 @@
 <?php
 //include "../model/api_rarity.php";
-if (isset($_POST['value'])) {
+//if (isset($_POST['value'])) {
 //    echo "Rarity: " . $_POST['value'];
-    $value = $_POST['value'];
+//    $value = $_POST['value'];
     //echo "Rarity: " . $value . "<br>";
-    $numOfModifiers = 2;
-    echo "Number of modifiers : ".$numOfModifiers;
+//    $numOfModifiers = 2;
+//    echo "Number of modifiers : ".$numOfModifiers;
 //    var_dump($numOfModifiers);
 //    if ($numOfModifiers > 0) {
 //        for($i = 0; $i < $numOfModifiers; $i++) {
@@ -25,8 +25,24 @@ if (isset($_POST['value'])) {
 //        echo '</select>';
 //        echo '</div>';
 //    }
-} else {
-    var_dump($_POST['value']);
-    echo "Failure!!!";
+//} else {
+//    var_dump($_POST['value']);
+//    echo "Failure!!!";/
+//}
+
+if (isset($_POST['value'])) {
+    $value = $_POST['value'];
+    if($value == 0){
+        echo "<option value=\"\">Please select a tier</option>";
+    } else {
+        $ships = getShipListByTier($value);
+        if ($ships) {
+            foreach ($ships as $ship) {
+                echo "<option value=\"{$ship['id']}\">{$ship['shipName']}</option>";
+            }
+        } else {
+            echo "<option value='0'>No options available</option>";
+        }
+    }
 }
 ?>

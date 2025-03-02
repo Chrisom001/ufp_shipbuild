@@ -27,7 +27,7 @@ $navbar .= "<ul class='dropdown-menu'>";
 $navbar .= "<li><a class='dropdown-item' href='addShipBuild.php'>Add a new ship build</a></li>";
 $navbar .= "<li><a class='dropdown-item' href='#'>Edit existing ship build</a></li>";
 $navbar .= "<li><hr class='dropdown-divider'></li>";
-$navbar .= "<li><a class='dropdown-item' href='#'>View all ship builds</a></li>";
+$navbar .= "<li><a class='dropdown-item' href='viewAllShipBuilds.php'>View all ship builds</a></li>";
 $navbar .= "</ul>";
 $navbar .= "</li>";
 $navbar .= "<li class='nav-item'>";

@@ -52,6 +52,7 @@ $options = getAllModifiersByEquipmentType(9);
             echo "<option value='".$getItemRaritysJson[$i]->modifierCount."'>".$getItemRaritysJson[$i]->rarityType."</option>";
         }
     ?>
+    </select>
 <!--    <label for="numDropdowns">Select Number of Dropdowns:</label>-->
 <!--    <select id="numDropdowns" name="numDropdowns">-->
 <!--        <option value="0">Select</option>-->

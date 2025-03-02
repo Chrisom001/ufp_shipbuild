@@ -24,6 +24,8 @@ for($i = 0; $i < count($getAllShipsJson); $i++) {
     $shipBuildForm .= "</div>";
     $shipBuildForm .= "</div>";
     $shipBuildForm .= "</div>";
+    $shipBuildForm .= "</div>";
+    $shipBuildForm .= "</div>";
 }
 
 ?>

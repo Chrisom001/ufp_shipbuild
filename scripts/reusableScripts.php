@@ -84,12 +84,11 @@ function getNumSlotsFromArray($slotArray, $type){
 }
 
 function getNumberOfSlots($shipID){
-    $weaponSlotData = json_decode(getShipWeaponSlots($shipID));
     $consoleSlotJson = json_decode(getConsoleSlotsByShipTypeID($shipID));
 
     $slotArray = array();
-    $slotArray[] = array("type" => "foreweapons", "value" => $weaponSlotData[0]->frontSlot);
-    $slotArray[] = array("type" => "rearweapons", "value" => $weaponSlotData[0]->rearSlot);
+    $slotArray[] = array("type" => "foreweapons", "value" => json_decode(getShipWeaponSlots($shipID, "frontSlot")));
+    $slotArray[] = array("type" => "rearweapons", "value" => json_decode(getShipWeaponSlots($shipID, "rearSlot")));
     $slotArray[] = array("type" => "engineering", "value" => $consoleSlotJson[0]->engConsoleNum);
     $slotArray[] = array("type" => "science", "value" => $consoleSlotJson[0]->sciConsoleNum);
     $slotArray[] = array("type" => "tactical", "value" => $consoleSlotJson[0]->tacConsoleNum);

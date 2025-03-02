@@ -92,6 +92,15 @@ include "model/api_shipType.php";
             $form .= '</div>';
             $form .= '<div class="col">';
             $form .= '<select class="form-select" aria-label="Default select example">';
+            $form .= '<option selected>Rarity</option>';
+            $getItemRaritysJson = json_decode(getAllRaritys());
+            for($i=0;$i<sizeof($getItemRaritysJson);$i++){
+                $form .= "<option value='".$getItemRaritysJson[$i]->id."'>".$getItemRaritysJson[$i]->rarityType."</option>";
+            }
+            $form .= '</select>';
+            $form .= '</div>';
+            $form .= '<div class="col">';
+            $form .= '<select class="form-select" aria-label="Default select example">';
             $form .= '<option selected>Mod 1</option>';
             $form .= '<option value="1">ACC</option>';
             $form .= '<option value="2">ACC2</option>';

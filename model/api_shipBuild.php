@@ -3,15 +3,15 @@
 $db = new dbObj();
 $pdo =  $db->getConnstring();
 
-function getAllShipBuilds(){
-    global $pdo;
-    $readShipBuilds = "SELECT * FROM shipBuild";
-
-    $readShipBuildsQuery = $pdo -> query($readShipBuilds);
-    $readShipBuilds = $readShipBuildsQuery -> fetchAll(PDO::FETCH_OBJ);
-
-    return json_encode($readShipBuilds);
-}
+//function getAllShipBuilds(){
+//    global $pdo;
+//    $readShipBuilds = "SELECT * FROM shipBuild";
+//
+//    $readShipBuildsQuery = $pdo -> query($readShipBuilds);
+//    $readShipBuilds = $readShipBuildsQuery -> fetchAll(PDO::FETCH_OBJ);
+//
+//    return json_encode($readShipBuilds);
+//}
 
 function getLatestShipBuilds(){
     global $pdo;

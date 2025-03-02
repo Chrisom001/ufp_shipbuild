@@ -2,43 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dynamic Select Update</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Dropdowns</title>
+    <script>
+        function generateDropdowns() {
+            let num = document.getElementById("numDropdowns").value;
+            let container = document.getElementById("dropdownContainer");
+            container.innerHTML = ""; // Clear previous dropdowns
 
+            for (let i = 0; i < num; i++) {
+                let select = document.createElement("select");
+                select.name = "dropdown" + (i + 1);
+
+                let option1 = document.createElement("option");
+                option1.value = "Option1";
+                option1.text = "Option 1";
+
+                let option2 = document.createElement("option");
+                option2.value = "Option2";
+                option2.text = "Option 2";
+
+                select.appendChild(option1);
+                select.appendChild(option2);
+                container.appendChild(select);
+                container.appendChild(document.createElement("br"));
+            }
+        }
+    </script>
 </head>
 <body>
-<h1>Select Form Update Example</h1>
-<form>
-    <label for="select1">Select 1:</label>
-    <select id="select1">
-        <option value="">Select an option</option>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
+
+<form method="POST">
+    <label for="numDropdowns">Select Number of Dropdowns:</label>
+    <select id="numDropdowns" name="numDropdowns" onchange="generateDropdowns()">
+        <option value="0">Select</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
     </select>
 
-    <br><br>
+    <div id="dropdownContainer"></div>
 
-    <label for="select2">Select 2:</label>
-    <select id="select2">
-        <option value="">Select an option</option>
-    </select>
+    <br>
+    <input type="submit" value="Submit">
 </form>
 
-<script>
-    $(document).ready(function() {
-        $('#select1').change(function() {
-            var selectedValue = $(this).val();
-
-            $.ajax({
-                url: 'scripts/getoptions.php',
-                type: 'POST',
-                data: { value: selectedValue },
-                success: function(response) {
-                    $('#select2').html(response);
-                }
-            });
-        });
-    });
-</script>
 </body>
 </html>

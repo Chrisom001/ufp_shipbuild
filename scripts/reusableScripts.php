@@ -5,8 +5,7 @@ include "model/api_damageType.php";
 include "model/api_itemTiers.php";
 include "model/api_itemCombination.php";
 include "model/api_bridgeOfficers.php";
-include "model/api_users.php";
-include "model/api_shipTiers.php";
+
 
 function viewShipItems($type, $shipID){
     $itemType = "";

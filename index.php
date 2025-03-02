@@ -17,7 +17,7 @@ for($i = 0; $i < count($getAllShipsJson); $i++) {
     $shipBuildForm .= "<ul class='list-group list-group-flush'>";
     $shipBuildForm .= "<li class='list-group-item'>Faction: " . $getAllShipsJson[$i]->shipFaction."</li>";
     $shipBuildForm .= "<li class='list-group-item'>Ship Type: ".json_decode(getShipTypeByID($getAllShipsJson[$i]->shipTypeID))."</li>";
-    $shipBuildForm .= "<li class='list-group-item'>Tier Level</li>";
+    $shipBuildForm .= "<li class='list-group-item'>Tier: " . json_decode(getShipTierById($getAllShipsJson[$i]->shipTierID)) . "</li>";
     $shipBuildForm .= "<li class='list-group-item'>Created by: ".json_decode(checkUsernameByID($getAllShipsJson[$i]->userID))."</li>";
     $shipBuildForm .= "</ul>";
     $shipBuildForm .= " <a href='buildview.php?id=".$getAllShipsJson[$i]->id."' class='btn btn-primary'>View this build</a>";

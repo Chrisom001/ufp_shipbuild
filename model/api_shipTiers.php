@@ -12,4 +12,14 @@ function getShipTiers(){
 
     return json_encode($readTier);
 }
+
+function getShipTierById($id){
+    global $pdo;
+    $readShipTierByIDQuery = "SELECT shipTier FROM shipTiers WHERE id = $id";
+    $check = $pdo -> prepare($readShipTierByIDQuery);
+    $check -> execute();
+    $checkResult = $check -> fetchcolumn();
+
+    return json_encode($checkResult);
+}
 ?>

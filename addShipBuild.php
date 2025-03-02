@@ -35,12 +35,10 @@ function databaseError(){
         echo shipChoice();
     } else {
         $shipID = $_POST['shipSelector'];
-        echo $shipID;
         if($shipID == 0){
             echo shipChoice();
         } else {
             $shipName = getShipClassName($shipID);
-            var_dump($shipName);
             echo json_decode($shipName);
             echo "<p>Enter the relevant weapons</p>";
 

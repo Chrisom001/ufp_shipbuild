@@ -16,6 +16,7 @@ function viewShipItems($type, $shipID){
     $WeaponsArray = array();
     foreach($shipItems as $shipItem){
         if($shipItem->$check == 1){
+            var_dump($shipItem);
             if($itemType == "console"){
                 if($shipItem->equipmentType == $type){
                     echo $shipItem->equipmentType . " vs " . $type;

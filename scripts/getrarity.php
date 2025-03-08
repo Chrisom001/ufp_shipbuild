@@ -46,5 +46,9 @@
 //    }
 //}
 
-echo "Test";
+if(isset($_POST['value'])){
+    echo "Value: ".$_POST['value'];
+} else {
+    echo "No value seen";
+}
 ?>

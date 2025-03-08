@@ -40,7 +40,7 @@ function databaseError(){
                 echo tabbedShipEquipmentForm($shipID);
             }
         } else {
-            $result = addShipBuild($_POST['userID'], $_POST['shipSelector']);
+            $result = addShipBuild($_POST['userID'], $_POST['shipSelector'], $_POST['shortDescription'],$_POST['longDescription'],$_POST[]);
             echo $result;
         }
 

@@ -28,19 +28,29 @@ function databaseError(){
     if(!isset($_POST['shipSelector'])){
         echo shipChoice();
     } else {
-        $shipID = $_POST['shipSelector'];
-        if($shipID == 0){
-            echo shipChoice();
+        if(!isset($_POST['shipWepConsoleEquipment'])){
+            $shipID = $_POST['shipSelector'];
+            if($shipID == 0){
+                echo shipChoice();
+            } else {
+                $shipName = json_decode(getShipClassName($shipID));
+                echo $shipName;
+                echo "<form action='addShipBuild.php' method='post'>";
+                echo addShipWepAndConsole($shipID);
+
+                echo "<input type='hidden' name='shipWepConsoleEquipment' value='true'>";
+                echo "<input type='hidden' name='userID' value='1'>";
+                echo "<input type='hidden' name='shipSelector' value='$shipID'>";
+                echo "<input type='submit' value='Submit'>";
+                echo "</form>";
+            }
         } else {
-            $shipName = json_decode(getShipClassName($shipID));
-            echo $shipName;
-            echo addShipWepAndConsole($shipID);
+            echo "This is to check this form works right - ShipWepEquipment";
         }
+
     }
         ?>
 </div>
-    </form>
-
 </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

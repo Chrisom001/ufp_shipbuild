@@ -31,24 +31,16 @@ include "model/api_shipType.php";
         }
 
         $form .= "<div class='col'>";
-        //$shipData = getShipList();
-        //$usableShip = json_decode($shipData);
-        //if(sizeof($usableShip) < 1){
-        //    return "Error";
-        //} else {
-            $form .= "<select class='form-select' aria-label='ShipSelector' id='shipSelector' name='shipSelector'>";
-            $form .= "<option selected>Select the type of ship</option>";
-            //for ($i = 0; $i < sizeof($usableShip); $i++) {
-            //    $form .= "<option value='" . $usableShip[$i]->id . "'class='".$usableShip[$i]->shipTierID."'>" . $usableShip[$i]->shipName . "</option>";
-            //}
-            $form .= "</select>";
-            $form .= "</div>";
-            $form .= "</div>";
-            $form .= "<input type='submit' value='Submit'>";
-            $form .= "</form>";
+        $form .= "<select class='form-select' aria-label='ShipSelector' id='shipSelector' name='shipSelector'>";
+        $form .= "<option selected>Select the type of ship</option>";
 
-            return $form;
-        //}
+        $form .= "</select>";
+        $form .= "</div>";
+        $form .= "</div>";
+        $form .= "<input type='submit' value='Submit'>";
+        $form .= "</form>";
+
+        return $form;
     }
     function shipWeapon($weaponLocation, $shipID){
         $weaponSlot = "";
@@ -178,11 +170,6 @@ include "model/api_shipType.php";
             }
         }
         $form .= "</br>";
-        $form .= "<input type='hidden' name='shipWepInput' value='true'>";
-        $form .= "<input type='hidden' name='userID' value='1'>";
-        $form .= "<input type='hidden' name='shipSelector' value='$shipID'>";
-        $form .= "<input type='submit' value='Submit'>";
-        $form .= "</form>";
         return $form;
     }
 ?>

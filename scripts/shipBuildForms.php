@@ -283,7 +283,7 @@ include "model/api_shipType.php";
         $getItemJson = json_decode(getAllEquipments($type));
         var_dump($getItemJson);
         for($i=0;$i<sizeof($getItemJson);$i++){
-            $form .= "<option value='".$getItemJson[$i]->id."'>".$getItemJson[$i]->equimentName."</option>";
+            $form .= "<option value='".$getItemJson[$i]->id."'>".$getItemJson[$i]->equipmentName."</option>";
         }
         return $form;
     }

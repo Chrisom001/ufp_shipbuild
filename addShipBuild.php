@@ -36,11 +36,6 @@ function databaseError(){
                 $shipName = json_decode(getShipClassName($shipID));
                 echo $shipName;
                 echo "<form action='addShipBuild.php' method='post'>";
-
-                //echo addShipWeps($shipID);
-
-               // echo shipConsoleAdd($shipID);
-
                 echo tabbedShipEquipmentForm($shipID);
                 echo "<input type='hidden' name='shipWepConsoleEquipment' value='true'>";
                 echo "<input type='hidden' name='userID' value='1'>";
@@ -49,7 +44,7 @@ function databaseError(){
                 echo "</form>";
             }
         } else {
-            echo "This is to check this form works right - ShipWepEquipment";
+            print_r($_POST);
         }
 
     }
@@ -59,7 +54,6 @@ function databaseError(){
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="scripts/javascript/shipSelector.js"></script>
-<script src="scripts/javascript/equipmentRarityDisplay.js"></script>
 </body>
 <footer class="footer">
     <?php include "scripts/footer.php"; ?>

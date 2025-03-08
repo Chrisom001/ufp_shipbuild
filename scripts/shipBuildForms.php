@@ -56,7 +56,7 @@ include "model/api_shipType.php";
             $form .= '<label>'.$weaponLocation .'Weapon'. ($s + 1) . ': </label>';
             $form .= '<div class="row">';
             $form .= '<div class="col">';
-            $form .= '<select class="form-select" aria-label="Default select example">';
+            $form .= '<select class="form-select" aria-label="Default select example" name="'.$weaponLocation .'"_damage_"' . $s.'">';
             $form .= '<option selected>Weapon Damage</option>';
             $getWeaponDamageType = json_decode(getAllDamageTypes());
             for($i=0;$i<sizeof($getWeaponDamageType);$i++){
@@ -65,7 +65,7 @@ include "model/api_shipType.php";
             $form .= '</select>';
             $form .= '</div>';
             $form .= '<div class="col">';
-            $form .= '<select class="form-select" aria-label="Default select example">';
+            $form .= '<select class="form-select" aria-label="Default select example" name="'.$weaponLocation .'"_type_"' . $s.'">';
             $form .= '<option selected>Weapon Type</option>';
             $getAllWeapons = json_decode(getAllWeaponTypes());
             for($i=0;$i<sizeof($getAllWeapons);$i++){
@@ -74,7 +74,7 @@ include "model/api_shipType.php";
             $form .= '</select>';
             $form .= '</div>';
             $form .= '<div class="col">';
-            $form .= '<select class="form-select" aria-label="Default select example">';
+            $form .= '<select class="form-select" aria-label="Default select example" name="'.$weaponLocation .'"_level_"' . $s.'">';
             $form .= '<option selected>Weapon Level</option>';
             $getItemTiersJson = json_decode(getItemTiers());
             for($i=0;$i<sizeof($getItemTiersJson);$i++){
@@ -83,7 +83,7 @@ include "model/api_shipType.php";
             $form .= '</select>';
             $form .= '</div>';
             $form .= '<div class="col">';
-            $form .= "<select class='form-select' aria-label='Default select example' id='weaponRaritySelector' name='weaponRaritySelector'>";
+            $form .= "<select class='form-select' aria-label='Default select example' id='weaponRaritySelector' name='".$weaponLocation . "_rarity_".$s."'>";
             $form .= '<option selected>Rarity</option>';
             $getItemRaritysJson = json_decode(getAllRaritys());
             for($i=0;$i<sizeof($getItemRaritysJson);$i++){

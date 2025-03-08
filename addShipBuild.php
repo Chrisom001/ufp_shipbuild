@@ -44,7 +44,8 @@ function databaseError(){
                 echo "</form>";
             }
         } else {
-            print_r($_POST);
+            $result = addShipBuild($_POST['userID'], $_POST['shipSelector']);
+            echo $result;
         }
 
     }

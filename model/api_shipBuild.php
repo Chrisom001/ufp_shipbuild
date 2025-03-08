@@ -47,7 +47,9 @@ function addShipBuild($user, $ship){
     ]);
 
     if($success && $statement -> rowCount() > 0){
-        return json_encode("Success");
+        $id = $pdo->lastInsertId();
+        $return = "Success. Insert ID: " . $id;
+        return json_encode($return);
     } else {
         return json_encode("Fail");
     }

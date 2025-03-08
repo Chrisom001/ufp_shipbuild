@@ -76,7 +76,7 @@ if (isset($_POST['value'])) {
 //        } else {
 //            echo "<option value='0'>No options available</option>";
 //        }
-        for($i = 1; $i <= $value; $i++) {
+        for($i = 1; $i <= 5; $i++) {
             echo "<option value=" . $i. ">Option " . $i . "</option>";
         }
     }

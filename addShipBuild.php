@@ -40,6 +40,8 @@ function databaseError(){
                 echo addShipWeps($shipID);
 
                 echo shipConsoleAdd($shipID);
+
+                echo tabbedShipEquipmentForm();
                 echo "<input type='hidden' name='shipWepConsoleEquipment' value='true'>";
                 echo "<input type='hidden' name='userID' value='1'>";
                 echo "<input type='hidden' name='shipSelector' value='$shipID'>";

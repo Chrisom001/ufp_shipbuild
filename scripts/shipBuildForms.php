@@ -80,16 +80,11 @@ include "model/api_shipType.php";
             $form .= "</div>";
             $form .= "<div class='col'>";
             $form .= "<select class='form-select' aria-label='Default select example' name='$weaponLevel' required>";
-            $form .= "<option selected>Weapon Level</option>";
-            $getItemTiersJson = json_decode(getItemTiers());
-            for($i=0;$i<sizeof($getItemTiersJson);$i++){
-                $form .= "<option value='".$getItemTiersJson[$i]->id."'> MK ".$getItemTiersJson[$i]->tierLevel."</option>";
-            }
+            $form .= getAllTierOptions("Weapon");
             $form .= "</select>";
             $form .= "</div>";
             $form .= "<div class='col'>";
             $form .= "<select class='form-select' aria-label='Default select example' id='weaponRaritySelector' name='$weaponTier' required>";
-            $form .= "<option selected>Rarity</option>";
             $getItemRaritysJson = json_decode(getAllRaritys());
             $form .= getAllRarityOptions();
             $form .= "</select>";
@@ -106,27 +101,16 @@ include "model/api_shipType.php";
         $form .= "<div class='row'>";
         $form .= "<div class='col'>";
         $form .= "<select class='form-select' aria-label='Default select example' name='".$consoleType. "_type_" .$slotNumber."' required>";
-        $form .= "<option selected>Console Type</option>";
-        $getConsolesJson = json_decode(getAllConsoles());
-        for($i=0;$i<sizeof($getConsolesJson);$i++){
-            if($getConsolesJson[$i]->equipmentType == strtolower($consoleType)){
-                $form .= "<option value='".$getConsolesJson[$i]->id."'>".$getConsolesJson[$i]->equipmentName."</option>";
-            }
-        }
+        $form .= getAllTierOptions("Console");
         $form .= "</select>";
         $form .= "</div>";
         $form .= "<div class='col'>";
         $form .= "<select class='form-select' aria-label='Default select example' name='".$consoleType. "_tier_" .$slotNumber."' required>";
-        $form .= "<option selected>Console Level</option>";
-        $getItemTiersJson = json_decode(getItemTiers());
-        for($i=0;$i<sizeof($getItemTiersJson);$i++){
-            $form .= "<option value='".$getItemTiersJson[$i]->id."'> MK ".$getItemTiersJson[$i]->tierLevel."</option>";
-        }
+
         $form .= "</select>";
         $form .= "</div>";
         $form .= "<div class='col'>";
         $form .= "<select class='form-select' aria-label='Default select example' name='".$consoleType. "_rarity_" .$slotNumber."' required>";
-        $form .= "<option selected>Rarity</option>";
         $form .= getAllRarityOptions();
         $form .= "</select>";
         $form .= "</div>";
@@ -177,8 +161,18 @@ include "model/api_shipType.php";
         return $form;
     }
 
+    function getAllTierOptions($item){
+        $form ="";
+        $form .= "<option selected>" .$item ." Level</option>";
+        $getItemTiersJson = json_decode(getItemTiers());
+        for($i=0;$i<sizeof($getItemTiersJson);$i++){
+            $form .= "<option value='".$getItemTiersJson[$i]->id."'> MK ".$getItemTiersJson[$i]->tierLevel."</option>";
+        }
+    }
+
     function getAllRarityOptions(){
         $form = "";
+        $form .= "<option selected>Rarity</option>";
         $getItemRaritysJson = json_decode(getAllRaritys());
         for($i=0;$i<sizeof($getItemRaritysJson);$i++){
             $form .= "<option value='".$getItemRaritysJson[$i]->id."'>".$getItemRaritysJson[$i]->rarityType."</option>";
@@ -199,7 +193,7 @@ include "model/api_shipType.php";
         $form .= "<div class='col'>";
         $form .= "<label>Mark</label>";
         $form .= "<select class='form-select' aria-label='Default select example' name='equipment'>";
-        $form .= "<option selected>Mk 1</option>";
+        $form .= getAllTierOptions("Shield");
         $form .= "</select>";
         $form .= "</div>";
         $form .= "<div class='col'>";
@@ -220,7 +214,7 @@ include "model/api_shipType.php";
         $form .= "<div class='col'>";
         $form .= "<label>Mark</label>";
         $form .= "<select class='form-select' aria-label='Default select example' name='equipment'>";
-        $form .= "<option selected>Mk 1</option>";
+        $form .= getAllTierOptions("Deflector");
         $form .= "</select>";
         $form .= "</div>";
         $form .= "<div class='col'>";
@@ -241,7 +235,7 @@ include "model/api_shipType.php";
         $form .= "<div class='col'>";
         $form .= "<label>Mark</label>";
         $form .= "<select class='form-select' aria-label='Default select example' name='equipment'>";
-        $form .= "<option selected>Mk 1</option>";
+        $form .= getAllTierOptions("Impulse");
         $form .= "</select>";
         $form .= "</div>";
         $form .= "<div class='col'>";
@@ -262,7 +256,7 @@ include "model/api_shipType.php";
         $form .= "<div class='col'>";
         $form .= "<label>Mark</label>";
         $form .= "<select class='form-select' aria-label='Default select example' name='equipment'>";
-        $form .= "<option selected>Mk 1</option>";
+        $form .= getAllTierOptions("Warp Core");
         $form .= "</select>";
         $form .= "</div>";
         $form .= "<div class='col'>";
@@ -283,13 +277,13 @@ include "model/api_shipType.php";
         $form .= "<div class='col'>";
         $form .= "<label>Mark</label>";
         $form .= "<select class='form-select' aria-label='Default select example' name='equipment'>";
-        $form .= "<option selected>Mk 1</option>";
+        $form .= getAllTierOptions("Impulse Engine");
         $form .= "</select>";
         $form .= "</div>";
         $form .= "<div class='col'>";
         $form .= "<label>Rarity</label>";
         $form .= "<select class='form-select' aria-label='Default select example' name='equipment'>";
-        $form .= "<option selected>Rare</option>";
+        $form .= getAllRarityOptions();
         $form .= "</select>";
         $form .= "</div>";
         $form .= "</div>";

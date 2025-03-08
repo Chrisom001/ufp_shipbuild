@@ -117,17 +117,15 @@ function getBridgeOfficerSlots($shipID){
 
 function shipBuildFormHomepage(){
     $getAllShipsJson = json_decode(getLatestShipBuilds());
-    echo "Count of Json Entries: " . count($getAllShipsJson);
     $shipBuildForm = "";
     for($i = 0; $i < count($getAllShipsJson); $i++) {
-        echo $i;
         $shipBuildForm .= "<div class='container text-center'>";
         $shipBuildForm .= "<div class='row'>";
         $shipBuildForm .= shipCardBuilder($getAllShipsJson[$i]);
         $shipBuildForm .= "</div>";
         $shipBuildForm .= "</div>";
-        return $shipBuildForm;
     }
+    return $shipBuildForm;
 }
 
 function shipCardBuilder($getShipsData){

@@ -168,6 +168,7 @@ include "model/api_shipType.php";
         for($i=0;$i<sizeof($getItemTiersJson);$i++){
             $form .= "<option value='".$getItemTiersJson[$i]->id."'> MK ".$getItemTiersJson[$i]->tierLevel."</option>";
         }
+        return $form;
     }
 
     function getAllRarityOptions(){

@@ -91,9 +91,7 @@ include "model/api_shipType.php";
             $form .= "<select class='form-select' aria-label='Default select example' id='weaponRaritySelector' name='$weaponTier' required>";
             $form .= "<option selected>Rarity</option>";
             $getItemRaritysJson = json_decode(getAllRaritys());
-            for($i=0;$i<sizeof($getItemRaritysJson);$i++){
-                $form .= "<option value='".$getItemRaritysJson[$i]->id."'>".$getItemRaritysJson[$i]->rarityType."</option>";
-            }
+            $form .= getAllRarityOptions();
             $form .= "</select>";
             $form .= "</div>";
             $form .= "</div>";
@@ -129,10 +127,7 @@ include "model/api_shipType.php";
         $form .= "<div class='col'>";
         $form .= "<select class='form-select' aria-label='Default select example' name='".$consoleType. "_rarity_" .$slotNumber."' required>";
         $form .= "<option selected>Rarity</option>";
-        $getItemRaritysJson = json_decode(getAllRaritys());
-        for($i=0;$i<sizeof($getItemRaritysJson);$i++){
-            $form .= "<option value='".$getItemRaritysJson[$i]->id."'>".$getItemRaritysJson[$i]->rarityType."</option>";
-        }
+        $form .= getAllRarityOptions();
         $form .= "</select>";
         $form .= "</div>";
         $form .= "</div>";
@@ -182,6 +177,15 @@ include "model/api_shipType.php";
         return $form;
     }
 
+    function getAllRarityOptions(){
+        $form = "";
+        $getItemRaritysJson = json_decode(getAllRaritys());
+        for($i=0;$i<sizeof($getItemRaritysJson);$i++){
+            $form .= "<option value='".$getItemRaritysJson[$i]->id."'>".$getItemRaritysJson[$i]->rarityType."</option>";
+        }
+        return $form;
+    }
+
     function shipEquipmentForm(){
         $form = "";
         $form .= "<p>Select the equipment for the ship</p>";
@@ -201,7 +205,7 @@ include "model/api_shipType.php";
         $form .= "<div class='col'>";
         $form .= "<label>Rarity</label>";
         $form .= "<select class='form-select' aria-label='Default select example' name='equipment'>";
-        $form .= "<option selected>Rare</option>";
+        $form .= getAllRarityOptions();
         $form .= "</select>";
         $form .= "</div>";
         $form .= "</div>";
@@ -222,7 +226,7 @@ include "model/api_shipType.php";
         $form .= "<div class='col'>";
         $form .= "<label>Rarity</label>";
         $form .= "<select class='form-select' aria-label='Default select example' name='equipment'>";
-        $form .= "<option selected>Rare</option>";
+        $form .= getAllRarityOptions();
         $form .= "</select>";
         $form .= "</div>";
         $form .= "</div>";
@@ -243,7 +247,7 @@ include "model/api_shipType.php";
         $form .= "<div class='col'>";
         $form .= "<label>Rarity</label>";
         $form .= "<select class='form-select' aria-label='Default select example' name='equipment'>";
-        $form .= "<option selected>Rare</option>";
+        $form .= getAllRarityOptions();
         $form .= "</select>";
         $form .= "</div>";
         $form .= "</div>";
@@ -264,7 +268,7 @@ include "model/api_shipType.php";
         $form .= "<div class='col'>";
         $form .= "<label>Rarity</label>";
         $form .= "<select class='form-select' aria-label='Default select example' name='equipment'>";
-        $form .= "<option selected>Rare</option>";
+        $form .= getAllRarityOptions();
         $form .= "</select>";
         $form .= "</div>";
         $form .= "</div>";

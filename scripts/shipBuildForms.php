@@ -104,37 +104,37 @@ include "model/api_shipType.php";
 
     function shipEquip($consoleType, $slotNumber){
         $form = "";
-        $form .= '<label>'.$consoleType .' console '. ($slotNumber + 1) . ': </label>';
-        $form .= '<div class="row">';
-        $form .= '<div class="col">';
-        $form .= '<select class="form-select" aria-label="Default select example">';
-        $form .= '<option selected>Console Type</option>';
+        $form .= "<label>".$consoleType ." console ". ($slotNumber + 1) . ": </label>";
+        $form .= "<div class='row'>";
+        $form .= "<div class='col'>";
+        $form .= "<select class='form-select' aria-label='Default select example' name='".$consoleType. "_type_" .$slotNumber."'>";
+        $form .= "<option selected>Console Type</option>";
         $getConsolesJson = json_decode(getAllConsoles());
         for($i=0;$i<sizeof($getConsolesJson);$i++){
             if($getConsolesJson[$i]->equipmentType == strtolower($consoleType)){
                 $form .= "<option value='".$getConsolesJson[$i]->id."'>".$getConsolesJson[$i]->equipmentName."</option>";
             }
         }
-        $form .= '</select>';
-        $form .= '</div>';
-        $form .= '<div class="col">';
-        $form .= '<select class="form-select" aria-label="Default select example">';
-        $form .= '<option selected>Console Level</option>';
+        $form .= "</select>";
+        $form .= "</div>";
+        $form .= "<div class='col'>";
+        $form .= "<select class='form-select' aria-label='Default select example' name='".$consoleType. "_tier_" .$slotNumber."'>";
+        $form .= "<option selected>Console Level</option>";
         $getItemTiersJson = json_decode(getItemTiers());
         for($i=0;$i<sizeof($getItemTiersJson);$i++){
             $form .= "<option value='".$getItemTiersJson[$i]->id."'> MK ".$getItemTiersJson[$i]->tierLevel."</option>";
         }
-        $form .= '</select>';
-        $form .= '</div>';
-        $form .= '<div class="col">';
-        $form .= '<select class="form-select" aria-label="Default select example">';
-        $form .= '<option selected>Rarity</option>';
+        $form .= "</select>";
+        $form .= "</div>";
+        $form .= "<div class='col'>";
+        $form .= "<select class='form-select' aria-label='Default select example' name='".$consoleType. "_rarity_" .$slotNumber."'>";
+        $form .= "<option selected>Rarity</option>";
         $getItemRaritysJson = json_decode(getAllRaritys());
         for($i=0;$i<sizeof($getItemRaritysJson);$i++){
             $form .= "<option value='".$getItemRaritysJson[$i]->id."'>".$getItemRaritysJson[$i]->rarityType."</option>";
         }
-        $form .= '</select>';
-        $form .= '</div>';
+        $form .= "</select>";
+        $form .= "</div>";
         return $form;
     }
 

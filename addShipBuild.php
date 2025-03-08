@@ -44,27 +44,7 @@ function databaseError(){
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="scripts/javascript/shipSelector.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#weaponRaritySelector').change(function() {
-            var rarityValue = $(this).val();
-            //myFunction(rarityValue);
-            $.ajax({
-                url: 'scripts/getrarity.php',
-                type: 'POST',
-                data: { value: rarityValue },
-                success: function(response) {
-                    //myFunction(response);
-                    $('#modifierSelector').html(response);
-                }
-            });
-        });
-    });
-
-    function myFunction(x) {
-        alert("Value Selected: " + x);
-    }
-</script>
+<script src="scripts/javascript/equipmentRarityDisplay.js"></script>
 </body>
 <footer class="footer">
     <?php include "scripts/footer.php"; ?>

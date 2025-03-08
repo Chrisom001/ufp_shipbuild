@@ -194,7 +194,7 @@ include "model/api_shipType.php";
         $form .= "<div class='col'>";
         $form .= "<label>Shields</label>";
         $form .= "<select class='form-select' aria-label='Default select example' name='equipment'>";
-        $form .= "<option selected>Shields</option>";
+        $form .= getEquipmentTypeList("shield");
         $form .= "</select>";
         $form .= "</div>";
         $form .= "<div class='col'>";
@@ -215,7 +215,7 @@ include "model/api_shipType.php";
         $form .= "<div class='col'>";
         $form .= "<label>Deflector Dish</label>";
         $form .= "<select class='form-select' aria-label='Default select example' name='equipment'>";
-        $form .= "<option selected>This Type of Deflector</option>";
+        $form .= getEquipmentTypeList("deflector");
         $form .= "</select>";
         $form .= "</div>";
         $form .= "<div class='col'>";
@@ -236,7 +236,7 @@ include "model/api_shipType.php";
         $form .= "<div class='col'>";
         $form .= "<label>Impulse Engine</label>";
         $form .= "<select class='form-select' aria-label='Default select example' name='equipment'>";
-        $form .= "<option selected>This Type of Impulse</option>";
+        $form .= getEquipmentTypeList("impulse");
         $form .= "</select>";
         $form .= "</div>";
         $form .= "<div class='col'>";
@@ -257,7 +257,7 @@ include "model/api_shipType.php";
         $form .= "<div class='col'>";
         $form .= "<label>Warp/Singulatory Core</label>";
         $form .= "<select class='form-select' aria-label='Default select example' name='equipment'>";
-        $form .= "<option selected>This Type of Warp</option>";
+        $form .= getEquipmentTypeList("warpcore_singularity");
         $form .= "</select>";
         $form .= "</div>";
         $form .= "<div class='col'>";
@@ -274,28 +274,16 @@ include "model/api_shipType.php";
         $form .= "</div>";
         $form .= "</div>";
 
-        $form .= "<div class='row'>";
-        $form .= "<div class='col'>";
-        $form .= "<label>Impulse Engine</label>";
-        $form .= "<select class='form-select' aria-label='Default select example' name='equipment'>";
-        $form .= "<option selected>This Type of Impulse</option>";
-        $form .= "</select>";
-        $form .= "</div>";
-        $form .= "<div class='col'>";
-        $form .= "<label>Mark</label>";
-        $form .= "<select class='form-select' aria-label='Default select example' name='equipment'>";
-        $form .= getAllTierOptions("Impulse Engine");
-        $form .= "</select>";
-        $form .= "</div>";
-        $form .= "<div class='col'>";
-        $form .= "<label>Rarity</label>";
-        $form .= "<select class='form-select' aria-label='Default select example' name='equipment'>";
-        $form .= getAllRarityOptions();
-        $form .= "</select>";
-        $form .= "</div>";
-        $form .= "</div>";
+        return $form;
+    }
 
-
+    function getEquipmentTypeList($type){
+        $form ="";
+        $form .= "<option selected>" .$type ." Selection</option>";
+        $getItemJson = getAllEquipments($type);
+        for($i=0;$i<sizeof($getItemJson);$i++){
+            $form .= "<option value='".$getItemJson[$i]->id."'> MK ".$getItemJson[$i]->equimentName."</option>";
+        }
         return $form;
     }
 

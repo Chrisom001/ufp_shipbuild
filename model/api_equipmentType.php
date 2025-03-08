@@ -23,9 +23,9 @@ function getAllWeaponTypes(){
     return json_encode($readWeapon);
 }
 
-function getAllEquipments(){
+function getAllEquipments($equipmentType){
     global $pdo;
-    $readAllEquipment = "SELECT equipmentType.id, equipmentName, equipmentType FROM equipmentType INNER JOIN equipmentTypes ON equipmentType.equipmentTypeID = equipmentTypes.id WHERE isEquipment = 1;";
+    $readAllEquipment = "SELECT equipmentType.id, equipmentName, equipmentType FROM equipmentType INNER JOIN equipmentTypes ON equipmentType.equipmentTypeID = equipmentTypes.id WHERE isEquipment = 1 AND equipmentType =$equipmentType;";
 
     $readEquipmentQuery = $pdo -> query($readAllEquipment);
     $readEquipment = $readEquipmentQuery -> fetchAll(PDO::FETCH_OBJ);

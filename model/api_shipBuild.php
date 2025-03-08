@@ -6,7 +6,7 @@ $pdo =  $db->getConnstring();
 function getAllShipBuilds($offset)
 {
     global $pdo;
-    $sqlReadSllShipBuilds = "SELECT * FROM shipBuild INNER JOIN ships ON shipBuild.shipID = ships.id ORDER BY shipBuild.id DESC LIMIT 6 OFFSET $offset";
+    $sqlReadSllShipBuilds = "SELECT * FROM shipBuild INNER JOIN ships ON shipBuild.shipID = ships.id WHERE isPublished = 1 ORDER BY shipBuild.id DESC LIMIT 6 OFFSET $offset";
     $readallShipBuildsQuery = $pdo -> query($sqlReadSllShipBuilds);
     $readallShipBuilds = $readallShipBuildsQuery -> fetchAll(PDO::FETCH_OBJ);
 
@@ -27,7 +27,7 @@ function getNumberOfShipBuilds(){
 
 function getLatestShipBuilds(){
     global $pdo;
-    $readShipBuilds = "SELECT * FROM shipBuild INNER JOIN ships ON shipBuild.shipID = ships.id ORDER BY shipBuild.id DESC LIMIT 3 ;";
+    $readShipBuilds = "SELECT * FROM shipBuild WHERE isPublished = 1 INNER JOIN ships ON shipBuild.shipID = ships.id WHERE isPublished = 1 ORDER BY shipBuild.id DESC LIMIT 3 ;";
 
     $readShipBuildsQuery = $pdo -> query($readShipBuilds);
     $readShipBuilds = $readShipBuildsQuery -> fetchAll(PDO::FETCH_OBJ);
@@ -35,10 +35,10 @@ function getLatestShipBuilds(){
     return json_encode($readShipBuilds);
 }
 
-function addShipBuild($user, $ship, $shortDescrip, $longDescrip, $faction){
+function addShipBuild($user, $ship, $shortDescrip, $longDescrip, $faction, $isPublished){
     global $pdo;
 
-    $insertShipBuildSQL = "INSERT INTO shipBuild(userID, shipID, shipBuildDescription, shipBuildLongText, shipFaction) VALUES (:userID, :shipID, :shortText, :longText, :faction)";
+    $insertShipBuildSQL = "INSERT INTO shipBuild(userID, shipID, shipBuildDescription, shipBuildLongText, shipFaction, isPublished) VALUES (:userID, :shipID, :shortText, :longText, :faction, :publish)";
     $statement = $pdo -> prepare($insertShipBuildSQL);
 
     $success = $statement -> execute([
@@ -46,7 +46,8 @@ function addShipBuild($user, $ship, $shortDescrip, $longDescrip, $faction){
         "shipID" => $ship,
         "shortText" => $shortDescrip,
         "longText" => $longDescrip,
-        "faction" => $faction
+        "faction" => $faction,
+        "publish" => $isPublished
     ]);
 
     if($success && $statement -> rowCount() > 0){

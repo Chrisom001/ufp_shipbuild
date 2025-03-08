@@ -36,8 +36,10 @@ function databaseError(){
                 $shipName = json_decode(getShipClassName($shipID));
                 echo $shipName;
                 echo "<form action='addShipBuild.php' method='post'>";
-                echo addShipWepAndConsole($shipID);
 
+                echo addShipWeps($shipID);
+
+                echo shipConsoleAdd($shipID);
                 echo "<input type='hidden' name='shipWepConsoleEquipment' value='true'>";
                 echo "<input type='hidden' name='userID' value='1'>";
                 echo "<input type='hidden' name='shipSelector' value='$shipID'>";

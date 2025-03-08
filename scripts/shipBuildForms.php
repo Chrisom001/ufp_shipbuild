@@ -78,7 +78,7 @@ include "model/api_shipType.php";
             $form .= '<option selected>Weapon Level</option>';
             $getItemTiersJson = json_decode(getItemTiers());
             for($i=0;$i<sizeof($getItemTiersJson);$i++){
-                $form .= "<option value='".$getItemTiersJson[$i]->id."'> MK".$getItemTiersJson[$i]->tierLevel."</option>";
+                $form .= "<option value='".$getItemTiersJson[$i]->id."'> MK ".$getItemTiersJson[$i]->tierLevel."</option>";
             }
             $form .= '</select>';
             $form .= '</div>';
@@ -117,7 +117,7 @@ include "model/api_shipType.php";
         $form .= '<option selected>Console Level</option>';
         $getItemTiersJson = json_decode(getItemTiers());
         for($i=0;$i<sizeof($getItemTiersJson);$i++){
-            $form .= "<option value='".$getItemTiersJson[$i]->id."'> MK".$getItemTiersJson[$i]->tierLevel."</option>";
+            $form .= "<option value='".$getItemTiersJson[$i]->id."'> MK ".$getItemTiersJson[$i]->tierLevel."</option>";
         }
         $form .= '</select>';
         $form .= '</div>';
@@ -133,14 +133,17 @@ include "model/api_shipType.php";
         return $form;
     }
 
-    function addShipWepAndConsole($shipID){
+    function addShipWeps($shipID){
         $form = "";
-        $form .= "<form action='' method='post'>";
-
         $form .= "<p>Enter the relevant weapons</p>";
         $form .= shipWeapon("fore", $shipID);
         $form .= shipWeapon("rear", $shipID);
         $form .= "</br>";
+        return $form;
+    }
+
+    function shipConsoleAdd($shipID){
+        $form = "";
         $form .= "<p>Select the correct equipment for the ship</p>";
         $equipmentSlotJson = getShipEquipmentSlots($shipID);
         if($equipmentSlotJson == "Error"){

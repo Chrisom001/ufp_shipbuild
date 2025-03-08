@@ -51,7 +51,12 @@ function databaseError(){
             } else if($_POST['factionSelection'] == 4){
                 $faction = "Jem'Hadar";
             }
-            $result = addShipBuild($_POST['userID'], $_POST['shipSelector'], $_POST['shortDescription'],$_POST['longDescription'],$faction);
+
+            $publish = 0;
+            if($_POST['publish'] == "publish"){
+                $publish = 1;
+            }
+            $result = addShipBuild($_POST['userID'], $_POST['shipSelector'], $_POST['shortDescription'],$_POST['longDescription'],$faction, $publish);
             echo $result;
             echo "<table>";
 

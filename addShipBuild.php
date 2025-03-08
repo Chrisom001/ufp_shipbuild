@@ -42,13 +42,13 @@ function databaseError(){
             }
         } else {
             $faction = "";
-            if($_POST['faction'] == 1){
+            if($_POST['factionSelection'] == 1){
                 $faction = "Federation";
-            } else if($_POST['faction'] == 2){
+            } else if($_POST['factionSelection'] == 2){
                 $faction = "Klingon";
-            } else if($_POST['faction'] == 3){
+            } else if($_POST['factionSelection'] == 3){
                 $faction = "Romulan";
-            } else if($_POST['faction'] == 4){
+            } else if($_POST['factionSelection'] == 4){
                 $faction = "Jem'Hadar";
             }
             $result = addShipBuild($_POST['userID'], $_POST['shipSelector'], $_POST['shortDescription'],$_POST['longDescription'],$faction);

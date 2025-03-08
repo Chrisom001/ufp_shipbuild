@@ -3,7 +3,7 @@ $(document).ready(function() {
         var rarityValue = $(this).val();
         myFunction(rarityValue);
         $.ajax({
-            url: '../scripts/getrarity.php',
+            url: 'scripts/getrarity.php',
             type: 'POST',
             data: { value: rarityValue },
             success: function(response) {

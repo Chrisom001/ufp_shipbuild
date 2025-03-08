@@ -193,12 +193,43 @@ include "model/api_shipType.php";
         $form .= "<li class='nav-item' role='presentation'>";
         $form .= "<button class='nav-link' id='equipment-tab' data-bs-toggle='tab' data-bs-target='#equipment' type='button' role='tab' aria-controls='equipment' aria-selected='false'>Equipment</button>";
         $form .= "</li>";
+        $form .= "<li class='nav-item' role='presentation'>";
+        $form .= "<button class='nav-link' id='finaldetails-tab' data-bs-toggle='tab' data-bs-target='#finaldetails' type='button' role='tab' aria-controls='finaldetails' aria-selected='false'>Final Details</button>";
+        $form .= "</li>";
         $form .= "</ul>";
         $form .= "<div class='tab-content' id='myTabContent'>";
         $form .= "<div class='tab-pane fade show active' id='weapon' role='tabpanel' aria-labelledby='weapon-tab'>".addShipWeps($shipID)."</div>";
         $form .= "<div class='tab-pane fade' id='consoles' role='tabpanel' aria-labelledby='consoles-tab'>".shipConsoleAdd($shipID)."</div>";
         $form .= "<div class='tab-pane fade' id='equipment' role='tabpanel' aria-labelledby='equipment-tab'>...</div>";
+        $form .= "<div class='tab-pane fade' id='finaldetails' role='tabpanel' aria-labelledby='finaldetails-tab'>".finalBasicDetails($shipID)."</div>";
         $form .= "</div>";
+        return $form;
+    }
+
+    function finalBasicDetails($shipID){
+        $form = "";
+        $form .= "<label>Short Description</label>";
+        $form .= "<textarea maxlength='250' name='shortDescription'>";
+        $form .= "Enter text here. Max of 250 characters.";
+        $form .= "</textarea>";
+        $form .= "</br>";
+        $form .= "<label>Long Description</label>";
+        $form .= "<textarea maxlength='2000' name='longDescription'>";
+        $form .= "Enter text here. Max of 2000 characters.";
+        $form .= "</textarea>";
+        $form .= "</br>";
+        $form .= "<label>Select Faction</label>";
+        $form .= "<select name='factionSelection'>";
+        $form .= "<option value=''></option>";
+        $form .= "<option value='Federation'>Federation</option>";
+        $form .= "<option value='Klingon'>Klingon</option>";
+        $form .= "<option value='Romulan'>Romulan</option>";
+        $form .= "<option value='JemHadar>JemHadar</option>";
+        $form .= "<input type='hidden' name='shipWepConsoleEquipment' value='true'>";
+        $form .= "<input type='hidden' name='userID' value='1'>";
+        $form .= "<input type='hidden' name='shipSelector' value='$shipID'>";
+        $form .= "<input type='submit' value='Submit'>";
+        $form .= "</form>";
         return $form;
     }
 ?>

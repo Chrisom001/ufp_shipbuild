@@ -35,15 +35,18 @@ function getLatestShipBuilds(){
     return json_encode($readShipBuilds);
 }
 
-function addShipBuild($user, $ship){
+function addShipBuild($user, $ship, $shortDescrip, $longDescrip, $faction){
     global $pdo;
 
-    $insertShipBuildSQL = "INSERT INTO shipBuild(userID, shipID) VALUES (:userID, :shipID)";
+    $insertShipBuildSQL = "INSERT INTO shipBuild(userID, shipID, shipBuildDescription, shipBuildLongText, shipFaction) VALUES (:userID, :shipID, :shortText, :longText, :faction)";
     $statement = $pdo -> prepare($insertShipBuildSQL);
 
     $success = $statement -> execute([
         "userID" => $user,
-        "shipID" => $ship
+        "shipID" => $ship,
+        "shortText" => $shortDescrip,
+        "longText" => $longDescrip,
+        "faction" => $faction
     ]);
 
     if($success && $statement -> rowCount() > 0){

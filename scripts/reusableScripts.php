@@ -120,6 +120,7 @@ function shipBuildFormHomepage(){
     var_dump($getAllShipsJson);
     $shipBuildForm = "";
     for($i = 0; $i < count($getAllShipsJson); $i++) {
+        echo $i;
         $shipBuildForm .= "<div class='container text-center'>";
         $shipBuildForm .= "<div class='row'>";
         $shipBuildForm .= shipCardBuilder($getAllShipsJson[$i]);

@@ -176,7 +176,7 @@ include "model/api_shipType.php";
         return $form;
     }
 
-    function tabbedShipEquipmentForm(){
+    function tabbedShipEquipmentForm($shipID){
         $form = "";
         $form .= "<ul class='nav nav-tabs' id='myTab' role='tablist'>";
         $form .= "<li class='nav-item' role='presentation'>";
@@ -190,8 +190,8 @@ include "model/api_shipType.php";
         $form .= "</li>";
         $form .= "</ul>";
         $form .= "<div class='tab-content' id='myTabContent'>";
-        $form .= "<div class='tab-pane fade show active' id='home' role='tabpanel' aria-labelledby='home-tab'>...</div>";
-        $form .= "<div class='tab-pane fade' id='profile' role='tabpanel' aria-labelledby='profile-tab'>...</div>";
+        $form .= "<div class='tab-pane fade show active' id='home' role='tabpanel' aria-labelledby='home-tab'>".addShipWeps($shipID)."</div>";
+        $form .= "<div class='tab-pane fade' id='profile' role='tabpanel' aria-labelledby='profile-tab'>".shipConsoleAdd($shipID)."</div>";
         $form .= "<div class='tab-pane fade' id='contact' role='tabpanel' aria-labelledby='contact-tab'>...</div>";
         $form .= "</div>";
         return $form;

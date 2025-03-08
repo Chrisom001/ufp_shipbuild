@@ -37,11 +37,11 @@ function databaseError(){
                 echo $shipName;
                 echo "<form action='addShipBuild.php' method='post'>";
 
-                echo addShipWeps($shipID);
+                //echo addShipWeps($shipID);
 
-                echo shipConsoleAdd($shipID);
+               // echo shipConsoleAdd($shipID);
 
-                echo tabbedShipEquipmentForm();
+                echo tabbedShipEquipmentForm($shipID);
                 echo "<input type='hidden' name='shipWepConsoleEquipment' value='true'>";
                 echo "<input type='hidden' name='userID' value='1'>";
                 echo "<input type='hidden' name='shipSelector' value='$shipID'>";

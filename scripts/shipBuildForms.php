@@ -139,6 +139,7 @@ include "model/api_shipType.php";
         }
         $form .= '</select>';
         $form .= '</div>';
+        $form .= '</div>';
         return $form;
     }
 

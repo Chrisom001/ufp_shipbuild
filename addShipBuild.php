@@ -70,7 +70,7 @@ function databaseError(){
 //                  echo "</tr>";
 //              }
 //             echo "</table>";
-//        }
+        }
 
     }
         ?>

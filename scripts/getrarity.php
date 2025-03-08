@@ -47,7 +47,15 @@
 //}
 
 if(isset($_POST['value'])){
-    echo "Value: ".$_POST['value'];
+    $value = $_POST['value'];
+    if($value == 0){
+        echo "<option>Please select a tier</option>";
+    } else {
+        echo "<option>1</option>";
+        echo "<option>2</option>";
+        echo "<option>3</option>";
+        echo "<option>4</option>";
+    }
 } else {
     echo "No value seen";
 }

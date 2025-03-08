@@ -204,7 +204,6 @@ include "model/api_shipType.php";
 
     function finalBasicDetails($shipID){
         $form = "";
-        $jemHadarValue = "Jem'Hadar";
         $form .= "<label>Short Description</label>";
         $form .= "<textarea maxlength='250' name='shortDescription' required>";
         $form .= "Enter text here. Max of 250 characters.";
@@ -218,10 +217,10 @@ include "model/api_shipType.php";
         $form .= "<label>Select Faction</label>";
         $form .= "<select name='factionSelection' required>";
         $form .= "<option value=''></option>";
-        $form .= "<option value='Federation'>Federation</option>";
-        $form .= "<option value='Klingon'>Klingon</option>";
-        $form .= "<option value='Romulan'>Romulan</option>";
-        $form .= "<option value='".$jemHadarValue."'>Jem'Hadar</option>";
+        $form .= "<option value='1'>Federation</option>";
+        $form .= "<option value='2'>Klingon</option>";
+        $form .= "<option value='3'>Romulan</option>";
+        $form .= "<option value='4'>Jem'Hadar</option>";
         $form .= "<input type='hidden' name='shipWepConsoleEquipment' value='true'>";
         $form .= "<input type='hidden' name='userID' value='1'>";
         $form .= "<input type='hidden' name='shipSelector' value='$shipID'>";

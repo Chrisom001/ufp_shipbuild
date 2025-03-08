@@ -87,7 +87,7 @@ include "model/api_shipType.php";
             }
             $form .= "</select>";
             $form .= "</div>";
-            $form .= "<div class="col">";
+            $form .= "<div class='col'>";
             $form .= "<select class='form-select' aria-label='Default select example' id='weaponRaritySelector' name='$weaponTier'>";
             $form .= "<option selected>Rarity</option>";
             $getItemRaritysJson = json_decode(getAllRaritys());

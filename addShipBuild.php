@@ -38,7 +38,7 @@ function databaseError(){
         }
     }
         ?>
-
+</div>
     </form>
 
 </div>

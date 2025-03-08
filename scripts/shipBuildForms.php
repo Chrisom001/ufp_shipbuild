@@ -58,7 +58,7 @@ include "model/api_shipType.php";
             $weaponLevel = $weaponLocation ."_level_" . $s;
             $weaponTier = $weaponLocation ."_tier_" . $s;
 
-            $form .= "<label>'.$weaponLocation .'Weapon'. ($s + 1) . ': </label>";
+            $form .= "<label>".$weaponLocation ." Weapon ". ($s + 1) . ": </label>";
             $form .= "<div class='row'>";
             $form .= "<div class='col'>";
             $form .= "<select class='form-select' aria-label='Default select example' name='$weaponName'>";

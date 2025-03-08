@@ -46,17 +46,39 @@
 //    }
 //}
 
-if(isset($_POST['value'])){
+//if(isset($_POST['value'])){
+//    $value = $_POST['value'];
+//    if($value == 0){
+//        echo "<option>Please select a tier</option>";
+//    } else {
+//        echo "<option>1</option>";
+//        echo "<option>2</option>";
+//        echo "<option>3</option>";
+//        echo "<option>4</option>";
+//    }
+//} else {
+//    echo "No value seen";
+//}
+
+//include "db_connection.php";
+//include "../model/api_ships.php";
+
+if (isset($_POST['value'])) {
     $value = $_POST['value'];
     if($value == 0){
-        echo "<option>Please select a tier</option>";
+        echo "<option value=\"\">Please select a Rarity</option>";
     } else {
-        echo "<option>1</option>";
-        echo "<option>2</option>";
-        echo "<option>3</option>";
-        echo "<option>4</option>";
+//        $ships = getShipListByTier($value);
+//        if ($ships) {
+//            foreach ($ships as $ship) {
+//                echo "<option value=\"{$ship['id']}\">{$ship['shipName']}</option>";
+//            }
+//        } else {
+//            echo "<option value='0'>No options available</option>";
+//        }
+        for($i = 1; $i <= $value; $i++) {
+            echo "<option value=" . $i. ">Option " . $i . "</option>";
+        }
     }
-} else {
-    echo "No value seen";
 }
 ?>

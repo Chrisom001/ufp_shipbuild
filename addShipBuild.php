@@ -3,6 +3,7 @@ include "scripts/header.php";
 include "scripts/shipBuildForms.php";
 include "model/api_ships.php";
 include "model/api_shipBuild.php";
+include "scripts/newShipBuild/addEquipmentToDatabase.php";
 
 function databaseError(){
     echo "Please alert technical support of this error";
@@ -52,23 +53,24 @@ function databaseError(){
                 $faction = "Jem'Hadar";
             }
 
-            $result = addShipBuild($_POST['userID'], $_POST['shipSelector'], $_POST['shortDescription'],$_POST['longDescription'],$faction, $_POST['publish']);
-            echo $result;
-            echo "<table>";
-
-
-    foreach ($_POST as $key => $value) {
-        echo "<tr>";
-        echo "<td>";
-        echo $key;
-        echo "</td>";
-        echo "<td>";
-        echo $value;
-        echo "</td>";
-        echo "</tr>";
-    }
-    echo "</table>";
-        }
+            //$result = addShipBuild($_POST['userID'], $_POST['shipSelector'], $_POST['shortDescription'],$_POST['longDescription'],$faction, $_POST['publish']);
+            //echo $result;
+            getPOSTData($_POST);
+//            echo "<table>";
+//
+//
+//              foreach ($_POST as $key => $value) {
+//                  echo "<tr>";
+//                  echo "<td>";
+//                  echo $key;
+//                  echo "</td>";
+//                  echo "<td>";
+//                  echo $value;
+//                  echo "</td>";
+//                  echo "</tr>";
+//              }
+//             echo "</table>";
+//        }
 
     }
         ?>

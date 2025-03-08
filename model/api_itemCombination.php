@@ -3,10 +3,17 @@
 $db = new dbObj();
 $pdo =  $db->getConnstring();
 
-function addItemCombination($shipBuild, $equipmentType, $itemType, $rarityType, $damageType, $modifierData, $slotType, $itemTier){
+function addItemCombination($shipBuild, $equipmentType, $itemType, $rarityType, $damageType, $modifierData, $slotType, $itemTier, $weaponType){
     global $pdo;
+    $foreWeapon = 0;
+    $rearWeapon = 0;
+    if($weaponType == "fore"){
+        $foreWeapon = 1;
+    } elseif($weaponType == "rear"){
+        $rearWeapon = 1;
+    }
 
-    $insertItemCombinationSQL = "INSERT INTO itemCombination(shipBuildID, equipmentTypeID, itemTypeID, rarityID, damageTypeID, modifierDataID, slotTypeID, itemTierID) VALUES (:shipBuildID, :equipmentTypeID, :itemTypeID, :rarityID, :damageTypeID, :modifierDataID, :slotTypeID, :itemTierID)";
+    $insertItemCombinationSQL = "INSERT INTO itemCombination(shipBuildID, equipmentTypeID, itemTypeID, rarityID, damageTypeID, modifierDataID, slotTypeID, itemTierID, isFrontWeapon, isRearWeapon) VALUES (:shipBuildID, :equipmentTypeID, :itemTypeID, :rarityID, :damageTypeID, :modifierDataID, :slotTypeID, :itemTierID, :foreweapon, :rearWeapon)";
     $statement = $pdo -> prepare($insertItemCombinationSQL);
 
     $success = $statement -> execute([
@@ -17,7 +24,9 @@ function addItemCombination($shipBuild, $equipmentType, $itemType, $rarityType, 
         "damageTypeID" => $damageType,
         "modifierDataID" => $modifierData,
         "slotTypeID" => $slotType,
-        "itemTierID" => $itemTier
+        "itemTierID" => $itemTier,
+        "foreweapon" => $foreWeapon,
+        "rearweapon" => $rearWeapon
     ]);
 
     if($success && $statement -> rowCount() > 0){

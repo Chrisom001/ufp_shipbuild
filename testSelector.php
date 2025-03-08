@@ -36,24 +36,6 @@ $options = getAllModifiersByEquipmentType(9);
 
                 return select;
             }
-
-            function createSubDropdown(name) {
-                let select = document.createElement("select");
-                select.name = name;
-                select.classList.add("sub-dropdown");
-
-                let defaultOption = document.createElement("option");
-                defaultOption.value = "";
-                defaultOption.text = "Select a sub-option";
-                select.appendChild(defaultOption);
-
-                options.forEach(option => {
-                    let opt = document.createElement("option");
-                    opt.value = option.id;
-                    opt.text = option.name;
-                    select.appendChild(opt);
-                });
-
                 return select;
             }
 
@@ -70,13 +52,6 @@ $options = getAllModifiersByEquipmentType(9);
                     dropdown.addEventListener("change", function () {
                         let subContainer = document.getElementById("subDropdownContainer" + i);
                         subContainer.innerHTML = ""; // Clear previous sub-dropdowns
-
-                        let subLabel = document.createElement("label");
-                        subLabel.textContent = "Sub-Dropdown for " + this.options[this.selectedIndex].text + ": ";
-
-                        let subDropdown = createSubDropdown("sub_dropdown" + i);
-                        subContainer.appendChild(subLabel);
-                        subContainer.appendChild(subDropdown);
                     });
 
                     let subContainer = document.createElement("div");

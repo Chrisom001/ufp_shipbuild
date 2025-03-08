@@ -175,4 +175,25 @@ include "model/api_shipType.php";
         $form .= "</br>";
         return $form;
     }
+
+    function tabbedShipEquipmentForm(){
+        $form = "";
+        $form .= "<ul class='nav nav-tabs' id='myTab' role='tablist'>";
+        $form .= "<li class='nav-item' role='presentation'>";
+        $form .= "<button class='nav-link active' id='home-tab' data-bs-toggle='tab' data-bs-target='#home' type='button' role='tab' aria-controls='home' aria-selected='true'>Home</button>";
+        $form .= "</li>";
+        $form .= "<li class='nav-item' role='presentation'>";
+        $form .= "<button class='nav-link' id='profile-tab' data-bs-toggle='tab' data-bs-target='#profile' type='button' role='tab' aria-controls='profile' aria-selected='false'>Profile</button>";
+        $form .= "</li>";
+        $form .= "<li class="nav-item" role="presentation">";
+        $form .= "<button class='nav-link' id='contact-tab' data-bs-toggle='tab' data-bs-target='#contact' type='button' role='tab' aria-controls='contact' aria-selected='false'>Contact</button>";
+        $form .= "</li>";
+        $form .= "</ul>";
+        $form .= "<div class='tab-content' id="myTabContent">";
+        $form .= "<div class='tab-pane fade show active' id='home' role='tabpanel' aria-labelledby='home-tab'>...</div>";
+        $form .= "<div class='tab-pane fade' id='profile' role='tabpanel' aria-labelledby='profile-tab'>...</div>";
+        $form .= "<div class='tab-pane fade' id='contact' role='tabpanel' aria-labelledby='contact-tab'>...</div>";
+        $form .= "</div>";
+        return $form;
+    }
 ?>

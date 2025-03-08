@@ -201,7 +201,7 @@ include "model/api_shipType.php";
         $form .= "<div class='tab-pane fade show active' id='weapon' role='tabpanel' aria-labelledby='weapon-tab'>".addShipWeps($shipID)."</div>";
         $form .= "<div class='tab-pane fade' id='consoles' role='tabpanel' aria-labelledby='consoles-tab'>".shipConsoleAdd($shipID)."</div>";
         $form .= "<div class='tab-pane fade' id='equipment' role='tabpanel' aria-labelledby='equipment-tab'>...</div>";
-        $form .= "<div class='tab-pane fade' id='finaldetails' role='tabpanel' aria-labelledby='finaldetails-tab'>".finalBasicDetails($shipID)."</div>";
+        $form .= "<div class='tab-pane fade' id='finaldetails' role='tabpanel' aria-labelledby='finaldetails-tab'>Hello World: ".finalBasicDetails($shipID)."</div>";
         $form .= "</div>";
         return $form;
     }

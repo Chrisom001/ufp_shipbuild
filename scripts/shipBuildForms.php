@@ -150,7 +150,7 @@ include "model/api_shipType.php";
 
     function shipConsoleAdd($shipID){
         $form = "";
-        $form .= "<p>Select the correct equipment for the ship</p>";
+        $form .= "<p>Select the correct Consoles for the ship</p>";
         $equipmentSlotJson = getShipEquipmentSlots($shipID);
         if($equipmentSlotJson == "Error"){
             databaseError();
@@ -182,6 +182,27 @@ include "model/api_shipType.php";
         return $form;
     }
 
+    function shipEquipmentForm(){
+        $form = "";
+        $form .= "<p>Select the equipment for the ship</p>";
+        $form .= "<div class='row'>";
+        $form .= "<div class='col'>";
+        $form .= "<label>Shields</label>";
+        $form .= "<select class='form-select' aria-label='Default select example' name='equipment'>";
+        $form .= "<option selected>Shields</option>";
+        $form .= "</select>";
+        $form .= "</div>";
+        $form .= "<div class='col'>";
+        $form .= "<label>Impulse Engine</label>";
+        $form .= "<select class='form-select' aria-label='Default select example' name='equipment'>";
+        $form .= "<option selected>Impulse</option>";
+        $form .= "</select>";
+        $form .= "</div>";
+        $form .= "</div>";
+
+        return $form;
+    }
+
     function tabbedShipEquipmentForm($shipID){
         $form = "";
         $form .= "<ul class='nav nav-tabs' id='myTab' role='tablist'>";
@@ -192,12 +213,16 @@ include "model/api_shipType.php";
         $form .= "<button class='nav-link' id='consoles-tab' data-bs-toggle='tab' data-bs-target='#consoles' type='button' role='tab' aria-controls='consoles' aria-selected='false'>Consoles</button>";
         $form .= "</li>";
         $form .= "<li class='nav-item' role='presentation'>";
+        $form .= "<button class='nav-link' id='equipment-tab' data-bs-toggle='tab' data-bs-target='#equipment' type='button' role='tab' aria-controls='equipment' aria-selected='false'>Equipment</button>";
+        $form .= "</li>";
+        $form .= "<li class='nav-item' role='presentation'>";
         $form .= "<button class='nav-link' id='finaldetails-tab' data-bs-toggle='tab' data-bs-target='#finaldetails' type='button' role='tab' aria-controls='finaldetails' aria-selected='false'>Final Details</button>";
         $form .= "</li>";
         $form .= "</ul>";
         $form .= "<div class='tab-content' id='myTabContent'>";
         $form .= "<div class='tab-pane fade show active' id='weapon' role='tabpanel' aria-labelledby='weapon-tab'>".addShipWeps($shipID)."</div>";
         $form .= "<div class='tab-pane fade' id='consoles' role='tabpanel' aria-labelledby='consoles-tab'>".shipConsoleAdd($shipID)."</div>";
+        $form .= "<div class='tab-pane fade' id='equipment' role='tabpanel' aria-labelledby='equipment-tab'>".shipEquipmentForm()."</div>";
         $form .= "<div class='tab-pane fade' id='finaldetails' role='tabpanel' aria-labelledby='finaldetails-tab'>".finalBasicDetails($shipID)."</div>";
         $form .= "</div>";
         return $form;

@@ -101,12 +101,18 @@ include "model/api_shipType.php";
         $form .= "<div class='row'>";
         $form .= "<div class='col'>";
         $form .= "<select class='form-select' aria-label='Default select example' name='".$consoleType. "_type_" .$slotNumber."' required>";
-        $form .= getAllTierOptions("Console");
+        $form .= "<option selected>Console Type</option>";
+        $getConsolesJson = json_decode(getAllConsoles());
+        for($i=0;$i<sizeof($getConsolesJson);$i++){
+            if($getConsolesJson[$i]->equipmentType == strtolower($consoleType)){
+                $form .= "<option value='".$getConsolesJson[$i]->id."'>".$getConsolesJson[$i]->equipmentName."</option>";
+            }
+        }
         $form .= "</select>";
         $form .= "</div>";
         $form .= "<div class='col'>";
         $form .= "<select class='form-select' aria-label='Default select example' name='".$consoleType. "_tier_" .$slotNumber."' required>";
-
+        $form .= getAllTierOptions("Console");
         $form .= "</select>";
         $form .= "</div>";
         $form .= "<div class='col'>";

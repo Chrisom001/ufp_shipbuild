@@ -2,6 +2,7 @@
 include "scripts/header.php";
 include "scripts/shipBuildForms.php";
 include "model/api_ships.php";
+include "model/api_shipBuild.php";
 
 function databaseError(){
     echo "Please alert technical support of this error";
